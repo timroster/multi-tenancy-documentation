@@ -6,8 +6,8 @@ site_author: Niklas Heidloff, Adam de Leeuw, Alain Airom, Thomas Suedbroecker
 # Repository
 repo_name: Multi-tenancy Assets for IBM Partners to build SaaS
 repo_url: https://github.com/ibm/multi-tenancy
-edit_uri: edit/main/documentation
-docs_dir: documentation
+edit_uri: edit/main
+docs_dir: ./
 
 # Navigation
 nav:
