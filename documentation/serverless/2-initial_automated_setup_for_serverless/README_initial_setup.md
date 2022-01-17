@@ -4,7 +4,8 @@ The initial setup is only for the serverless part in Code Engine, with the objec
 
 The image shows simplified what we are doing during the `Getting Started`.
 
-![](images/multi-Tenancy-installation.png)
+![](../../images/initial_automated_setup_for_serverless/multi-Tenancy-installation.png)
+
 ### Step 1: Clone the repositories
 
 
@@ -127,7 +128,7 @@ $ ibmcloud login --sso
 $ sh ./ce-create-two-tenancies.sh
 ```
 
-![](../../images/initial_automated_setup_for_serverless/Mulit-Tenancy-automatic-running-example-04.gif)
+![](../../images/initial_automated_setup_for_serverless/Multi-Tenancy-automatic-running-example-04.gif)
 
 The script takes roughly 30 minutes. You will be asked to review some configurations and press enter to move forward in some steps.
 The script will stop in some situations when it discovers a problem during the setup.
