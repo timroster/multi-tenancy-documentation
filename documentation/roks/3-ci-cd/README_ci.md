@@ -116,7 +116,7 @@ Repeat the above steps to create a second toolchain for frontend, changing only 
 
 Select the frontend repository which you cloned to your GitHub account.  Do not use the IBM repo as pictured below, as you will be unable to make changes later.
 
-![Frontend repo](./images/5-bringYourOwnAppCiFrontend.png)
+![Frontend repo](./images/21-bringYourOwnAppCiFrontend.png)
 
 The environmental properties for the frontend CI pipeline should be set as follows:
 
