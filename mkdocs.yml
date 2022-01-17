@@ -1,0 +1,163 @@
+# Project information
+site_name: Multi-tenancy Assets for IBM Partners to build SaaS
+site_url: https://ibm.github.io/multi-tenancy-documentation
+site_author: Niklas Heidloff, 
+
+# Repository
+repo_name: Multi-tenancy Assets for IBM Partners to build SaaS
+repo_url: https://github.com/ibm/multi-tenancy-documentation
+edit_uri: edit/master/documentation
+docs_dir: documentation
+
+# Navigation
+nav:
+  - Overview:
+    - Introduction: ./README_introduction.md
+  - SaaS Serverless Learning Path: 
+    - 1. Development:
+      - Externalization all variables:
+        - Backend: 
+          - Environment variables : ./serverless/1-development/backend/README_env_variables.md
+          - Save the certificate only in container: ./serverless/1-development/backend/README_certificate_only_in_container.md
+        - Frontend: 
+          - Environment variables : ./serverless/1-development/frontend/README_env_variables.md
+      - Manual setup of App ID and Postgres (Ops, Dev):
+        - Programmatic creation of App ID instances (Ops): ./serverless/1-development/manual-setup/README_programmatic_creation_of_app_id_instances.md   
+        - Programmatic creation of Postgres instances (Ops): ./serverless/1-development/manual-setup/README_programmatic_creation_of_postgres_instances.md
+        - Programmatic creation of schemas (Ops, Dev): ./serverless/1-development/manual-setup/README_programmatic_creation_of_schemas.md
+      - Authentication flow (App ID, frontend, backend) (Dev, Ops, Sec):
+        - Authentication flow: ./serverless/1-development/authentication/README_authentication_flow.md
+      - Local running and debugging (Dev):
+        - Backend: ./serverless/1-development/local_running_debugging/README_frontend.md
+        - Frontend: ./serverless/1-development/local_running_debugging/README_backend.md
+    - 2. Initial automated setup for serverless:
+      - Initial setup: ./serverless/2-initial_automated_setup_for_serverless/README_initial_setup.md
+      - Onboarding: ./serverless/2-initial_automated_setup_for_serverless/README_onboarding.md
+      - Clean up: ./serverless/2-initial_automated_setup_for_serverless/README_clean_up.md
+    - 3. CI/CD (Dev/Ops): 
+      - CI new app versions via toolchain (Ops): ./serverless/3-ci-cd/README_ci.md
+      - CD new app versions via toolchain (Ops): ./serverless/3-ci-cd/README_cd.md
+    - 4. Observability (logging, monitoring, vulnerabilities) (Ops, Sec): 
+      - Logging: ./serverless/4-observability/README_logging.md
+      - Monitoring: ./serverless/4-observability/README_monitoring.md
+      - Vulnerabilities: ./serverless/4-observability/README_vulnerabilities.md
+    - 5. Billing (Ops):
+      - Billing: ./serverless/5-billing/README_billing.md        
+  - SaaS ROKS with maximal Isolation (ready for regulated industries):
+    - 1. Development:
+      - Externalization all variables:
+        - Backend: 
+          - Environment variables : ./roks/1-development/backend/README_env_variables.md
+          - Save the certificate only in container: ./roks/1-development/backend/README_certificate_only_in_container.md
+        - Frontend: 
+          - Environment variables : ./roks/1-development/frontend/README_env_variables.md
+      - Manual setup of App ID and Postgres (Ops, Dev):
+        - Programmatic creation of App ID instances (Ops): ./roks/1-development/manual-setup/README_programmatic_creation_of_app_id_instances.md   
+        - Programmatic creation of Postgres instances (Ops): ./roks/1-development/manual-setup/README_programmatic_creation_of_postgres_instances.md
+        - Programmatic creation of schemas (Ops, Dev): ./roks/1-development/manual-setup/README_programmatic_creation_of_schemas.md
+      - Authentication flow (App ID, frontend, backend) (Dev, Ops, Sec):
+        - Authentication flow: ./roks/1-development/authentication/README_authentication_flow.md
+      - Local running and debugging (Dev):
+        - Backend: ./roks/1-development/local_running_debugging/README_frontend.md
+        - Frontend: ./roks/1-development/local_running_debugging/README_backend.md
+    - 2. Initial automated setup "Software Everywhere Terraform":
+      - Initial setup: ./roks/2-initial_automated_setup/README_initial_setup.md
+      - Onboarding: ./roks/2-initial_automated_setup/README_onboarding.md
+      - Clean up: ./roks/2-initial_automated_setup/README_clean_up.md
+    - 3. CI/CD (Dev/Ops): 
+      - CI new app versions  DevSecOps toolchain (Ops): ./roks/3-ci-cd/README_ci.md
+      - CD new app versions  DevSecOps toolchain (Ops): ./roks/3-ci-cd/README_cd.md
+    - 4. Observability (logging, monitoring, vulnerabilities) (Ops, Sec): 
+      - Logging: ./roks/4-observability/README_logging.md
+      - Monitoring: ./roks/4-observability/README_monitoring.md
+      - Vulnerabilities: ./roks/4-observability/README_vulnerabilities.md
+    - 5. Billing (Ops):
+      - Billing: ./roks/5-billing/README_billing.md
+    - 6. Security and compliance (vulnerabilities, DevOps Insights, security and compliance center)(Ops, Sec):
+      - Security: ./roks/6-security-compliance/security/README_security.md
+      - Compliance: ./roks/6-security-compliance/compliance/README_compliance.md
+
+## DO NOT CHANGE BELOW THIS LINE
+
+# Copyright
+copyright: Copyright &copy; 2022 IBM Developer
+
+# Theme
+theme:
+  name: material
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  icon:
+    # .svg automatically appended
+    #logo: ibm_8bar_reverse_2
+    logo: material/library
+  features:
+    # - navigation.tabs
+    - navigation.instant
+    # - navigation.expand
+  palette:
+    scheme: default
+    primary: black
+    accent: blue
+  # palette:
+  #  scheme: default
+  #  primary: blue
+  #  accent: blue
+  # enable if you want to use a custom icon
+  # custom_dir: overrides
+
+# Plugins
+plugins:
+  - search
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ibm
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ibmdeveloper
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/ibm/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/developerworks
+    - icon: fontawesome/brands/dev
+      link: https://dev.to/ibmdeveloper
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
