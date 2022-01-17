@@ -1,4 +1,4 @@
-## Create DevSecOps Pipelines to update a Kubernetes Application 
+## Create DevSecOps pipelines to update a Kubernetes application 
 
 DevSecOps integrates a set of security and compliance controls into the DevOps processes, allowing frequent code delivery while maintaining a strong security posture and continuous state of audit-readiness.
 
