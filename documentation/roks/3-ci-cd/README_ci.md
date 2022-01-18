@@ -4,7 +4,7 @@ DevSecOps integrates a set of security and compliance controls into the DevOps p
 
 This setion steps you through the creation of Continuous Integration (CI) toolchains using an IBM Cloud toolchain templates, which we will customize to deploy the sample application to an IBM Cloud Kuberenets cluster.
 
-## Before you begin
+# Before you begin
 
 Set up the following pre-requisites:
 
@@ -13,7 +13,7 @@ Set up the following pre-requisites:
 - An IBM Cloud Kubernetes Service cluster or An IBM Cloud OpenShift cluster
 - Create a namespace in the IBM Cloud Container Registry (access via hamburger menu->Container Registry)
 
-## Create the toolchains
+# Create the toolchains
 
 login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region:
 
@@ -24,7 +24,7 @@ Clieck `Create Toolchain` and select the `DevSecOps` filter:
 ![DevSecOpsFiltered](./images/2-filterToDevSecOpsToolchains.png)
 
 
-## Create CI toolchain for backend
+# Create CI toolchain for backend
 
 Let's start with CI for backend.  Click the CI tile to launch the setup wizard:
 
@@ -110,7 +110,7 @@ Add or update the following properties:
 | pipeline-config-branch | update from `.pipeline-config.yaml` to `main`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
 
-## Create CI toolchain for frontend
+# Create CI toolchain for frontend
 
 Repeat the above steps to create a second toolchain for frontend, changing only the following values:
 
@@ -133,7 +133,7 @@ Add or update the following properties:
 | pipeline-config-branch | update from `.pipeline-config.yaml` to `main`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-frontend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
 
-## Testing the CI pipelines
+# Testing the CI pipelines
 
 Test the CI pipelines by triggering a pipeline run, using dev mode:
 
