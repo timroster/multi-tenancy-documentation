@@ -12,49 +12,60 @@ Set up the following pre-requisites:
 - An instance of the IBM Cloud Secrets Manager service
 - An IBM Cloud Kubernetes Service cluster or An IBM Cloud OpenShift cluster
 - Create a namespace in the IBM Cloud Container Registry (access via hamburger menu->Container Registry)
+- A IBM Cloud Object Storage (COS) service instance, and a bucket to store data
 
-# Create the toolchains
+# Create the toolchain
 
 login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region:
 
-![DevSecOps](./images/1-devOpsSelectRegion.png)
+![DevSecOps](/documentation/images/cicd-k8s/1-devOpsSelectRegion.png)
 
 Clieck `Create Toolchain` and select the `DevSecOps` filter:
 
-![DevSecOpsFiltered](./images/2-filterToDevSecOpsToolchains.png)
+![DevSecOpsFiltered](/documentation/images/cicd-k8s/2-filterToDevSecOpsToolchains.png)
 
 # Create CD toolchain
 
 Click the CD tile to launch the setup wizard:
 
-![CD Setup Wizard](./images/3-cISetupWizard.png)
+![CD Setup Wizard](/documentation/images/cicd-k8s/3-cISetupWizard.png)
 
 Name the toolchain and click `Continue`:
 
-![Name CD Toolchain](./images/22-cdPipeline.png)
+![Name CD Toolchain](/documentation/images/cicd-k8s/22-cdPipeline.png)
 
 Select the Inventory repository, based on the repository used in the CI pipeline and click `Continue`:
 
-![Inventory repo](./images/23-createInventoryRepocDBackend.png)
+![Inventory repo](/documentation/images/cicd-k8s/23-createInventoryRepocDBackend.png)
 
 Select the Issues repository, based on the repository used in the CI pipeline and click `Continue`:
 
-![Issues repo](./images/24-createIssuesRepocDBackend.png)
+![Issues repo](/documentation/images/cicd-k8s/24-createIssuesRepocDBackend.png)
 
 Select the repository for Pipeline configuration, Use the multi-tenancy repository which you cloned to your GitHub account.  Do not use the IBM repository as pictured below, as you will be unable to make changes later.  Click `Continue`.
 
-![Pipeline config repo](./images/25-pipelineConfigCd.png)
+![Pipeline config repo](/documentation/images/cicd-k8s/25-pipelineConfigCd.png)
 
 Click `Continue` to use the Secrets Manager service:
 
-![Pipeline config repo](./images/26-secretsManagerCd.png)
+![Pipeline config repo](/documentation/images/cicd-k8s/26-secretsManagerCd.png)
 
 Specify the connection details for your secrets manager:
 
-![Secrets manager](./images/27-secretsManagerConfigCd.png)
+![Secrets manager](/documentation/images/cicd-k8s/27-secretsManagerConfigCd.png)
 
 Use the default Evidence Storage repository, based on the repository used in the CI pipeline and click `Continue`:
 
-![Evidence Storage](./images/28-evidenceStorageCd.png)
+![Evidence Storage](/documentation/images/cicd-k8s/28-evidenceStorageCd.png)
+
+Configure the toolchain to connect to a COS bucket.  If you haven't created this, the toolchain provides a link to detailed instructions.  The value for `Endpoint` can be found from the COS service, in the `Endpoints` section, where you should select the `Resilency` and `Location` of your COS bucket and copy the private endpoint URL.  
+
+The toolchain wizard also allows you to create a new `Service API key` allowing the toolchain to write to your COS bucket.  Click `Continue`:
+
+![COS config](/documentation/images/cicd-k8s/33-cosCdPipeline.png)
+![COS config](/documentation/images/cicd-k8s/34-cosCdPipelineAPI.png)
+
+
+
 
 WORK IN PROGRESS
