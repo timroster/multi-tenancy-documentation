@@ -17,85 +17,85 @@ Set up the following pre-requisites:
 
 login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region:
 
-![DevSecOps](/documentation/images/k8s/1-devOpsSelectRegion.png)
+![DevSecOps](/documentation/images/cicd-k8s/1-devOpsSelectRegion.png)
 
 Clieck `Create Toolchain` and select the `DevSecOps` filter:
 
-![DevSecOpsFiltered](/documentation/images/k8s/2-filterToDevSecOpsToolchains.png)
+![DevSecOpsFiltered](/documentation/images/cicd-k8s/2-filterToDevSecOpsToolchains.png)
 
 
 # Create CI toolchain for backend
 
 Let's start with CI for backend.  Click the CI tile to launch the setup wizard:
 
-![CI Setup Wizard](/documentation/images/k8s/3-cISetupWizard.png)
+![CI Setup Wizard](/documentation/images/cicd-k8s/3-cISetupWizard.png)
 
 Name the toolchain and click `Continue`
 
-![Name CI Toolchain](/documentation/images/k8s/4-nameCiToolchain.png)
+![Name CI Toolchain](/documentation/images/cicd-k8s/4-nameCiToolchain.png)
 
 Select the backend repository which you cloned to your GitHub account.  Do not use the IBM repo as pictured below, as you will be unable to make changes later.  Click `Continue`.
 
-![Backend repo](/documentation/images/k8s/5-bringYourOwnAppCiBackend.png)
+![Backend repo](/documentation/images/cicd-k8s/5-bringYourOwnAppCiBackend.png)
 
 The CI pipeline stores some of its output to an Inventory repository, which will be stored in your IBM Cloud GitLab account (all IBM Cloud users are provided access to GitLab).
 
 Name the Inventory repository and click `Continue`:
 
-![Inventory repo](/documentation/images/k8s/6-createInventoryRepocIBackend.png)
+![Inventory repo](/documentation/images/cicd-k8s/6-createInventoryRepocIBackend.png)
 
 Similarly, name the Issues repo and click `Continue`:
 
-![Issues rep](/documentation/images/k8s/7-createIssuesRepocIBackend.png)
+![Issues rep](/documentation/images/cicd-k8s/7-createIssuesRepocIBackend.png)
 
 Accept the default recommended Secrets Manager and click `Continue`
 
-![Select Secrets Manager](/documentation/images/k8s/8-createSecretsManager.png)
+![Select Secrets Manager](/documentation/images/cicd-k8s/8-createSecretsManager.png)
 
 Configure an existing Secrets Manager service by typing its instance name and resource group, then click `Continue`
 
-![Configure Secrets Manager](/documentation/images/k8s/9-configureSecretsManager.png)
+![Configure Secrets Manager](/documentation/images/cicd-k8s/9-configureSecretsManager.png)
 
 Name the Evidence storage repostitory.  The COS bucket can be added later if required, so leave this unchecked for now.  Click `Continue`:
 
-![Configure Secrets Manager](/documentation/images/k8s/10-configureEvidenceStorage.png)
+![Configure Secrets Manager](/documentation/images/cicd-k8s/10-configureEvidenceStorage.png)
 
 Accept the default Tekton pipeline definitions from the IBM repository.  This ensures your toolchain stays up to date with the latest additions.
 
-![Use existing Tekton pipelines](/documentation/images/k8s/11-useExistingTektonPipelines.png)
+![Use existing Tekton pipelines](/documentation/images/cicd-k8s/11-useExistingTektonPipelines.png)
 
 Create a new API key (or use an existing one) for the toolchain to access your IBM Cloud account.  Specify the details of an existing IBM Cloud Container Registry (you may need to type this manually).  Specify the details of an existing IBM Cloud Kubernetes Service (IKS) cluster.  Click `Continue`:
 
-![Registry and cluster config](/documentation/images/k8s/12-deploymentTarget.png)
+![Registry and cluster config](/documentation/images/cicd-k8s/12-deploymentTarget.png)
 
 Create a new Image Signing Key by speifying a name and email.  Click `Continue`:
 
-![Signing key config1](/documentation/images/k8s/13-signingKey1.png)
-![Signing key config2](/documentation/images/k8s/14-signingKey2.png)
+![Signing key config1](/documentation/images/cicd-k8s/13-signingKey1.png)
+![Signing key config2](/documentation/images/cicd-k8s/14-signingKey2.png)
 
 DevOps Insights is automatically part of the toolchain being created, so select this instance and click `Continue`:
 
-![DevOpsInsights config](/documentation/images/k8s/15-devOpsInsights.png)
+![DevOpsInsights config](/documentation/images/cicd-k8s/15-devOpsInsights.png)
 
 SonarQube is automatically part of the toolchain being created, so select this instance and click `Continue`:
 
-![SonarQube config](/documentation/images/k8s/16-sonarQube.png)
+![SonarQube config](/documentation/images/cicd-k8s/16-sonarQube.png)
 
 Select optional tools and click `Continue`:
 
-![Optional tools](/documentation/images/k8s/17-optionalTools.png)
+![Optional tools](/documentation/images/cicd-k8s/17-optionalTools.png)
 
 Review the summary and click `Create`:
 
-![Summary](/documentation/images/k8s/18-summary.png)
+![Summary](/documentation/images/cicd-k8s/18-summary.png)
 
 After a few moments, the toolchain is displayed:
 
-![Toolchain created](/documentation/images/k8s/18-toolchainCreated.png)
+![Toolchain created](/documentation/images/cicd-k8s/18-toolchainCreated.png)
 
 Click the CI pipeline, then `Environment properties`.  
 
-![Environment Props](/documentation/images/k8s/19-environmentProps.png)
+![Environment Props](/documentation/images/cicd-k8s/19-environmentProps.png)
 
 Add or update the following properties:
 
@@ -116,7 +116,7 @@ Repeat the above steps to create a second toolchain for frontend, changing only 
 
 Select the frontend repository which you cloned to your GitHub account.  Do not use the IBM repo as pictured below, as you will be unable to make changes later.
 
-![Frontend repo](/documentation/images/k8s/21-bringYourOwnAppCiFrontend.png)
+![Frontend repo](/documentation/images/cicd-k8s/21-bringYourOwnAppCiFrontend.png)
 
 The environmental properties for the frontend CI pipeline should be set as follows:
 
@@ -137,4 +137,4 @@ Add or update the following properties:
 
 Test the CI pipelines by triggering a pipeline run, using dev mode:
 
-![Pipeline run trigger](/documentation/images/k8s/19-environmentProps.png)
+![Pipeline run trigger](/documentation/images/cicd-k8s/19-environmentProps.png)
