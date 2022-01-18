@@ -132,7 +132,8 @@ Add or update the following properties:
 | multi-tenancy-backend  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend`  | Text |
 | multi-tenancy-frontend  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy-frontend`  | Text |
 | opt-in-sonar  | delete `true` (set to blank)  | Text |
-| pipeline-config-branch | update from `.pipeline-config.yaml` to `main`  | Text |
+| pipeline-config-branch | update from `master` to `main`  | Text |
+| pipeline-config | update to `.pipeline-config.yaml`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-frontend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
 
 # Testing the CI pipelines
