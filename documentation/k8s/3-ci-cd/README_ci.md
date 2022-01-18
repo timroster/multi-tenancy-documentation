@@ -110,6 +110,7 @@ Add or update the following properties:
 | pipeline-config-branch | update from `.pipeline-config.yaml` to `main`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
 
+
 # Create CI toolchain for frontend
 
 Repeat the above steps to create a second toolchain for frontend, changing only the following values:
@@ -135,6 +136,22 @@ Add or update the following properties:
 
 # Testing the CI pipelines
 
-Test the CI pipelines by triggering a pipeline run, using dev mode:
+For both CI pipelines, enable a Dev mode trigger which permits a faster pipeline run which does not invoke all compliance steps.  Select the CI pipeline tile, then Trigger.  Duplicate the existing Manual Trigger:
 
-![Pipeline run trigger](/documentation/images/cicd-k8s/19-environmentProps.png)
+![Duplicate manual trigger](/documentation/images/cicd-k8s/29-duplicateManualTrigger.png)
+
+![Create dev mode trigger](/documentation/images/cicd-k8s/30-createDevModeTrigger.png)
+
+First test the backend CI pipelines by triggering a pipeline run, using dev mode:
+
+![Pipeline run trigger](/documentation/images/cicd-k8s/31-testCiBackendDevMode.png)
+
+A successful result looks like this:
+
+TODO
+
+Test the front end CI pipeline by triggering a pipeline run, using dev mode:
+
+A successful result looks like this:
+
+TODO
