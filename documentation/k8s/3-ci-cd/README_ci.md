@@ -107,7 +107,8 @@ Add or update the following properties:
 | multi-tenancy-backend  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend`  | Text |
 | multi-tenancy-frontend  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy-frontend`  | Text |
 | opt-in-sonar  | delete `true` (set to blank)  | Text |
-| pipeline-config-branch | update from `.pipeline-config.yaml` to `main`  | Text |
+| pipeline-config-branch | update from `master` to `main`  | Text |
+| pipeline-config | update to `.pipeline-config.yaml`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
 
 
@@ -146,12 +147,12 @@ First test the backend CI pipelines by triggering a pipeline run, using dev mode
 
 ![Pipeline run trigger](/documentation/images/cicd-k8s/31-testCiBackendDevMode.png)
 
-A successful result looks like this:
+Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
-TODO
+![Pipeline run success](/documentation/images/cicd-k8s/32-cIBackendDevModeSuccess.png)
 
 Test the front end CI pipeline by triggering a pipeline run, using dev mode:
 
-A successful result looks like this:
+Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
 TODO
