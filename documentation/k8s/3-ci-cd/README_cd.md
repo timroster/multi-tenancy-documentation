@@ -1,10 +1,10 @@
-## Create DevSecOps pipelines to update a Kubernetes application 
+# Create DevSecOps pipelines to update a Kubernetes application 
 
 DevSecOps integrates a set of security and compliance controls into the DevOps processes, allowing frequent code delivery while maintaining a strong security posture and continuous state of audit-readiness.
 
 This setion steps you through the creation of Continuous Integration (CD) toolchains using an IBM Cloud toolchain templates, which we will customize to deploy the sample application to an IBM Cloud Kuberenets cluster.
 
-# Before you begin
+## Before you begin
 
 Set up the following pre-requisites:
 
@@ -14,7 +14,7 @@ Set up the following pre-requisites:
 - Create a namespace in the IBM Cloud Container Registry (access via hamburger menu->Container Registry)
 - A IBM Cloud Object Storage (COS) service instance, and a bucket to store data
 
-# Create the toolchain
+## Create the toolchain
 
 login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region:
 
@@ -24,7 +24,7 @@ Clieck `Create Toolchain` and select the `DevSecOps` filter:
 
 ![DevSecOpsFiltered](/documentation/images/cicd-k8s/2-filterToDevSecOpsToolchains.png)
 
-# Create CD toolchain
+## Create CD toolchain
 
 Click the CD tile to launch the setup wizard:
 
@@ -127,7 +127,7 @@ Also, copy the existing `Manual CD Trigger` and use it to create a `Manual CD Tr
 | force-redeploy | `true`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy` from the list.  Also set JSON filter to `parameters.repo_url`  |
 
-# Testing the CD pipelines
+## Testing the CD pipelines
 
 If you have successfully executed the CI pipelines for backend and frontend, you can test the CD pipeline:
 
