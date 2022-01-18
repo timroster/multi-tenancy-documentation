@@ -110,7 +110,7 @@ Add or update the following properties:
 | tenant  | `tenant`  | Text |
 
 
-You may need to correct the Git CD Trigger:
+Select the `Trigger` tab.  You may need to correct the Git CD Trigger if it shows a hazard symbol:
 
 ![Git CD Trigger error](/documentation/images/cicd-k8s/44-gitCdTriggerError.png)
 

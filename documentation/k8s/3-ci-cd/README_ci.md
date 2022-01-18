@@ -111,14 +111,14 @@ Add or update the following environment properties:
 | pipeline-config | update to `.pipeline-config.yaml`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
 
+Select the `Trigger` tab.  You may need to correct the Git CI Trigger if it shows a hazard symbol.  Edit its properties and select a valid the branch name.
 
 ## Create CI toolchain for frontend
 
-Repeat the above steps to create a second toolchain for frontend, changing only the following values:
+Repeat the above steps to create a second toolchain for frontend.  Use the following screenshots for guidance.
 
-Select the frontend repository which you cloned to your GitHub account.  Do not use the IBM repo as pictured below, as you will be unable to make changes later.
 
-![Frontend repo](/documentation/images/cicd-k8s/21-bringYourOwnAppCiFrontend.png)
+
 
 The environmental properties for the frontend CI pipeline should be set as follows:
 
@@ -134,6 +134,8 @@ The environmental properties for the frontend CI pipeline should be set as follo
 | pipeline-config-branch | update from `master` to `main`  | Text |
 | pipeline-config | update to `.pipeline-config.yaml`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-frontend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
+
+Select the `Trigger` tab.  You may need to correct the Git CI Trigger if it shows a hazard symbol.  Edit its properties and select a valid the branch name.
 
 ## Testing the CI pipelines
 
