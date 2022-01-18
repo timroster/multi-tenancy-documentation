@@ -125,7 +125,7 @@ Also, copy the existing `Manual CD Trigger` and use it to create a `Manual CD Tr
 | Key  | Value | Type |
 | ------------- | ------------- | ------------- |
 | force-redeploy | `true`  | Text |
-| repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy` from the list.  Also set JSON filter to `parameters.repo_url`  |
+| repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
 
 ## Testing the CD pipelines
 
