@@ -43,39 +43,39 @@ nav:
       - Vulnerabilities: ./serverless/4-observability/README_vulnerabilities.md
     - 5. Billing (Ops):
       - Billing: ./serverless/5-billing/README_billing.md        
-  - SaaS ROKS with maximal Isolation (ready for regulated industries):
+  - SaaS Kubernetes or OpenShift using dedicated cluster (ready for regulated industries):
     - 1. Development:
       - Externalization all variables:
         - Backend: 
-          - Environment variables : ./roks/1-development/backend/README_env_variables.md
-          - Save the certificate only in container: ./roks/1-development/backend/README_certificate_only_in_container.md
+          - Environment variables : ./k8s/1-development/backend/README_env_variables.md
+          - Save the certificate only in container: ./k8s/1-development/backend/README_certificate_only_in_container.md
         - Frontend: 
-          - Environment variables : ./roks/1-development/frontend/README_env_variables.md
+          - Environment variables : ./k8s/1-development/frontend/README_env_variables.md
       - Manual setup of App ID and Postgres (Ops, Dev):
-        - Programmatic creation of App ID instances (Ops): ./roks/1-development/manual-setup/README_programmatic_creation_of_app_id_instances.md   
-        - Programmatic creation of Postgres instances (Ops): ./roks/1-development/manual-setup/README_programmatic_creation_of_postgres_instances.md
-        - Programmatic creation of schemas (Ops, Dev): ./roks/1-development/manual-setup/README_programmatic_creation_of_schemas.md
+        - Programmatic creation of App ID instances (Ops): ./k8s/1-development/manual-setup/README_programmatic_creation_of_app_id_instances.md   
+        - Programmatic creation of Postgres instances (Ops): ./k8s/1-development/manual-setup/README_programmatic_creation_of_postgres_instances.md
+        - Programmatic creation of schemas (Ops, Dev): ./k8s/1-development/manual-setup/README_programmatic_creation_of_schemas.md
       - Authentication flow (App ID, frontend, backend) (Dev, Ops, Sec):
-        - Authentication flow: ./roks/1-development/authentication/README_authentication_flow.md
+        - Authentication flow: ./k8s/1-development/authentication/README_authentication_flow.md
       - Local running and debugging (Dev):
-        - Backend: ./roks/1-development/local_running_debugging/README_frontend.md
-        - Frontend: ./roks/1-development/local_running_debugging/README_backend.md
+        - Backend: ./k8s/1-development/local_running_debugging/README_frontend.md
+        - Frontend: ./k8s/1-development/local_running_debugging/README_backend.md
     - 2. Initial automated setup "Software Everywhere Terraform":
-      - Initial setup: ./roks/2-initial_automated_setup/README_initial_setup.md
-      - Onboarding: ./roks/2-initial_automated_setup/README_onboarding.md
-      - Clean up: ./roks/2-initial_automated_setup/README_clean_up.md
+      - Initial setup: ./k8s/2-initial_automated_setup/README_initial_setup.md
+      - Onboarding: ./k8s/2-initial_automated_setup/README_onboarding.md
+      - Clean up: ./k8s/2-initial_automated_setup/README_clean_up.md
     - 3. CI/CD (Dev/Ops): 
-      - CI new app versions  DevSecOps toolchain (Ops): ./roks/3-ci-cd/README_ci.md
-      - CD new app versions  DevSecOps toolchain (Ops): ./roks/3-ci-cd/README_cd.md
+      - CI new app versions  DevSecOps toolchain (Ops): ./k8s/3-ci-cd/README_ci.md
+      - CD new app versions  DevSecOps toolchain (Ops): ./k8s/3-ci-cd/README_cd.md
     - 4. Observability (logging, monitoring, vulnerabilities) (Ops, Sec): 
-      - Logging: ./roks/4-observability/README_logging.md
-      - Monitoring: ./roks/4-observability/README_monitoring.md
-      - Vulnerabilities: ./roks/4-observability/README_vulnerabilities.md
+      - Logging: ./k8s/4-observability/README_logging.md
+      - Monitoring: ./k8s/4-observability/README_monitoring.md
+      - Vulnerabilities: ./k8s/4-observability/README_vulnerabilities.md
     - 5. Billing (Ops):
-      - Billing: ./roks/5-billing/README_billing.md
+      - Billing: ./k8s/5-billing/README_billing.md
     - 6. Security and compliance (vulnerabilities, DevOps Insights, security and compliance center)(Ops, Sec):
-      - Security: ./roks/6-security-compliance/security/README_security.md
-      - Compliance: ./roks/6-security-compliance/compliance/README_compliance.md
+      - Security: ./k8s/6-security-compliance/security/README_security.md
+      - Compliance: ./k8s/6-security-compliance/compliance/README_compliance.md
 
 ## DO NOT CHANGE BELOW THIS LINE
 
