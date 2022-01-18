@@ -16,7 +16,7 @@ The infrastructure consists on;
 
 The steps to follow to provision the infrastrure are,
 
-- Go to the Terraform scripts folder.
+- Open a terminal window in the current directory where the code reside.
 - Make a copy of "credentials.template" file and name it as "credential.properties".	
 
 ```shell
