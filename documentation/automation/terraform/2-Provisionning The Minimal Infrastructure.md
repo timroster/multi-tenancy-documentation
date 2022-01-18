@@ -31,7 +31,7 @@ The steps to follow to provision the infrastrure are,
 npm install and npm run build
 ```
 
-- Create examples/baseline-openshift.yaml;
+- Create the examples/baseline-openshift.yaml Yaml file;
 
   ```yaml
   apiVersion: cloud.ibm.com/v1alpha1
