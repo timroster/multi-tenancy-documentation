@@ -97,7 +97,7 @@ Click the CI pipeline, then `Environment properties`.
 
 ![Environment Props](/documentation/images/cicd-k8s/19-environmentProps.png)
 
-Add or update the following properties:
+Add or update the following environment properties:
 
 | Key  | Value | Type |
 | ------------- | ------------- | ------------- |
@@ -122,7 +122,6 @@ Select the frontend repository which you cloned to your GitHub account.  Do not 
 
 The environmental properties for the frontend CI pipeline should be set as follows:
 
-Add or update the following properties:
 
 | Key  | Value | Type |
 | ------------- | ------------- | ------------- |
