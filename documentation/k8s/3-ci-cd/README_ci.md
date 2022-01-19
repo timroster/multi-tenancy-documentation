@@ -117,8 +117,24 @@ Select the `Trigger` tab.  You may need to correct the Git CI Trigger if it show
 
 Repeat the above steps to create a second toolchain for frontend.  Use the following screenshots for guidance.
 
-
-
+![CI Frontend 1](/documentation/images/cicd-k8s/cifrontend-1.png)
+![CI Frontend 2](/documentation/images/cicd-k8s/cifrontend-2.png)
+![CI Frontend 3](/documentation/images/cicd-k8s/cifrontend-3.png)
+![CI Frontend 4](/documentation/images/cicd-k8s/cifrontend-4.png)
+![CI Frontend 5](/documentation/images/cicd-k8s/cifrontend-5.png)
+![CI Frontend 6](/documentation/images/cicd-k8s/cifrontend-6.png)
+![CI Frontend 7](/documentation/images/cicd-k8s/cifrontend-7.png)
+![CI Frontend 8](/documentation/images/cicd-k8s/cifrontend-8.png)
+![CI Frontend 9](/documentation/images/cicd-k8s/cifrontend-9.png)
+![CI Frontend 10](/documentation/images/cicd-k8s/cifrontend-10.png)
+![CI Frontend 11](/documentation/images/cicd-k8s/cifrontend-11.png)
+![CI Frontend 12](/documentation/images/cicd-k8s/cifrontend-12.png)
+![CI Frontend 13](/documentation/images/cicd-k8s/cifrontend-13.png)
+![CI Frontend 14](/documentation/images/cicd-k8s/cifrontend-14.png)
+![CI Frontend 15](/documentation/images/cicd-k8s/cifrontend-15.png)
+![CI Frontend 16](/documentation/images/cicd-k8s/cifrontend-16.png)
+![CI Frontend 17](/documentation/images/cicd-k8s/cifrontend-17.png)
+![CI Frontend 18](/documentation/images/cicd-k8s/cifrontend-18.png)
 
 The environmental properties for the frontend CI pipeline should be set as follows:
 
