@@ -5,19 +5,29 @@ This document describes how to provision the back-end infrastructure for your pr
 The infrastructure consists on;
 
 - A "Virtual Private Cloud" (VPC) on IBM Cloud.
+
 - An OpenShift cluster inside the VPC with all the requirements.
+
 - A PostgreSQL database.
 
-
+  
 
 ## Setting up the infrastructure
 
 The steps to follow to provision the infrastrure are,
 
-- Go to the Terraform scripts folder.
-- Make a copy of "credentials.template" file and name it as "credential.properties".
+- Open a terminal window in the current directory where the code reside.
+- Log into IBM Cloud
 
-​		`cp credentials.template credential.properties`
+```bash
+ibmcloud login --sso
+```
+
+- Make a copy of "credentials.template" file and name it as "credential.properties".	
+
+```shell
+cp credentials.template credential.properties
+```
 
 - Edit the "credentials.properties" file and put your IBM Cloud Api Key.
 
@@ -28,9 +38,12 @@ The steps to follow to provision the infrastrure are,
 ibmcloud.api.key="your-api-key"
 ```
 
-Save and quit the file.
+Save and exit the file.
 
-Open a terminal window and run the following command:
+- Open a terminal window and run the following command:
 
-`./apply-all.sh`
+
+```shell
+./apply-all.sh`
+```
 
