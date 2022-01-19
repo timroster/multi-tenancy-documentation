@@ -40,7 +40,7 @@ Select the backend repository which you cloned to your GitHub account.  Do not u
 
 The CI pipeline stores some of its output to an Inventory repository, which will be stored in your IBM Cloud GitLab account (all IBM Cloud users are provided access to GitLab).
 
-Name the Inventory repository and click `Continue`:
+Name the Inventory repository (N.B as this repo will be used by multiple toolchains, you may wish to use a more generic name than shown in the screenshot, e.g. "compliance-inventory" rather than "compliannce-inventory-ci-backend") and click `Continue`:
 
 ![Inventory repo](/documentation/images/cicd-k8s/6-createInventoryRepocIBackend.png)
 
