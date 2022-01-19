@@ -17,6 +17,12 @@ The infrastructure consists on;
 The steps to follow to provision the infrastrure are,
 
 - Open a terminal window in the current directory where the code reside.
+- Log into IBM Cloud
+
+```bash
+ibmcloud login --sso
+```
+
 - Make a copy of "credentials.template" file and name it as "credential.properties".	
 
 ```shell
