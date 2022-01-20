@@ -107,7 +107,9 @@ Add or update the following properties:
 | branch  | `main`  | Text |
 | pipeline-config-branch | update from `master` to `main`  | Text |
 | repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
-| tenant  | `tenant`  | Text |
+| tenant  | `tenant-a` (this should be changed for each deployments)  | Text |
+| target-environment  | `tenant-a-prod` (this should be changed for each deployments)  | Text |
+| force-redeploy  | `true` | Text |
 
 
 Select the `Trigger` tab.  You may need to correct the Git CD Trigger if it shows a hazard symbol:
@@ -129,10 +131,15 @@ Also, copy the existing `Manual CD Trigger` and use it to create a `Manual CD Tr
 
 ## Testing the CD pipelines
 
-If you have successfully executed the CI pipelines for backend and frontend, you can test the CD pipeline:
+If you have successfully executed the CI pipelines for backend and frontend, you can test the CD pipeline.
 
-![Correct CD Trigger error](/documentation/images/cicd-k8s/47-manualCdTrigger.png)
+First you'll need to execute the `Manual Promotion Trigger`.  This creates a new branch and a merge request in the Inventory Repository.  You should approve that merge request before proceeding.
 
-Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
+Finally you can trigger the pipeline with a `Manual CD Trigger force redeploy'.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
-WORK IN PROGRESS
+![CD trigger](/documentation/images/cicd-k8s/48-cdForceSuccess.png)
+
+In the logs for the `prod-deployment` `run-stage` you will find two outputs starting `Application URL:`.  These are the URLs to test the backend and frontend applications.  Give them a try!
+
+![CD success](/documentation/images/cicd-k8s/49-cd.png)
+![CD success](/documentation/images/cicd-k8s/50-cd.png)
