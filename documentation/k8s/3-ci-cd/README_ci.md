@@ -97,19 +97,11 @@ Click the CI pipeline, then `Environment properties`.
 
 ![Environment Props](/documentation/images/cicd-k8s/19-environmentProps.png)
 
-Add or update the following environment properties:
+Add or update the Environmental Properties so they look like thise (using your own GitHub multi-tenancy/backend/frontend repos):
 
-| Key  | Value | Type |
-| ------------- | ------------- | ------------- |
-| branch  | `main`  | Text |
-| microservice-name  | `backend` | Text |
-| multi-tenancy  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy`  | Text |
-| multi-tenancy-backend  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend`  | Text |
-| multi-tenancy-frontend  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy-frontend`  | Text |
-| opt-in-sonar  | delete `true` (set to blank)  | Text |
-| pipeline-config-branch | update from `master` to `main`  | Text |
-| pipeline-config | update to `.pipeline-config.yaml`  | Text |
-| repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
+![Env props1](/documentation/images/cicd-k8s/ciBackendEnvProperties-1.png)
+![Env props2](/documentation/images/cicd-k8s/ciBackendEnvProperties-1.png)
+
 
 Select the `Trigger` tab.  You may need to correct the Git CI Trigger if it shows a hazard symbol.  Edit its properties and select a valid the branch name.
 
@@ -136,20 +128,12 @@ Repeat the above steps to create a second toolchain for frontend.  Use the follo
 ![CI Frontend 17](/documentation/images/cicd-k8s/cifrontend-17.png)
 ![CI Frontend 18](/documentation/images/cicd-k8s/cifrontend-18.png)
 
-The environmental properties for the frontend CI pipeline should be set as follows:
+Add or update the Environmental Properties so they look like thise (using your own GitHub multi-tenancy/backend/frontend repos):
 
+![Env props1](/documentation/images/cicd-k8s/ciFrontendEnvProperties-1.png)
+![Env props2](/documentation/images/cicd-k8s/ciFrontendEnvProperties-1.png)
 
-| Key  | Value | Type |
-| ------------- | ------------- | ------------- |
-| branch  | `main`  | Text |
-| microservice-name  | `frontend` | Text |
-| multi-tenancy  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy`  | Text |
-| multi-tenancy-backend  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy-backend`  | Text |
-| multi-tenancy-frontend  | your repo, e.g. `https://github.com/<your-org>/multi-tenancy-frontend`  | Text |
-| opt-in-sonar  | delete `true` (set to blank)  | Text |
-| pipeline-config-branch | update from `master` to `main`  | Text |
-| pipeline-config | update to `.pipeline-config.yaml`  | Text |
-| repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy-frontend` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
+Note that for properties with type `Tool Integration`, also set JSON filter to `parameters.repo_url`
 
 Select the `Trigger` tab.  You may need to correct the Git CI Trigger if it shows a hazard symbol.  Edit its properties and select a valid the branch name.
 

@@ -100,17 +100,12 @@ After a few moments the toolchain will be ready:
 
 The environmental properties for the frontend CD pipeline should be updated as follows:
 
-Add or update the following properties:
+Add or update the Environmental Properties so they look like thise (using your own GitHub multi-tenancy/backend/frontend repos):
 
-| Key  | Value | Type |
-| ------------- | ------------- | ------------- |
-| branch  | `main`  | Text |
-| pipeline-config-branch | update from `master` to `main`  | Text |
-| repository | select your repo, e.g. `https://github.com/<your-org>/multi-tenancy` from the list.  Also set JSON filter to `parameters.repo_url`  | Tool Integration |
-| tenant  | `tenant-a` (this should be changed for each deployments)  | Text |
-| target-environment  | `tenant-a-prod` (this should be changed for each deployments)  | Text |
-| force-redeploy  | `true` | Text |
+![Env props1](/documentation/images/cicd-k8s/51-cdEnvProps-1.png)
+![Env props2](/documentation/images/cicd-k8s/52-cdEnvProps-2.png)
 
+Note that for properties with type `Tool Integration`, also set JSON filter to `parameters.repo_url`
 
 Select the `Trigger` tab.  You may need to correct the Git CD Trigger if it shows a hazard symbol:
 
