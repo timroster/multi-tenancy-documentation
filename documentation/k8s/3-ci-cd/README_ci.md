@@ -8,153 +8,158 @@ This setion steps you through the creation of Continuous Integration (CI) toolch
 
 Set up the following pre-requisites:
 
-- Ensure you have cloned the multitenancy-backend and multitenancy-frontend repos to your GitHub account
+- Ensure you have cloned the following repos to your GitHub account:
+
+    https://github.com/IBM/multi-tenancy
+    https://github.com/IBM/multi-tenancy-backend
+    https://github.com/IBM/multi-tenancy-frontend
+
 - An instance of the IBM Cloud Secrets Manager service
 - An IBM Cloud Kubernetes Service cluster or An IBM Cloud OpenShift cluster
 - Create a namespace in the IBM Cloud Container Registry (access via hamburger menu->Container Registry)
 
-## Create the toolchains
 
-login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region:
+## Configure branch protection for your GitHub repositories
 
-![DevSecOps](/documentation/images/cicd-k8s/1-devOpsSelectRegion.png)
+In GitHub, go to the settings for your multi-tenancy-backend repo, select Branches and set Branch Protection Rules for the main branch as follows:
 
-Clieck `Create Toolchain` and select the `DevSecOps` filter:
-
-![DevSecOpsFiltered](/documentation/images/cicd-k8s/2-filterToDevSecOpsToolchains.png)
+![](/documentation/images/cicd-k8s/CI-Backend/1.png)
+![](/documentation/images/cicd-k8s/CI-Backend/1.png)
 
 
-## Create CI toolchain for backend
+## Create an IBM Cloud API key in Secrets Manager
 
-Let's start with CI for backend.  Click the CI tile to launch the setup wizard:
+In IBM Cloud, navigate to Manage->Access (IAM)->API Keys.  Create a new IBM Cloud API Key and make a note of it.
 
-![CI Setup Wizard](/documentation/images/cicd-k8s/3-cISetupWizard.png)
+In your Secrets Manager service, create a new Arbitary value and paste in the IBM Cloud API Key:
 
-Name the toolchain and click `Continue`
+![](/documentation/images/cicd-k8s/CI-Backend/3.png)
 
-![Name CI Toolchain](/documentation/images/cicd-k8s/4-nameCiToolchain.png)
+## Create the CI Backend toolchain
 
-Select the backend repository which you cloned to your GitHub account.  Do not use the IBM repo as pictured below, as you will be unable to make changes later.  Click `Continue`.
+Login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region thenh `Create Toolchain` and select the `DevSecOps` filter:
 
-![Backend repo](/documentation/images/cicd-k8s/5-bringYourOwnAppCiBackend.png)
+![](/documentation/images/cicd-k8s/CI-Backend/4.png)
 
-The CI pipeline stores some of its output to an Inventory repository, which will be stored in your IBM Cloud GitLab account (all IBM Cloud users are provided access to GitLab).
+Click the CI tile to launch the setup wizard, and complete the fields by refering to the following screenshots (refering to your own GitHub repos):
 
-Name the Inventory repository (N.B as this repo will be used by multiple toolchains, you may wish to use a more generic name than shown in the screenshot, e.g. "compliance-inventory" rather than "compliannce-inventory-ci-backend") and click `Continue`:
-
-![Inventory repo](/documentation/images/cicd-k8s/6-createInventoryRepocIBackend.png)
-
-Similarly, name the Issues repo and click `Continue`:
-
-![Issues rep](/documentation/images/cicd-k8s/7-createIssuesRepocIBackend.png)
-
-Accept the default recommended Secrets Manager and click `Continue`
-
-![Select Secrets Manager](/documentation/images/cicd-k8s/8-createSecretsManager.png)
-
-Configure an existing Secrets Manager service by typing its instance name and resource group, then click `Continue`
-
-![Configure Secrets Manager](/documentation/images/cicd-k8s/9-configureSecretsManager.png)
-
-Name the Evidence storage repostitory.  The COS bucket can be added later if required, so leave this unchecked for now.  Click `Continue`:
-
-![Configure Secrets Manager](/documentation/images/cicd-k8s/10-configureEvidenceStorage.png)
-
-Accept the default Tekton pipeline definitions from the IBM repository.  This ensures your toolchain stays up to date with the latest additions.
-
-![Use existing Tekton pipelines](/documentation/images/cicd-k8s/11-useExistingTektonPipelines.png)
-
-Create a new API key (or use an existing one) for the toolchain to access your IBM Cloud account.  Specify the details of an existing IBM Cloud Container Registry (you may need to type this manually).  Specify the details of an existing IBM Cloud Kubernetes Service (IKS) cluster.  Click `Continue`:
-
-![Registry and cluster config](/documentation/images/cicd-k8s/12-deploymentTarget.png)
-
-Create a new Image Signing Key by speifying a name and email.  Click `Continue`:
-
-![Signing key config1](/documentation/images/cicd-k8s/13-signingKey1.png)
-![Signing key config2](/documentation/images/cicd-k8s/14-signingKey2.png)
-
-DevOps Insights is automatically part of the toolchain being created, so select this instance and click `Continue`:
-
-![DevOpsInsights config](/documentation/images/cicd-k8s/15-devOpsInsights.png)
-
-SonarQube is automatically part of the toolchain being created, so select this instance and click `Continue`:
-
-![SonarQube config](/documentation/images/cicd-k8s/16-sonarQube.png)
-
-Select optional tools and click `Continue`:
-
-![Optional tools](/documentation/images/cicd-k8s/17-optionalTools.png)
-
-Review the summary and click `Create`:
-
-![Summary](/documentation/images/cicd-k8s/18-summary.png)
-
-After a few moments, the toolchain is displayed:
-
-![Toolchain created](/documentation/images/cicd-k8s/18-toolchainCreated.png)
-
-Click the CI pipeline, then `Environment properties`.  
-
-![Environment Props](/documentation/images/cicd-k8s/19-environmentProps.png)
-
-Add or update the Environmental Properties so they look like thise (using your own GitHub multi-tenancy/backend/frontend repos):
-
-![Env props1](/documentation/images/cicd-k8s/ciBackendEnvProperties-1.png)
-![Env props2](/documentation/images/cicd-k8s/ciBackendEnvProperties-1.png)
+![](/documentation/images/cicd-k8s/CI-Backend/5.png)
+![](/documentation/images/cicd-k8s/CI-Backend/6.png)
+![](/documentation/images/cicd-k8s/CI-Backend/7.png)
+![](/documentation/images/cicd-k8s/CI-Backend/8.png)
+![](/documentation/images/cicd-k8s/CI-Backend/9.png)
+![](/documentation/images/cicd-k8s/CI-Backend/10.png)
+![](/documentation/images/cicd-k8s/CI-Backend/11.png)
+![](/documentation/images/cicd-k8s/CI-Backend/12.png)
+![](/documentation/images/cicd-k8s/CI-Backend/13.png)
+![](/documentation/images/cicd-k8s/CI-Backend/14.png)
+![](/documentation/images/cicd-k8s/CI-Backend/15.png)
+![](/documentation/images/cicd-k8s/CI-Backend/16.png)
+![](/documentation/images/cicd-k8s/CI-Backend/17.png)
+![](/documentation/images/cicd-k8s/CI-Backend/18.png)
+![](/documentation/images/cicd-k8s/CI-Backend/19.png)
 
 
-Select the `Trigger` tab.  You may need to correct the Git CI Trigger if it shows a hazard symbol.  Edit its properties and select a valid the branch name.
+Add or update the Environmental Properties as follows:
+
+![](/documentation/images/cicd-k8s/CI-Backend/20.png)
+![](/documentation/images/cicd-k8s/CI-Backend/21.png)
+
+Note that the Text fields `pipeline-config-branch` and `opt-in-sonar` need to be modified.
+
+An additional Text Fields entitled `branch`, `multi-tenancy-frontend`, `multi-tenancy-backend` and `multi-tenancy` were added.
+
+An additional Tool Integration field entitled `repository` was added.  When setting this field, you must specify a JSON filter of `parameters.repo_url`:
+
+![](/documentation/images/cicd-k8s/CI-Backend/21a.png)
+
+Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit its properties and select a valid the branch name:
+
+![](/documentation/images/cicd-k8s/CI-Backend/22.png)
+![](/documentation/images/cicd-k8s/CI-Backend/23.png)
+![](/documentation/images/cicd-k8s/CI-Backend/24.png)
+
+## Create Dev Mode trigger for CI Backend
+
+enable a Dev mode trigger which permits a faster pipeline run which does not invoke all compliance steps.  Select the CI pipeline tile, then Trigger.  Duplicate the existing Manual Trigger and set the properties as follows:
+
+![](/documentation/images/cicd-k8s/CI-Backend/25.png)
+![](/documentation/images/cicd-k8s/CI-Backend/26.png)
+
+Add or update the Environmental Properties as follows:
+
+![](/documentation/images/cicd-k8s/CI-Frontend/.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/.png)
+
+Note that the Text fields `pipeline-config-branch` and `opt-in-sonar` need to be modified.
+
+An additional Text Fields entitled `branch`, `multi-tenancy-frontend`, `multi-tenancy-backend` and `multi-tenancy` were added.
+
+An additional Tool Integration field entitled `repository` was added.  When setting this field, you must specify a JSON filter of `parameters.repo_url`:
+
+![](/documentation/images/cicd-k8s/CI-Frontend/.png)
+
+Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit its properties and select a valid the branch name:
+
+![](/documentation/images/cicd-k8s/CI-Frontend/22.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/23.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/24.png)
+
+
 
 ## Create CI toolchain for frontend
 
-Repeat the above steps to create a second toolchain for frontend.  Use the following screenshots for guidance.
+Login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region thenh `Create Toolchain` and select the `DevSecOps` filter:
 
-![CI Frontend 1](/documentation/images/cicd-k8s/cifrontend-1.png)
-![CI Frontend 2](/documentation/images/cicd-k8s/cifrontend-2.png)
-![CI Frontend 3](/documentation/images/cicd-k8s/cifrontend-3.png)
-![CI Frontend 4](/documentation/images/cicd-k8s/cifrontend-4.png)
-![CI Frontend 5](/documentation/images/cicd-k8s/cifrontend-5.png)
-![CI Frontend 6](/documentation/images/cicd-k8s/cifrontend-6.png)
-![CI Frontend 7](/documentation/images/cicd-k8s/cifrontend-7.png)
-![CI Frontend 8](/documentation/images/cicd-k8s/cifrontend-8.png)
-![CI Frontend 9](/documentation/images/cicd-k8s/cifrontend-9.png)
-![CI Frontend 10](/documentation/images/cicd-k8s/cifrontend-10.png)
-![CI Frontend 11](/documentation/images/cicd-k8s/cifrontend-11.png)
-![CI Frontend 12](/documentation/images/cicd-k8s/cifrontend-12.png)
-![CI Frontend 13](/documentation/images/cicd-k8s/cifrontend-13.png)
-![CI Frontend 14](/documentation/images/cicd-k8s/cifrontend-14.png)
-![CI Frontend 15](/documentation/images/cicd-k8s/cifrontend-15.png)
-![CI Frontend 16](/documentation/images/cicd-k8s/cifrontend-16.png)
-![CI Frontend 17](/documentation/images/cicd-k8s/cifrontend-17.png)
-![CI Frontend 18](/documentation/images/cicd-k8s/cifrontend-18.png)
+![](/documentation/images/cicd-k8s/CI-Backend/4.png)
 
-Add or update the Environmental Properties so they look like thise (using your own GitHub multi-tenancy/backend/frontend repos):
+Click the CI tile to launch the setup wizard, and complete the fields by refering to the following screenshots (refering to your own GitHub repos):
 
-![Env props1](/documentation/images/cicd-k8s/ciFrontendEnvProperties-1.png)
-![Env props2](/documentation/images/cicd-k8s/ciFrontendEnvProperties-1.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/1.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/2.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/3.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/4.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/5.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/6.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/7.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/8.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/9.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/10.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/11.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/12.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/13.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/14.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/15.png)
 
-Note that for properties with type `Tool Integration`, also set JSON filter to `parameters.repo_url`
+Add or update the Environmental Properties as follows:
 
-Select the `Trigger` tab.  You may need to correct the Git CI Trigger if it shows a hazard symbol.  Edit its properties and select a valid the branch name.
+![](/documentation/images/cicd-k8s/CI-Frontend/16.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/17.png)
+
+Note that the Text fields `pipeline-config-branch` and `opt-in-sonar` need to be modified.
+
+An additional Text Fields entitled `branch`, `multi-tenancy-frontend`, `multi-tenancy-backend` and `multi-tenancy` were added.
+
+An additional Tool Integration field entitled `repository` was added.  When setting this field, you must specify a JSON filter of `parameters.repo_url`:
+
+![](/documentation/images/cicd-k8s/CI-Frontend/17a.png)
+
+Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit its properties and select a valid the branch name:
+
+![](/documentation/images/cicd-k8s/CI-Frontend/18.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/19.png)
+
 
 ## Testing the CI pipelines
 
-For both CI pipelines, enable a Dev mode trigger which permits a faster pipeline run which does not invoke all compliance steps.  Select the CI pipeline tile, then Trigger.  Duplicate the existing Manual Trigger:
 
-![Duplicate manual trigger](/documentation/images/cicd-k8s/29-duplicateManualTrigger.png)
-
-![Create dev mode trigger](/documentation/images/cicd-k8s/30-createDevModeTrigger.png)
-
-First test the backend CI pipelines by triggering a pipeline run, using dev mode:
-
-![Pipeline run trigger](/documentation/images/cicd-k8s/31-testCiBackendDevMode.png)
+First test the backend CI pipelines by triggering a pipeline run, using `Dev Mode`:
 
 Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
-![Pipeline run success](/documentation/images/cicd-k8s/32-cIBackendDevModeSuccess.png)
-
-Test the front end CI pipeline by triggering a pipeline run, using dev mode:
+Test the front end CI pipeline by triggering a pipeline run, using `Dev Mode`:
 
 Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
-TODO
+Next test boths CI pipelines with `Manual Trigger`.  If all steps complete successfully, you can configure and test the CD Toolchain.
+
