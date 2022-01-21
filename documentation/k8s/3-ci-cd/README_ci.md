@@ -19,14 +19,6 @@ Set up the following pre-requisites:
 - Create a namespace in the IBM Cloud Container Registry (access via hamburger menu->Container Registry)
 
 
-## Configure branch protection for your GitHub repositories
-
-In GitHub, go to the settings for your multi-tenancy-backend repo, select Branches and set Branch Protection Rules for the main branch as follows:
-
-![](/documentation/images/cicd-k8s/CI-Backend/1.png)
-![](/documentation/images/cicd-k8s/CI-Backend/1.png)
-
-
 ## Create an IBM Cloud API key in Secrets Manager
 
 In IBM Cloud, navigate to Manage->Access (IAM)->API Keys.  Create a new IBM Cloud API Key and make a note of it.
@@ -79,9 +71,9 @@ Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit 
 ![](/documentation/images/cicd-k8s/CI-Backend/23.png)
 ![](/documentation/images/cicd-k8s/CI-Backend/24.png)
 
-## Create Dev Mode trigger for CI Backend
+## Create Dev Mode trigger & Update Environmental Properties for CI Backend
 
-enable a Dev mode trigger which permits a faster pipeline run which does not invoke all compliance steps.  Select the CI pipeline tile, then Trigger.  Duplicate the existing Manual Trigger and set the properties as follows:
+Enable a Dev mode trigger which permits a faster pipeline run which does not invoke all compliance steps.  Select the CI pipeline tile, then Trigger.  Duplicate the existing Manual Trigger and set the properties as follows:
 
 ![](/documentation/images/cicd-k8s/CI-Backend/25.png)
 ![](/documentation/images/cicd-k8s/CI-Backend/26.png)
@@ -131,6 +123,15 @@ Click the CI tile to launch the setup wizard, and complete the fields by referin
 ![](/documentation/images/cicd-k8s/CI-Frontend/14.png)
 ![](/documentation/images/cicd-k8s/CI-Frontend/15.png)
 
+
+## Create Dev Mode trigger & Update Environmental Properties for CI Backend
+
+Enable a Dev mode trigger which permits a faster pipeline run which does not invoke all compliance steps.  Select the CI pipeline tile, then Trigger.  Duplicate the existing Manual Trigger and set the properties as follows:
+
+![](/documentation/images/cicd-k8s/CI-Frontend/20.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/21.png)
+
+
 Add or update the Environmental Properties as follows:
 
 ![](/documentation/images/cicd-k8s/CI-Frontend/16.png)
@@ -153,13 +154,11 @@ Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit 
 ## Testing the CI pipelines
 
 
-First test the backend CI pipelines by triggering a pipeline run, using `Dev Mode`:
+First test the backend CI pipelines by triggering a pipeline run, using `Manual Trigger`:
+
+Test the front end CI pipeline by triggering a pipeline run, using `Manual Trigger`:
 
 Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
-Test the front end CI pipeline by triggering a pipeline run, using `Dev Mode`:
-
-Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
-
-Next test boths CI pipelines with `Manual Trigger`.  If all steps complete successfully, you can configure and test the CD Toolchain.
+If all steps complete successfully, you can configure and test the CD Toolchain.
 
