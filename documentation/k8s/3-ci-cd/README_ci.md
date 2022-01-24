@@ -15,7 +15,7 @@ Set up the following pre-requisites:
     https://github.com/IBM/multi-tenancy-frontend
 
 - An instance of the IBM Cloud Secrets Manager service
-- An IBM Cloud Kubernetes Service cluster or An IBM Cloud OpenShift cluster
+- An IBM Cloud Kubernetes Service cluster or an IBM Cloud OpenShift cluster
 - Create a namespace in the IBM Cloud Container Registry (access via hamburger menu->Container Registry)
 
 
@@ -33,7 +33,7 @@ Login to IBM Cloud and use the hamburger menu in the top left to navigate to `De
 
 ![](/documentation/images/cicd-k8s/CI-Backend/4.png)
 
-Click the CI tile to launch the setup wizard, and complete the fields by refering to the following screenshots (refering to your own GitHub repos):
+Click the `CI` tile to launch the setup wizard, and complete the fields by refering to the following screenshots (refering to your own GitHub repos):
 
 ![](/documentation/images/cicd-k8s/CI-Backend/5.png)
 ![](/documentation/images/cicd-k8s/CI-Backend/6.png)
@@ -71,7 +71,7 @@ Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit 
 ![](/documentation/images/cicd-k8s/CI-Backend/23.png)
 ![](/documentation/images/cicd-k8s/CI-Backend/24.png)
 
-## Create Dev Mode trigger & Update Environmental Properties for CI Backend
+## Create Dev Mode trigger & Update Environmental Properties for CI Frontend
 
 Enable a Dev mode trigger which permits a faster pipeline run which does not invoke all compliance steps.  Select the CI pipeline tile, then Trigger.  Duplicate the existing Manual Trigger and set the properties as follows:
 
@@ -83,9 +83,9 @@ Add or update the Environmental Properties as follows:
 ![](/documentation/images/cicd-k8s/CI-Frontend/.png)
 ![](/documentation/images/cicd-k8s/CI-Frontend/.png)
 
-Note that the Text fields `pipeline-config-branch` and `opt-in-sonar` need to be modified.
+Note that the Text fields `pipeline-config-branch` and `opt-in-sonar` were updated.
 
-An additional Text Fields entitled `branch`, `multi-tenancy-frontend`, `multi-tenancy-backend` and `multi-tenancy` were added.
+Additional Text Fields entitled `branch`, `multi-tenancy-frontend`, `multi-tenancy-backend` and `multi-tenancy` were added.
 
 An additional Tool Integration field entitled `repository` was added.  When setting this field, you must specify a JSON filter of `parameters.repo_url`:
 
