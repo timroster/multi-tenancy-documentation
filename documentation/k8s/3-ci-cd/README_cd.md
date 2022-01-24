@@ -50,9 +50,7 @@ Click the `CD` tile to launch the setup wizard, and complete the fields by refer
 
 ## Create Dev Mode trigger & Update Environmental Properties for CD
 
-The environmental properties for the frontend CD pipeline should be updated as follows:
-
-Add or update the Environmental Properties so they look like thise (using your own GitHub multi-tenancy/backend/frontend repos):
+The environmental properties for the CD pipeline should be updated as follows (using your own GitHub multi-tenancy/backend/frontend repos):
 
 ![](/documentation/images/cicd-k8s/CD/18.png)
 ![](/documentation/images/cicd-k8s/CD/19.png)
@@ -80,16 +78,30 @@ Also, copy the existing `Manual CD Trigger` and use it to create a `Manual CD Tr
 ![](/documentation/images/cicd-k8s/CD/24.png)
 ![](/documentation/images/cicd-k8s/CD/25.png)
 
-## Testing the CD pipelines
+## Testing the CD pipeline
 
 If you have successfully executed the CI pipelines for backend and frontend, you can test the CD pipeline.
 
-First you'll need to execute the `Manual Promotion Trigger`.  This creates a new branch and a merge request in the Inventory Repository.  You should approve that merge request before proceeding.
+First you'll need to execute the `Manual Promotion Trigger`.  This creates a new branch and a merge request in the GitLab Inventory Repository.  You should approve that merge request before proceeding.  You can find a link to the merge request in the output of the pipeline run:
 
-Finally you can trigger the pipeline with a `Manual CD Trigger'.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
+![](/documentation/images/cicd-k8s/CD/26.png)             
 
-![](/documentation/images/cicd-k8s/CD/.png)
+Essential information must be added to the merge request.  Click the `Edit` button and complete the `Change Request assignee` and `Priority` as follows, then `Save Changes`:
 
-In the logs for the `prod-deployment` `run-stage` you will find two outputs starting `Application URL:`.  These are the URLs to test the backend and frontend applications.  Give them a try!
+![](/documentation/images/cicd-k8s/CD/27.png)
+![](/documentation/images/cicd-k8s/CD/28.png)
+![](/documentation/images/cicd-k8s/CD/29.png)
 
-![](/documentation/images/cicd-k8s/CD/.png)
+You may also create an `EMERGENCY` label on the right hand panel, but you do not need to assign the label to this merge request, although it may be useful in future.
+
+Approval is optional, simply press the blue `Merge` button.
+
+You can now trigger the pipeline with a `Manual CD Trigger force redploy`.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
+
+![](/documentation/images/cicd-k8s/CD/30.png)
+
+
+In the logs for the `prod-deployment` `run-stage` you will find two outputs starting `Application URL:`.  These are the URLs to test the backend and frontend applications.  Give them a try!  (The username and password to login to the frontend is User: thomas@example.com. Password: thomas4appid)
+
+![](/documentation/images/cicd-k8s/CD/31.png)
+![](/documentation/images/cicd-k8s/CD/32.png)
