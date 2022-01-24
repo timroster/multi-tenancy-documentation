@@ -113,7 +113,7 @@ namespace_name="your-namesspace-name"
 
   Save and quit the file.
 
-- Open a terminal window and run the following command:
+- Open a terminal window and run the following commands:
 
 
 ```shell
@@ -185,7 +185,7 @@ npm install and npm run build
 ./iascable build -i ./examples/baseline-iks.yaml
 ```
 
-- Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
+- Edit the "/iascable/output/baseline-iks.auto.tfvars" and enter values for the following parameters;
   - resource_group_name
   - ibmcloud_api_key
   - region
@@ -224,7 +224,7 @@ ibmcloud_api_key="your-ibm-cloud-api-key"
 
   Save and quit the file.
 
-- Open a terminal window and run the following command:
+- Open a terminal window and run the following commands:
 
 
 ```shell
