@@ -6,9 +6,9 @@ The infrastructure consists on;
 
 - A "Virtual Private Cloud" (VPC) on IBM Cloud.
 
-- An OpenShift cluster inside the VPC with all the requirements.
+- An **OpenShift** cluster inside the VPC with all the requirements.
 
-- A PostgreSQL database.
+- A Database for PostgreSQL managed service.
 
 - An instance of AppID service.
 
