@@ -96,9 +96,9 @@ You may also create an `EMERGENCY` label on the right hand panel, but you do not
 
 Approval is optional, simply press the blue `Merge` button.
 
-You can now trigger the pipeline with a `Manual CD Trigger force redploy`.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
+You can now trigger the pipeline with a `Manual CD Trigger`.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
-![](/documentation/images/cicd-k8s/CD/30.png)
+![](/documentation/images/cicd-k8s/CD/33.png)
 
 
 In the logs for the `prod-deployment` `run-stage` you will find two outputs starting `Application URL:`.  These are the URLs to test the backend and frontend applications.  Give them a try!  (The username and password to login to the frontend is User: thomas@example.com. Password: thomas4appid)
