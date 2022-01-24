@@ -176,11 +176,13 @@ Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit 
 
 ## Testing the CI pipelines
 
-First test the backend CI pipelines by triggering a pipeline run, using `Manual Trigger`:
+First test the backend CI pipelines by triggering a pipeline run, using `Manual Trigger`.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
-Test the front end CI pipeline by triggering a pipeline run, using `Manual Trigger`:
+![](/documentation/images/cicd-k8s/CI-Backend/27.png)
 
-Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
+Test the front end CI pipeline by triggering a pipeline run, using `Manual Trigger`.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
+
+![](/documentation/images/cicd-k8s/CI-Frontend/22.png)
 
 If all steps complete successfully, you can configure and test the CD Toolchain.
 
