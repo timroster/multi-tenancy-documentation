@@ -8,6 +8,8 @@ The infrastructure consists on;
 
 - A "Virtual Private Cloud" (VPC) on IBM Cloud.
 - Either an OpenShift or an IKS cluster inside the VPC with all the requirements.
+- A PostgreSQL database.
+- An instance of AppID service.
 
 ## Setting up the infrastructure - OpenShift Cluster
 

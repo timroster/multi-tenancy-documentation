@@ -10,6 +10,8 @@ The infrastructure consists on;
 
 - A PostgreSQL database.
 
+- An instance of AppID service.
+
   
 
 ## Setting up the infrastructure
