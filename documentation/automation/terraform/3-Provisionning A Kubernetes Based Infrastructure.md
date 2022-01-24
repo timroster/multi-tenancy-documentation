@@ -67,9 +67,11 @@ npm install and npm run build
 
 - Run the following command from the original folder;
 
-```shell
-./iascable build -i ./examples/baseline-openshift.yaml
-```
+  ```shell
+  ./iascable build -i ./examples/baseline-openshift.yaml
+  ```
+
+  
 
 - Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
   - resource_group_name
@@ -77,20 +79,18 @@ npm install and npm run build
   - region
   - name_prefix 
   - namespace_name
-
-```properties
-## resource_group_name: The name of the resource group
-resource_group_name="your-resource-group-name"
-
-## region: The IBM Cloud region where the cluster will be/has been installed.
-region="eu-de" (or other IBM Cloud regions)
-
-## ibmcloud_api_key: The IBM Cloud api token
-ibmcloud_api_key="your-ibm-cloud-api-key"
-
-## namespace_name: The namespace that should be created
-namespace_name="your-namesspace-name"
-```
+  
+  ```properties
+  ## resource_group_name: The name of the resource group
+  resource_group_name="your-resource-group-name"
+  ## region: The IBM Cloud region where the cluster will be/has been installed.
+  region="eu-de" (or other IBM Cloud regions)
+  ## ibmcloud_api_key: The IBM Cloud api token
+  ibmcloud_api_key="your-ibm-cloud-api-key"
+  ## namespace_name: The namespace that should be created
+  namespace_name="your-namesspace-name"
+  ```
+  
 
 ​	Save and quit the file.
 
@@ -141,11 +141,11 @@ The steps to follow to provision the infrastrure are,
   cd iascable
   ```
 
-- Install the required modules and packages
+- Install the required modules and packages	
 
-```shell
-npm install and npm run build
-```
+  ```shell
+  npm install and npm run build
+  ```
 
 - Create the examples/baseline-iks.yaml Yaml file;
 
@@ -181,26 +181,25 @@ npm install and npm run build
 
 - Run the following command from the original folder;
 
-```shell
-./iascable build -i ./examples/baseline-iks.yaml
-```
+  ```shell
+  ./iascable build -i ./examples/baseline-iks.yaml
+  ```
+
 
 - Edit the "/iascable/output/baseline-iks.auto.tfvars" and enter values for the following parameters;
   - resource_group_name
   - ibmcloud_api_key
   - region
-
-```properties
-## resource_group_name: The name of the resource group
-resource_group_name="your-resource-group-name"
-
-## region: The IBM Cloud region where the cluster will be/has been installed.
-region="eu-de" (or other IBM Cloud regions)
-
-## ibmcloud_api_key: The IBM Cloud api token
-ibmcloud_api_key="your-ibm-cloud-api-key"
-
-```
+  
+  ```properties
+  ## resource_group_name: The name of the resource group
+  resource_group_name="your-resource-group-name"
+  ## region: The IBM Cloud region where the cluster will be/has been installed.
+  region="eu-de" (or other IBM Cloud regions)
+  ## ibmcloud_api_key: The IBM Cloud api token
+  ibmcloud_api_key="your-ibm-cloud-api-key"
+  ```
+  
 
 ​	Save and quit the file.
 
@@ -226,12 +225,13 @@ ibmcloud_api_key="your-ibm-cloud-api-key"
 - Open a terminal window and run the following commands:
 
 
-```shell
-    cd output/baseline-openshift/terraform 
-    terraform init
-    terraform plan
-    terraform apply
-```
+  ```shell
+      cd output/baseline-openshift/terraform 
+      terraform init
+      terraform plan
+      terraform apply
+  ```
+
 
 
 
@@ -380,7 +380,7 @@ mx2.64x512     64      512GB    16Gbps          UBUNTU_18_64   virtual       100
 mx2.8x64       8       64GB     16Gbps          UBUNTU_18_64   virtual       100GB     0B                  mx2            vpc-gen2 
 ```
 
-Put the desired flavor value in the file.
+Put the desired flavor in the file.
 
 For the OpenShift clusters the command is (https://cloud.ibm.com/docs/containers?topic=containers-clusters);
 
