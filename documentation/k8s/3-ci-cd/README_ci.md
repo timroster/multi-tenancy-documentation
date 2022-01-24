@@ -27,6 +27,20 @@ In your Secrets Manager service, create a new Arbitary value and paste in the IB
 
 ![](/documentation/images/cicd-k8s/CI-Backend/3.png)
 
+
+## Update the IKS cluster name in the multi-tenancy repo
+
+In your clone of https://github.com/IBM/multi-tenancy, navigate to the folder configuration/tenants.  This is the configuration file for each tenant of the SaaS application which the toolchains will deploy.  You should update both `tenant-a.json` and `tenant-b.json` with the name of the IKS cluster you are using for testing, and commit the changes:
+
+![](/documentation/images/cicd-k8s/CI-Backend/3a.png)
+
+N.B. the wizard to create the toolchains (below) also requests the name of the kubernetes cluster, but the resulting toolchain environmental property is not used by this sample.
+
+In folder configuration/global.json, update the values for the `RESOURCE_GROUP` and `REGION` where you created your Kubernetes cluster, and the container registry `NAMESPACE` you created for the container images.  It is not necessary to change the `IMAGES` section:
+
+![](/documentation/images/cicd-k8s/CI-Backend/3b.png)
+
+
 ## Create the CI Backend toolchain
 
 Login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region thenh `Create Toolchain` and select the `DevSecOps` filter:
@@ -52,7 +66,12 @@ Click the `CI` tile to launch the setup wizard, and complete the fields by refer
 ![](/documentation/images/cicd-k8s/CI-Backend/19.png)
 
 
-Add or update the Environmental Properties as follows:
+The CI pipeline for backend also requires access to the multi-tenancy repostory, in addition to the multi-tenancy-backend repostory which has already been configured by the wizard.  Click the blue `Add tool` button and manually add the GitHub repostory for multi-tenancy by following these steps:
+
+![](/documentation/images/cicd-k8s/CI-Backend/19a.png)
+![](/documentation/images/cicd-k8s/CI-Backend/19b.png)
+
+Add or update the toolchain's Environmental Properties as follows:
 
 ![](/documentation/images/cicd-k8s/CI-Backend/20.png)
 ![](/documentation/images/cicd-k8s/CI-Backend/21.png)
@@ -123,6 +142,10 @@ Click the CI tile to launch the setup wizard, and complete the fields by referin
 ![](/documentation/images/cicd-k8s/CI-Frontend/14.png)
 ![](/documentation/images/cicd-k8s/CI-Frontend/15.png)
 
+The CI pipeline for backend also requires access to the multi-tenancy repostory, in addition to the multi-tenancy-backend repostory which has already been configured by the wizard.  Click the blue `Add tool` button and manually add the GitHub repostory for multi-tenancy by following these steps:
+
+![](/documentation/images/cicd-k8s/CI-Frontend/15a.png)
+![](/documentation/images/cicd-k8s/CI-Frontend/15b.png)
 
 ## Create Dev Mode trigger & Update Environmental Properties for CI Backend
 
@@ -132,7 +155,7 @@ Enable a Dev mode trigger which permits a faster pipeline run which does not inv
 ![](/documentation/images/cicd-k8s/CI-Frontend/21.png)
 
 
-Add or update the Environmental Properties as follows:
+Add or update the toolchain's Environmental Properties as follows:
 
 ![](/documentation/images/cicd-k8s/CI-Frontend/16.png)
 ![](/documentation/images/cicd-k8s/CI-Frontend/17.png)
@@ -152,7 +175,6 @@ Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit 
 
 
 ## Testing the CI pipelines
-
 
 First test the backend CI pipelines by triggering a pipeline run, using `Manual Trigger`:
 
