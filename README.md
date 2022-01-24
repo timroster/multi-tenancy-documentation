@@ -1,4 +1,4 @@
-# Multi-tenancy Assets for IBM Partners to build SaaS (Documentation)
+# multi-tenancy-documentation 
 
 This repo is part of a set of repos to describe how IBM and Red Hat partners can develop SaaS applications hosted on the IBM Cloud, on-premises and other OpenShift deployments like AWS and Azure.
 
