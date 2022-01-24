@@ -241,7 +241,7 @@ ibmcloud_api_key="your-ibm-cloud-api-key"
 
 ### Number of Worker Pools and Worker Nodes
 
-In both OpenShift and IKS, the defaut configuration provides a cluster with 3 worker pools and 3 worker nodes per pool. If a smaller cluster is needed, for OpenShift the default value can be changed in sub folder "../baseline-openshift/terraform/variables.tf" through the "worker-count" variable.
+In both OpenShift and IKS, the defaut configuration provides a cluster with 3 worker pools and 3 worker nodes per pool. If a smaller cluster is needed, for **OpenShift** the default value can be changed in sub folder "../baseline-openshift/terraform/variables.tf" through the "worker-count" variable.
 
  
 
@@ -253,7 +253,7 @@ variable "worker_count" {
 }
 ```
 
-For IKS the default value can be changed in sub folder "../baseline-iks/terraform/variables.tf" through the "worker-count" same variable.
+For **IKS** the default value can be changed in sub folder "../baseline-iks/terraform/variables.tf" through the "worker-count" same variable.
 
 ### Changing the default cluster flavor
 
@@ -269,7 +269,7 @@ variable "cluster_flavor" {
 }
 ```
 
-To obtain the list of available flavors for IKS clusters proceed as shown;
+To obtain the list of available flavors for IKS clusters proceed as follows;
 
 ```shell
 ibmcloud login (or ibmcloud login --sso if not done already)
@@ -380,7 +380,7 @@ mx2.64x512     64      512GB    16Gbps          UBUNTU_18_64   virtual       100
 mx2.8x64       8       64GB     16Gbps          UBUNTU_18_64   virtual       100GB     0B                  mx2            vpc-gen2 
 ```
 
-Put the desired flavor in the file.
+Put the desired flavor value in the file.
 
 For the OpenShift clusters the command is (https://cloud.ibm.com/docs/containers?topic=containers-clusters);
 
