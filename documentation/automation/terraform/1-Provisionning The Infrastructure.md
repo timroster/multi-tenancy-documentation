@@ -8,7 +8,7 @@ The infrastructure consists on;
 
 - An OpenShift cluster inside the VPC with all the requirements.
 
-- A PostgreSQL database.
+- A Database for PostgreSQL managed service.
 
 - An instance of AppID service.
 
