@@ -189,7 +189,6 @@ npm install and npm run build
   - resource_group_name
   - ibmcloud_api_key
   - region
-  - name_prefix 
 
 ```properties
 ## resource_group_name: The name of the resource group
