@@ -11,6 +11,10 @@ docs_dir: documentation
 
 # Navigation
 nav:
+  - K8s:
+    - 3-ci-cd:
+      - CI: ./k8s/3-ci-cd/README_ci.md
+      - CD: ./k8s/3-ci-cd/README_cd.md
   - Automation with Terraform : 
     - The infrastructure: ./automation/terraform/1-Provisionning-The-Infrastructure.md
     - The minimal infrastructure: ./automation/terraform/2-Provisionning-The-Minimal-Infrastructure.md

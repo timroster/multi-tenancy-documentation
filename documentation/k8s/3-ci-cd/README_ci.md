@@ -4,7 +4,7 @@ DevSecOps integrates a set of security and compliance controls into the DevOps p
 
 This setion steps you through the creation of Continuous Integration (CI) toolchains using an IBM Cloud toolchain templates, which we will customize to deploy the sample application to an IBM Cloud Kuberenets cluster.
 
-## Before you begin
+### Before you begin
 
 Set up the following pre-requisites:
 
@@ -19,7 +19,7 @@ Set up the following pre-requisites:
 - Create a namespace in the IBM Cloud Container Registry (access via hamburger menu->Container Registry)
 
 
-## Create an IBM Cloud API key in Secrets Manager
+### Create an IBM Cloud API key in Secrets Manager
 
 In IBM Cloud, navigate to Manage->Access (IAM)->API Keys.  Create a new IBM Cloud API Key and make a note of it.
 
@@ -28,7 +28,7 @@ In your Secrets Manager service, create a new Arbitary value and paste in the IB
 ![](/documentation/images/cicd-k8s/CI-Backend/3.png)
 
 
-## Update the IKS cluster name in the multi-tenancy repo
+### Update the IKS cluster name in the multi-tenancy repo
 
 In your clone of https://github.com/IBM/multi-tenancy, navigate to the folder configuration/tenants.  This is the configuration file for each tenant of the SaaS application which the toolchains will deploy.  You should update both `tenant-a.json` and `tenant-b.json` with the name of the IKS cluster you are using for testing, and commit the changes:
 
@@ -41,7 +41,7 @@ In folder configuration/global.json, update the values for the `RESOURCE_GROUP` 
 ![](/documentation/images/cicd-k8s/CI-Backend/3b.png)
 
 
-## Create the CI Backend toolchain
+### Create the CI Backend toolchain
 
 Login to IBM Cloud and use the hamburger menu in the top left to navigate to `DevOps`.  Select the Resource Group and Region thenh `Create Toolchain` and select the `DevSecOps` filter:
 
