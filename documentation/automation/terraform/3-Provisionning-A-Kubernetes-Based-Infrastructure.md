@@ -15,25 +15,25 @@ The infrastructure consists on;
 
 The steps to follow to provision the infrastrure are,
 
-- Clone the following Github repo;
+#### Step 1: Clone the following Github repo;
 
   ```shell
   git clone https://github.com/cloud-native-toolkit/iascable`
   ```
 
-- Go to the cloned folder;
+#### Step 2: Go to the cloned folder;
 
   ```shell
   cd iascable
   ```
 
-- Install the required modules and packages
+#### Step 3: Install the required modules and packages
 
 ```shell
 npm install and npm run build
 ```
 
-- Create the examples/baseline-openshift.yaml Yaml file;
+#### Step 4: Create the examples/baseline-openshift.yaml Yaml file;
 
   ```yaml
   apiVersion: cloud.ibm.com/v1alpha1
@@ -59,13 +59,13 @@ npm install and npm run build
         ref: cluster-subnets
   ```
 
-- Log into IBM Cloud
+#### Step 5: Log into IBM Cloud
 
   ```bash
   ibmcloud login --sso
   ```
 
-- Run the following command from the original folder;
+#### Step 6: Run the following command from the original folder;
 
   ```shell
   ./iascable build -i ./examples/baseline-openshift.yaml
@@ -73,7 +73,8 @@ npm install and npm run build
 
   
 
-- Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
+#### Step 7: Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
+
   - resource_group_name
   - ibmcloud_api_key
   - region
@@ -94,7 +95,7 @@ npm install and npm run build
 
 ​	Save and quit the file.
 
-- Edit the "credential.properties" file and complete it as the following;
+#### Step 8: Edit the "credential.properties" file and complete it as the following;
 
   ```properties
   # Add the values for the Credentials to access the IBM Cloud
@@ -113,7 +114,7 @@ npm install and npm run build
 
   Save and quit the file.
 
-- Open a terminal window and run the following commands:
+#### Step 9: Open a terminal window and run the following commands:
 
 
 ```shell
@@ -129,25 +130,25 @@ npm install and npm run build
 
 The steps to follow to provision the infrastrure are,
 
-- Clone the following Github repo;
+#### Step 1: Clone the following Github repo;
 
   ```shell
   git clone https://github.com/cloud-native-toolkit/iascable`
   ```
 
-- Go to the cloned folder;
+#### Step 2: Go to the cloned folder;
 
   ```shell
   cd iascable
   ```
 
-- Install the required modules and packages	
+#### Step 3: Install the required modules and packages	
 
   ```shell
   npm install and npm run build
   ```
 
-- Create the examples/baseline-iks.yaml Yaml file;
+#### Step 4: Create the examples/baseline-iks.yaml Yaml file;
 
   ```yaml
   apiVersion: cloud.ibm.com/v1alpha1
@@ -173,20 +174,21 @@ The steps to follow to provision the infrastrure are,
         ref: cluster-subnets
   ```
 
-- Log into IBM Cloud
+#### Step 5: Log into IBM Cloud
 
   ```bash
   ibmcloud login --sso
   ```
 
-- Run the following command from the original folder;
+#### Step 6: Run the following command from the original folder;
 
   ```shell
   ./iascable build -i ./examples/baseline-iks.yaml
   ```
 
 
-- Edit the "/iascable/output/baseline-iks.auto.tfvars" and enter values for the following parameters;
+#### Step 7: Edit the "/iascable/output/baseline-iks.auto.tfvars" and enter values for the following parameters;
+
   - resource_group_name
   - ibmcloud_api_key
   - region
@@ -203,7 +205,7 @@ The steps to follow to provision the infrastrure are,
 
 ​	Save and quit the file.
 
-- Edit the "credential.properties" file and complete it as the following;
+#### Step 8: Edit the "credential.properties" file and complete it as the following;
 
   ```properties
   # Add the values for the Credentials to access the IBM Cloud
@@ -222,7 +224,7 @@ The steps to follow to provision the infrastrure are,
 
   Save and quit the file.
 
-- Open a terminal window and run the following commands:
+#### Step 9: Open a terminal window and run the following commands:
 
 
   ```shell
@@ -235,11 +237,11 @@ The steps to follow to provision the infrastrure are,
 
 
 
-## Changing some default variables
+### Changing some default variables
 
 
 
-### Number of Worker Pools and Worker Nodes
+#### Number of Worker Pools and Worker Nodes
 
 In both OpenShift and IKS, the defaut configuration provides a cluster with 3 worker pools and 3 worker nodes per pool. If a smaller cluster is needed, for **OpenShift** the default value can be changed in sub folder "../baseline-openshift/terraform/variables.tf" through the "worker-count" variable.
 
@@ -255,7 +257,7 @@ variable "worker_count" {
 
 For **IKS** the default value can be changed in sub folder "../baseline-iks/terraform/variables.tf" through the "worker-count" same variable.
 
-### Changing the default cluster flavor
+#### Changing the default cluster flavor
 
 For both OCP/IKS, the default values for the cluster falvor are set in the same "variables.tf" as mentioned above. For a change of the cluster flavor, modify the  "cluster_flavor" variable (https://cloud.ibm.com/docs/containers?topic=containers-clusters).
 

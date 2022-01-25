@@ -15,25 +15,25 @@ The infrastructure consists on;
 
 The steps to follow to provision the infrastrure are,
 
-- Clone the following Github repo;
+#### Step 1: Clone the following Github repo;
 
   ```shell
   git clone https://github.com/cloud-native-toolkit/iascable`
   ```
 
-- Go to the cloned folder;
+#### Step 2: Go to the cloned folder;
 
   ```shell
   cd iascable
   ```
 
-- Install the required modules and packages
+#### Step 3: Install the required modules and packages
 
 ```shell
 npm install and npm run build
 ```
 
-- Create the examples/baseline-openshift.yaml Yaml file;
+#### Step 4: Create the examples/baseline-openshift.yaml Yaml file;
 
   ```yaml
   apiVersion: cloud.ibm.com/v1alpha1
@@ -59,19 +59,20 @@ npm install and npm run build
         ref: cluster-subnets
   ```
 
-- Log into IBM Cloud
+#### Step 5: Log into IBM Cloud
 
   ```bash
   ibmcloud login --sso
   ```
 
-- Run the following command from the original folder;
+#### Step 6: Run the following command from the original folder;
 
 ```shell
 ./iascable build -i ./examples/baseline-openshift.yaml
 ```
 
-- Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
+#### Step 7: Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
+
   - resource_group_name
   - ibmcloud_api_key
   - region
@@ -92,9 +93,9 @@ ibmcloud_api_key="your-ibm-cloud-api-key"
 namespace_name="your-namesspace-name"
 ```
 
-​	Save and quit the file.
+​Save and quit the file.
 
-- Edit the "credential.properties" file and complete it as the following;
+#### Step 8: Edit the "credential.properties" file and complete it as the following;
 
   ```properties
   # Add the values for the Credentials to access the IBM Cloud
@@ -113,7 +114,7 @@ namespace_name="your-namesspace-name"
 
   Save and quit the file.
 
-- Open a terminal window and run the following command:
+#### Step 9: Open a terminal window and run the following command:
 
 
 ```shell
