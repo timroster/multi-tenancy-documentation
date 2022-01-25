@@ -234,14 +234,10 @@ The steps to follow to provision the infrastrure are,
       terraform apply
   ```
 
-
-
-
 ### Changing some default variables
 
 
-
-#### Number of Worker Pools and Worker Nodes
+#### 1. Number of Worker Pools and Worker Nodes
 
 In both OpenShift and IKS, the defaut configuration provides a cluster with 3 worker pools and 3 worker nodes per pool. If a smaller cluster is needed, for **OpenShift** the default value can be changed in sub folder "../baseline-openshift/terraform/variables.tf" through the "worker-count" variable.
 
@@ -257,10 +253,9 @@ variable "worker_count" {
 
 For **IKS** the default value can be changed in sub folder "../baseline-iks/terraform/variables.tf" through the "worker-count" same variable.
 
-#### Changing the default cluster flavor
+#### 2. Changing the default cluster flavor
 
 For both OCP/IKS, the default values for the cluster falvor are set in the same "variables.tf" as mentioned above. For a change of the cluster flavor, modify the  "cluster_flavor" variable (https://cloud.ibm.com/docs/containers?topic=containers-clusters).
-
 
 
 ```properties
