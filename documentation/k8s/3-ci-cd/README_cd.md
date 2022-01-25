@@ -78,9 +78,9 @@ Also, copy the existing `Manual CD Trigger` and use it to create a `Manual CD Tr
 ![](/documentation/images/cicd-k8s/CD/24.png)
 ![](/documentation/images/cicd-k8s/CD/25.png)
 
-## Testing the CD pipeline
+## Testing the CD pipeline (Optional)
 
-If you have successfully executed the CI pipelines for backend and frontend, you can test the CD pipeline.
+In this section, you can make a quick test of the CD pipeline.
 
 First you'll need to execute the `Manual Promotion Trigger`.  This creates a new branch and a merge request in the GitLab Inventory Repository.  You should approve that merge request before proceeding.  You can find a link to the merge request in the output of the pipeline run:
 

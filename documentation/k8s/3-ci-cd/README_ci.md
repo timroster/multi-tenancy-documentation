@@ -174,7 +174,9 @@ Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit 
 ![](/documentation/images/cicd-k8s/CI-Frontend/19.png)
 
 
-## Testing the CI pipelines
+## Testing the CI pipelines (Optional)
+
+In this section, you can make a quick test of the CI pipelines.
 
 First test the backend CI pipelines by triggering a pipeline run, using `Manual Trigger`.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
