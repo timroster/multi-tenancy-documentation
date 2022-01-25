@@ -144,7 +144,7 @@ Click the CI tile to launch the setup wizard, and complete the fields by referin
 ![](/documentation/images/cicd-k8s/CI-Frontend/14.png)
 ![](/documentation/images/cicd-k8s/CI-Frontend/15.png)
 
-The CI pipeline for backend also requires access to the multi-tenancy repostory, in addition to the multi-tenancy-backend repostory which has already been configured by the wizard.  Click the blue `Add tool` button and manually add the GitHub repostory for multi-tenancy by following these steps:
+The CI pipeline for frontend also requires access to the multi-tenancy repostory, in addition to the multi-tenancy-backend repostory which has already been configured by the wizard.  Click the blue `Add tool` button and manually add the GitHub repostory for multi-tenancy by following these steps:
 
 ![](/documentation/images/cicd-k8s/CI-Frontend/15a.png)
 ![](/documentation/images/cicd-k8s/CI-Frontend/15b.png)
