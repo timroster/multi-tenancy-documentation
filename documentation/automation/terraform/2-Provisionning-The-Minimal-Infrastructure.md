@@ -1,4 +1,4 @@
-# Provisionning A Kuberntese Infrastructure
+# Provisionning The Minimal Infrastructure
 
 This document describes how to provision the back-end infrastructure for your project.
 
@@ -7,33 +7,33 @@ As a prerequisite, Terraform should be installed on the machine used for the fol
 The infrastructure consists on;
 
 - A "Virtual Private Cloud" (VPC) on IBM Cloud.
-- Either an OpenShift or an IKS cluster inside the VPC with all the requirements (e.g.: subnets, cidr...).
-- A Database for PostgreSQL managed service (to be implemented).
-- An instance of AppID service (to be implemented).
+- Either an OpenShift or an IKS cluster inside the VPC with all the requirements.
+- A Database for PostgreSQL managed service.
+- An instance of AppID service.
 
-## Setting up the infrastructure - OpenShift Cluster
+### Setting up the infrastructure - OpenShift Cluster
 
 The steps to follow to provision the infrastrure are,
 
-- Clone the following Github repo;
+#### Step 1: Clone the following Github repo;
 
   ```shell
   git clone https://github.com/cloud-native-toolkit/iascable`
   ```
 
-- Go to the cloned folder;
+#### Step 2: Go to the cloned folder;
 
   ```shell
   cd iascable
   ```
 
-- Install the required modules and packages
+#### Step 3: Install the required modules and packages
 
 ```shell
 npm install and npm run build
 ```
 
-- Create the examples/baseline-openshift.yaml Yaml file;
+#### Step 4: Create the examples/baseline-openshift.yaml Yaml file;
 
   ```yaml
   apiVersion: cloud.ibm.com/v1alpha1
@@ -59,42 +59,43 @@ npm install and npm run build
         ref: cluster-subnets
   ```
 
-- Log into IBM Cloud
+#### Step 5: Log into IBM Cloud
 
   ```bash
   ibmcloud login --sso
   ```
 
-- Run the following command from the original folder;
+#### Step 6: Run the following command from the original folder;
 
-  ```shell
-  ./iascable build -i ./examples/baseline-openshift.yaml
-  ```
+```shell
+./iascable build -i ./examples/baseline-openshift.yaml
+```
 
-  
+#### Step 7: Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
 
-- Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
   - resource_group_name
   - ibmcloud_api_key
   - region
   - name_prefix 
   - namespace_name
-  
-  ```properties
-  ## resource_group_name: The name of the resource group
-  resource_group_name="your-resource-group-name"
-  ## region: The IBM Cloud region where the cluster will be/has been installed.
-  region="eu-de" (or other IBM Cloud regions)
-  ## ibmcloud_api_key: The IBM Cloud api token
-  ibmcloud_api_key="your-ibm-cloud-api-key"
-  ## namespace_name: The namespace that should be created
-  namespace_name="your-namesspace-name"
-  ```
-  
 
-​	Save and quit the file.
+```properties
+## resource_group_name: The name of the resource group
+resource_group_name="your-resource-group-name"
 
-- Edit the "credential.properties" file and complete it as the following;
+## region: The IBM Cloud region where the cluster will be/has been installed.
+region="eu-de" (or other IBM Cloud regions)
+
+## ibmcloud_api_key: The IBM Cloud api token
+ibmcloud_api_key="your-ibm-cloud-api-key"
+
+## namespace_name: The namespace that should be created
+namespace_name="your-namesspace-name"
+```
+
+​Save and quit the file.
+
+#### Step 8: Edit the "credential.properties" file and complete it as the following;
 
   ```properties
   # Add the values for the Credentials to access the IBM Cloud
@@ -113,7 +114,7 @@ npm install and npm run build
 
   Save and quit the file.
 
-- Open a terminal window and run the following commands:
+#### Step 9: Open a terminal window and run the following command:
 
 
 ```shell
@@ -141,11 +142,11 @@ The steps to follow to provision the infrastrure are,
   cd iascable
   ```
 
-- Install the required modules and packages	
+- Install the required modules and packages
 
-  ```shell
-  npm install and npm run build
-  ```
+```shell
+npm install and npm run build
+```
 
 - Create the examples/baseline-iks.yaml Yaml file;
 
@@ -181,25 +182,27 @@ The steps to follow to provision the infrastrure are,
 
 - Run the following command from the original folder;
 
-  ```shell
-  ./iascable build -i ./examples/baseline-iks.yaml
-  ```
+```shell
+./iascable build -i ./examples/baseline-iks.yaml
+```
 
-
-- Edit the "/iascable/output/baseline-iks.auto.tfvars" and enter values for the following parameters;
+- Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
   - resource_group_name
   - ibmcloud_api_key
   - region
-  
-  ```properties
-  ## resource_group_name: The name of the resource group
-  resource_group_name="your-resource-group-name"
-  ## region: The IBM Cloud region where the cluster will be/has been installed.
-  region="eu-de" (or other IBM Cloud regions)
-  ## ibmcloud_api_key: The IBM Cloud api token
-  ibmcloud_api_key="your-ibm-cloud-api-key"
-  ```
-  
+  - name_prefix 
+
+```properties
+## resource_group_name: The name of the resource group
+resource_group_name="your-resource-group-name"
+
+## region: The IBM Cloud region where the cluster will be/has been installed.
+region="eu-de" (or other IBM Cloud regions)
+
+## ibmcloud_api_key: The IBM Cloud api token
+ibmcloud_api_key="your-ibm-cloud-api-key"
+
+```
 
 ​	Save and quit the file.
 
@@ -222,16 +225,15 @@ The steps to follow to provision the infrastrure are,
 
   Save and quit the file.
 
-- Open a terminal window and run the following commands:
+- Open a terminal window and run the following command:
 
 
-  ```shell
-      cd output/baseline-openshift/terraform 
-      terraform init
-      terraform plan
-      terraform apply
-  ```
-
+```shell
+    cd output/baseline-openshift/terraform 
+    terraform init
+    terraform plan
+    terraform apply
+```
 
 
 
@@ -241,7 +243,7 @@ The steps to follow to provision the infrastrure are,
 
 ### Number of Worker Pools and Worker Nodes
 
-In both OpenShift and IKS, the defaut configuration provides a cluster with 3 worker pools and 3 worker nodes per pool. If a smaller cluster is needed, for **OpenShift** the default value can be changed in sub folder "../baseline-openshift/terraform/variables.tf" through the "worker-count" variable.
+In both OpenShift and IKS, the defaut configuration provides a cluster with 3 worker pools and 3 worker nodes per pool. If a smaller cluster is needed, for OpenShift the default value can be changed in sub folder "../baseline-openshift/terraform/variables.tf" through the "worker-count" variable.
 
  
 
@@ -253,7 +255,7 @@ variable "worker_count" {
 }
 ```
 
-For **IKS** the default value can be changed in sub folder "../baseline-iks/terraform/variables.tf" through the "worker-count" same variable.
+For IKS the default value can be changed in sub folder "../baseline-iks/terraform/variables.tf" through the "worker-count" same variable.
 
 ### Changing the default cluster flavor
 
@@ -269,7 +271,7 @@ variable "cluster_flavor" {
 }
 ```
 
-To obtain the list of available flavors for IKS clusters proceed as follows;
+To obtain the list of available flavors for IKS clusters proceed as shown;
 
 ```shell
 ibmcloud login (or ibmcloud login --sso if not done already)

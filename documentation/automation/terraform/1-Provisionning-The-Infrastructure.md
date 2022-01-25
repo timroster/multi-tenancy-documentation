@@ -14,24 +14,24 @@ The infrastructure consists on;
 
   
 
-## Setting up the infrastructure
+### Setting up the infrastructure
 
 The steps to follow to provision the infrastrure are,
 
-- Open a terminal window in the current directory where the code reside.
+#### Step 1: Open a terminal window in the current directory where the code reside.
 - Log into IBM Cloud
 
 ```bash
 ibmcloud login --sso
 ```
 
-- Make a copy of "credentials.template" file and name it as "credential.properties".	
+#### Step 2: Make a copy of "credentials.template" file and name it as "credential.properties".	
 
 ```shell
 cp credentials.template credential.properties
 ```
 
-- Edit the "credentials.properties" file and put your IBM Cloud Api Key.
+#### Step 3: Edit the "credentials.properties" file and put your IBM Cloud Api Key.
 
 ```properties
 # Add the values for the Credentials to access the IBM Cloud
@@ -40,7 +40,7 @@ cp credentials.template credential.properties
 ibmcloud.api.key="your-api-key"
 ```
 
-Save and exit the file.
+#### Step 4: Save and exit the file.
 
 - Open a terminal window and run the following command:
 
