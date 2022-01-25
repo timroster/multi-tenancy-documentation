@@ -255,6 +255,7 @@ The steps to follow to provision the infrastrure are,
 - IKS cluster provisoned with Terraform
 
 
+
 ## Changing some default variables
 
 
