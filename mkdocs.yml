@@ -11,6 +11,10 @@ docs_dir: documentation
 
 # Navigation
 nav:
+  - Automation with Terraform : 
+    - The infrastructure: ./automation/terraform/1-Provisionning-The-Infrastructure.md
+    - The minimal infrastructure: ./automation/terraform/2-Provisionning-The-Minimal-Infrastructure.md
+    - A Kubernetes based intrastructure: ./automation/terraform/3-Provisionning-A-Kubernetes-Based-Infrastructure.md
   - Overview:
     - Introduction: ./README_introduction.md
   - SaaS Serverless Learning Path: 

@@ -14,7 +14,7 @@ The infrastructure consists on;
 
   
 
-## Setting up the infrastructure
+### Setting up the infrastructure
 
 The steps to follow to provision the infrastrure are,
 
