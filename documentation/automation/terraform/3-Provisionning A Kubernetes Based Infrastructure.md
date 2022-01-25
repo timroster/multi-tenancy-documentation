@@ -234,23 +234,19 @@ The steps to follow to provision the infrastrure are,
 
 
 
-<img src="/Users/alainairom/Devs/multi-tenancy-documentation/documentation/images/automation/VPC-Infrastructure-by-Terraform-1.png" alt="VPC-Infrastructure-by-Terraform-1" style="zoom:50%;" />
+<img src="/Users/alainairom/Devs/multi-tenancy-documentation/documentation/images/initial_automated_setup_for_serverless/VPC-Infrastructure-by-Terraform-1.png" alt="VPC-Infrastructure-by-Terraform-1" style="zoom:50%;" />
 
 - VPC & Infrastructure provisioned by Terraform 
 
-
-
-<img src="/Users/alainairom/Devs/multi-tenancy-documentation/documentation/images/automation/VPC-Infrastructure-by-Terraform-2.png" alt="VPC-Infrastructure-by-Terraform-2" style="zoom:50%;" />
+![VPC-Infrastructure-by-Terraform-2](/Users/alainairom/Devs/multi-tenancy-documentation/documentation/images/initial_automated_setup_for_serverless/VPC-Infrastructure-by-Terraform-2.png)
 
 - VPC features
 
-<img src="/Users/alainairom/Devs/multi-tenancy-documentation/documentation/images/automation/VPC-Infrastructure-by-Terraform-Subnets.png" alt="VPC-Infrastructure-by-Terraform-Subnets" style="zoom:50%;" />
+![VPC-Infrastructure-by-Terraform-Subnets](/Users/alainairom/Devs/multi-tenancy-documentation/documentation/images/initial_automated_setup_for_serverless/VPC-Infrastructure-by-Terraform-Subnets.png)
 
 - VPC subnets
 
-
-
-![IKS-Infrastructure-by-Terraform-1](/Users/alainairom/Devs/multi-tenancy-documentation/documentation/images/automation/IKS-Infrastructure-by-Terraform-1.png)
+![IKS-Infrastructure-by-Terraform-1](/Users/alainairom/Devs/multi-tenancy-documentation/documentation/images/initial_automated_setup_for_serverless/IKS-Infrastructure-by-Terraform-1.png)
 
 - IKS cluster provisoned with Terraform
 
