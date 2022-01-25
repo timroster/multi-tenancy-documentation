@@ -5,7 +5,7 @@ DevSecOps integrates a set of security and compliance controls into the DevOps p
 This setion steps you through the creation of Continuous Integration (CD) toolchains using an IBM Cloud toolchain templates, which we will customize to deploy the sample application to an IBM Cloud Kubernetes cluster.
 
 
-## Before you begin
+### Before you begin
 
 Set up the following pre-requisites:
 
@@ -19,13 +19,13 @@ Set up the following pre-requisites:
 - An IBM Cloud Kubernetes Service cluster or an IBM Cloud OpenShift cluster (the same one you used for CI pipelines)
 - Create a namespace in the IBM Cloud Container Registry (the same one you used for CI pipelines)
 
-## Create the toolchain
+### Create the toolchain
 
 Click `Create Toolchain` and select the `DevSecOps` filter:
 
 ![](/documentation/images/cicd-k8s/CI-Backend/4.png)
 
-## Create CD toolchain
+### Create CD toolchain
 
 Click the `CD` tile to launch the setup wizard, and complete the fields by refering to the following screenshots (refering to your own GitHub repos):
 
@@ -48,7 +48,7 @@ Click the `CD` tile to launch the setup wizard, and complete the fields by refer
 ![](/documentation/images/cicd-k8s/CD/17.png)
 
 
-## Create Dev Mode trigger & Update Environmental Properties for CD
+### Create Dev Mode trigger & Update Environmental Properties for CD
 
 The environmental properties for the CD pipeline should be updated as follows (using your own GitHub multi-tenancy/backend/frontend repos):
 
@@ -78,7 +78,7 @@ Also, copy the existing `Manual CD Trigger` and use it to create a `Manual CD Tr
 ![](/documentation/images/cicd-k8s/CD/24.png)
 ![](/documentation/images/cicd-k8s/CD/25.png)
 
-## Testing the CD pipeline (Optional)
+### Testing the CD pipeline (Optional)
 
 In this section, you can make a quick test of the CD pipeline.
 
