@@ -28,17 +28,19 @@ In your Secrets Manager service, create a new Arbitary value and paste in the IB
 ![](/documentation/images/cicd-k8s/CI-Backend/3.png)
 
 
-## Update the IKS cluster name in the multi-tenancy repo
+## Update the sample application configuration
 
 In your clone of https://github.com/IBM/multi-tenancy, navigate to the folder configuration/tenants.  This is the configuration file for each tenant of the SaaS application which the toolchains will deploy.  You should update both `tenant-a.json` and `tenant-b.json` with the name of the IKS cluster you are using for testing, and commit the changes:
 
 ![](/documentation/images/cicd-k8s/CI-Backend/3a.png)
 
-N.B. the wizard to create the toolchains (below) also requests the name of the kubernetes cluster, but the resulting toolchain environmental property is not used by this sample.
+N.B. the wizard to create the toolchains (below) also requests the name of the kubernetes cluster, but the resulting toolchain environmental property is not used by this sample.  Also note the definition of `SERVICE_KEY_NAME` fields for the AppId and Postgres cloud services.  If you have previously deployed the sample code to serverless, the deployment scripts should have created appropriate API keys.
 
-In folder configuration/global.json, update the values for the `RESOURCE_GROUP` and `REGION` where you created your Kubernetes cluster, and the container registry `NAMESPACE` you created for the container images.  It is not necessary to change the `IMAGES` section:
+In folder configuration/global.json, update the values for the `RESOURCE_GROUP` and `REGION` where you created your Kubernetes cluster, and the container registry `NAMESPACE` you created for the container images:  
 
 ![](/documentation/images/cicd-k8s/CI-Backend/3b.png)
+
+It is not necessary to change the `IMAGES` section.
 
 
 ## Create the CI Backend toolchain
