@@ -282,7 +282,7 @@ variable "worker_count" {
 }
 ```
 
-For **IKS** the default value can be changed in sub folder "../baseline-iks/terraform/variables.tf" through the "worker-count" same variable.
+For **IKS** the default value can be changed in sub folder **"../baseline-iks/terraform/variables.tf"** through the "worker-count" same variable.
 
 ##### Step 3.2: Changing the default cluster flavor
 
