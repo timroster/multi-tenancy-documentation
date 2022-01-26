@@ -11,11 +11,11 @@ The infrastructure consists on;
 - A Database for PostgreSQL managed service (to be implemented).
 - An instance of AppID service (to be implemented).
 
-### Setting up the infrastructure - OpenShift Cluster
+#### Step 1: Setting up the infrastructure - OpenShift Cluster
 
 The steps to follow to provision the infrastrure are,
 
-#### Step 1: Clone the following Github repo
+##### Step 1.1: Clone the following Github repository
 
   ```shell
   git clone https://github.com/cloud-native-toolkit/iascable`
@@ -33,7 +33,7 @@ The steps to follow to provision the infrastrure are,
 npm install and npm run build
 ```
 
-#### Step 2: Create the examples/baseline-openshift.yaml Yaml file
+##### Step 1.2: Create the examples/baseline-openshift.yaml Yaml file
 
   ```yaml
   apiVersion: cloud.ibm.com/v1alpha1
@@ -59,7 +59,7 @@ npm install and npm run build
         ref: cluster-subnets
   ```
 
-#### Step 3: Login into IBM Cloud
+##### Step 1.3: Login into IBM Cloud
 - Log into IBM Cloud
 
   ```bash
@@ -70,13 +70,13 @@ npm install and npm run build
   ibmcloud login --sso
   ```
 
-- Run the following command from the original folder;
+##### Step 1.4: Generate the required YAML file
 
   ```shell
   ./iascable build -i ./examples/baseline-openshift.yaml
   ```
 
-  
+##### Step 1.5: Set Terraform and properties variables
 
 - Edit the "/iascable/output/baseline-openshift.auto.tfvars" and enter values for the following parameters;
   - resource_group_name
@@ -118,6 +118,8 @@ npm install and npm run build
 
   Save and quit the file.
 
+##### Step 1.6: Provision the VPC & OpenShift cluster with Terraform
+
 - Open a terminal window and run the following commands:
 
 
@@ -130,11 +132,11 @@ npm install and npm run build
 
 
 
-## Setting up the infrastructure - IKS (IBM Kubernetes Services) Cluster
+#### Step 2: Setting up the infrastructure - IKS (IBM Kubernetes Services) Cluster
 
 The steps to follow to provision the infrastrure are,
 
-- Clone the following Github repo;
+##### Step 2.1: Clone the following Github repository
 
   ```shell
   git clone https://github.com/cloud-native-toolkit/iascable`
@@ -152,7 +154,7 @@ The steps to follow to provision the infrastrure are,
   npm install and npm run build
   ```
 
-- Create the examples/baseline-iks.yaml Yaml file;
+##### Step 2.2: Create the examples/baseline-iks.yaml Yaml file;
 
   ```yaml
   apiVersion: cloud.ibm.com/v1alpha1
@@ -178,18 +180,23 @@ The steps to follow to provision the infrastrure are,
         ref: cluster-subnets
   ```
 
-- Log into IBM Cloud
+##### Step 2.3: Log into IBM Cloud
 
   ```bash
   ibmcloud login --sso
   ```
+  or
+  ```bash
+  ibmcloud login
+  ```
 
-- Run the following command from the original folder;
+##### Step 2.4: Generate the required YAML file
 
   ```shell
   ./iascable build -i ./examples/baseline-iks.yaml
   ```
 
+##### Step 2.5: Set Terraform and properties variables
 
 - Edit the "/iascable/output/baseline-iks.auto.tfvars" and enter values for the following parameters;
   - resource_group_name
@@ -227,7 +234,7 @@ The steps to follow to provision the infrastrure are,
 
   Save and quit the file.
 
-- Open a terminal window and run the following commands:
+##### Step 2.6: Provision the VPC & IKS cluster with Terraform
 
 
   ```shell
@@ -257,11 +264,11 @@ The steps to follow to provision the infrastrure are,
 
 
 
-## Changing some default variables
+#### Step 3: Optional - Changing some default variables
 
 
 
-### Number of Worker Pools and Worker Nodes
+##### Step 3.1: Set the number of Worker Pools and Worker Nodes
 
 In both OpenShift and IKS, the defaut configuration provides a cluster with 3 worker pools and 3 worker nodes per pool. If a smaller cluster is needed, for **OpenShift** the default value can be changed in sub folder "../baseline-openshift/terraform/variables.tf" through the "worker-count" variable.
 
@@ -277,7 +284,7 @@ variable "worker_count" {
 
 For **IKS** the default value can be changed in sub folder "../baseline-iks/terraform/variables.tf" through the "worker-count" same variable.
 
-### Changing the default cluster flavor
+##### Step 3.2: Changing the default cluster flavor
 
 For both OCP/IKS, the default values for the cluster falvor are set in the same "variables.tf" as mentioned above. For a change of the cluster flavor, modify the  "cluster_flavor" variable (https://cloud.ibm.com/docs/containers?topic=containers-clusters).
 
