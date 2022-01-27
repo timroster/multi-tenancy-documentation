@@ -32,6 +32,7 @@ nav:
     - Externalization:
       - Backend: ./thomas/externalization-of-variables-in-backend-microservices.md
       - Frontend: ./thomas/externalization-of-variables-in-frontend-microservices.md
+    - Authentication flow: ./thomas/authentication-flow-appip-backend-frontend.md
   - Overview:
     - Introduction: ./README_introduction.md
   - SaaS Serverless Learning Path: 
