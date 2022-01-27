@@ -31,6 +31,7 @@ nav:
       - Frontend service container: ./thomas/frontend-service-container.md
     - Externalization:
       - Backend: ./thomas/externalization-of-variables-in-backend-microservices.md
+      - Frontend: ./thomas/externalization-of-variables-in-frontend-microservices.md
   - Overview:
     - Introduction: ./README_introduction.md
   - SaaS Serverless Learning Path: 
