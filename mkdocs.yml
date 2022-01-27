@@ -11,14 +11,19 @@ docs_dir: documentation
 
 # Navigation
 nav:
-  - K8s:
+  - Adam :
     - 3-ci-cd:
       - CI: ./k8s/3-ci-cd/README_ci.md
       - CD: ./k8s/3-ci-cd/README_cd.md
-  - Automation with Terraform : 
+  - Alan : 
     - The infrastructure: ./automation/terraform/1-Provisionning-The-Infrastructure.md
     - The minimal infrastructure: ./automation/terraform/2-Provisionning-The-Minimal-Infrastructure.md
     - A Kubernetes based intrastructure: ./automation/terraform/3-Provisionning-A-Kubernetes-Based-Infrastructure.md
+  - Thomas: 
+    - Initial automated setup for serverless:
+      - Setup: ./serverless/2-initial_automated_setup_for_serverless/README_initial_setup.md
+      - Application overview: ./serverless/2-initial_automated_setup_for_serverless/README_onboarding.md
+      - Clean up: ./serverless/2-initial_automated_setup_for_serverless/README_clean_up.md
   - Overview:
     - Introduction: ./README_introduction.md
   - SaaS Serverless Learning Path: 
