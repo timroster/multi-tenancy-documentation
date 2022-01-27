@@ -5,7 +5,7 @@ The numbering visualizes the simplified invocation sequence.
 
 ![](../images/thomas/authentication-flow-architecture-serverless-01.png)
 
-1. The web application URL is invoked by an user in the browser and the browsers loads the web application from the Nginx server.
+1. The web application URL is invoked by an user in the browser and the browser loads the web application from the Nginx server.
 2. The web application redirects the user to the App ID login page and he inserts his ID and password.
 3. App ID validates the user and the application invocation.
 4. App ID provides an `id token` and `access token` in an JWT format.
