@@ -10,13 +10,14 @@ Set up the following pre-requisites:
 
 - Ensure you have cloned the following repos to your GitHub account:
 
-    https://github.com/IBM/multi-tenancy
-    https://github.com/IBM/multi-tenancy-backend
-    https://github.com/IBM/multi-tenancy-frontend
+* https://github.com/IBM/multi-tenancy
+* https://github.com/IBM/multi-tenancy-backend
+* https://github.com/IBM/multi-tenancy-frontend
 
 - An instance of the IBM Cloud Secrets Manager service
 - An IBM Cloud Kubernetes Service cluster or an IBM Cloud OpenShift cluster
 - Create a namespace in the IBM Cloud Container Registry (access via hamburger menu->Container Registry)
+- Create Postgres and AppId service instances, and service API keys.  See section [Creation of managed IBM Cloud Services]()
 
 
 ### Create an IBM Cloud API key in Secrets Manager
@@ -178,7 +179,7 @@ Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit 
 
 ## Testing the CI pipelines (Optional)
 
-In this section, you can make a quick test of the CI pipelines.
+In this section, you can make a quick test of the CI pipelines.  For a more detailed explanation of how to use the pipelines to onboard a new tenant, see the [Observability]() section.
 
 First test the backend CI pipelines by triggering a pipeline run, using `Manual Trigger`.  Click the pipeline run name to view the progress.  After a few minutes, a successful result should look like this:
 
