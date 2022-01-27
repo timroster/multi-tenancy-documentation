@@ -28,6 +28,7 @@ nav:
       - Frontend service code: ./thomas/frontend-service-code.md
       - Frontend use of the App ID SDK: ./thomas/frontend-use-of-the-appid-javascript-sdk.md
       - Frontend access backend endpoint: ./thomas/frontend-access-the-backend-endpoint.md
+      - Frontend service container: ./thomas/frontend-service-container.md
   - Overview:
     - Introduction: ./README_introduction.md
   - SaaS Serverless Learning Path: 
