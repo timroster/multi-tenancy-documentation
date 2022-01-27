@@ -1,8 +1,8 @@
 # Frontend service code
 
-The is fontend web client displays a catalog of items. You need to authenicate and then you can navigate to a catalog. The data for the catalog is provided by a backend microservice.
+The frontend web client displays a catalog. You need to authenticate and then you can navigate to that catalog. The data for the catalog is provided by a backend microservice.
 
-The frontend needs to be integrated with App ID for the authenication and authorization to invoke the backend microservice.
+The frontend needs to be integrated with App ID for the authentication and authorization to invoke the backend microservice.
 
 The frontend is build on following components/frameworks. 
 
@@ -15,4 +15,4 @@ Useful to know:
 
 * [How to use axios to invoke HTTPS endpoints?](https://github.com/axios/axios)
 * [How to implement await in JavaScript?](https://basarat.gitbook.io/typescript/future-javascript/async-await) When we use the App ID JavaScript client SDK
-* [How to get the User details with the App ID client JavaScript SDK](https://ibm-cloud-security.github.io/appid-clientsdk-js/AppID.html#getUserInfo)
+* [How to get the User with the App ID client JavaScript SDK?](https://ibm-cloud-security.github.io/appid-clientsdk-js/AppID.html#getUserInfo)

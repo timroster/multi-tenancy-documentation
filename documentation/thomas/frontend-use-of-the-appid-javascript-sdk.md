@@ -1,32 +1,21 @@
-# Using App ID in a Vue.js frontend
+# Frontend use of the App ID client JavaScript SDK
 
-### Add App ID client SDK
+This part of the documentation give you a basic understand how the App ID client SDK is integrated to Frontend.
 
-* [App ID client SDK for Single WebPage](https://github.com/ibm-cloud-security/appid-clientsdk-js)
-* [How to implement await in JavaScript](https://basarat.gitbook.io/typescript/future-javascript/async-await)
-* [Client SDK JavaScript](https://ibm-cloud-security.github.io/appid-clientsdk-js/AppID.html#getUserInfo)
-
-```sh
-npm install ibmcloud-appid-js
-```
-
-To use refresh token, you need to enable refresh token, as you see in the image below.
-
-![](./images/token-configuration.png)
+* The full functionality of the WebClient will be only available after a successful authenication
 
 ### Use the App ID client SDK in Vue.js
 
 Relevant code in the `main.js` file. 
 
-The code is structured in :
+The code is structured in:
 
 1. Set variable for authentication
 2. Functions 
     * Login (`appID.Signin()`)
-    * Renew (`appID.silentSignin()`)
+    * Renew (`appID.silentSignin()`) -> **no longer used**
 3. App ID authentication init
-4. Create vue appilcation instance
-5. Renew token in an interval (https://www.unixtimestamp.com/index.php)
+4. Create Vue.js application instance
 
 ```javascript
 import AppID from 'ibmcloud-appid-js';
@@ -117,7 +106,7 @@ let initOptions = {
 }
 
 /**********************************/
-/* Create vue appication instance
+/* Create vue application instance
 /**********************************/
 let appID = new AppID();
 let init_messsage = "";
@@ -158,3 +147,19 @@ setInterval(() => {
   }
 }, 10000);
 ```
+
+### Add the App ID client SDK to the Vue.js application
+
+Given resources:
+
+* [App ID client SDK for Single WebPage](https://github.com/ibm-cloud-security/appid-clientsdk-js)
+* [How to implement await in JavaScript](https://basarat.gitbook.io/typescript/future-javascript/async-await)
+* [Client SDK JavaScript](https://ibm-cloud-security.github.io/appid-clientsdk-js/AppID.html#getUserInfo)
+
+```sh
+npm install ibmcloud-appid-js
+```
+
+> Note: To use refresh token, you need to enable refresh token, as you see in the image below.
+
+![](./images/token-configuration.png)
