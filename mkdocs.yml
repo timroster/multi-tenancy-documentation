@@ -1,10 +1,10 @@
 # Project information
-site_name: Multi-tenancy Assets for IBM Partners to build SaaS
+site_name: Multi-tenancy Assets for IBM Clients  to build SaaS
 site_url: https://ibm.github.io/multi-tenancy-documentation
 site_author: Niklas Heidloff, Adam de Leeuw, Alain Airom, Thomas Suedbroecker
 
 # Repository
-repo_name: Multi-tenancy Assets for IBM Partners to build SaaS
+repo_name: Multi-tenancy Assets for IBM Clients  to build SaaS
 repo_url: https://github.com/ibm/multi-tenancy
 edit_uri: edit/main/documentation
 docs_dir: documentation
@@ -115,23 +115,19 @@ theme:
   # enable if you want to use a custom icon
   # custom_dir: overrides
 
-# Plugins
-plugins:
-  - search
-
 # Customization
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/ibm
+      link: https://github.com/ibm/multi-tenancy
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ibmdeveloper
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/ibm/
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/user/developerworks
-    - icon: fontawesome/brands/dev
-      link: https://dev.to/ibmdeveloper
+
+extra_css:
+  - docs/stylesheets/extra.css
+  - stylesheets/extra.css
 
 # Extensions
 markdown_extensions:
