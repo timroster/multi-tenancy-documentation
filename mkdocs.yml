@@ -24,6 +24,8 @@ nav:
       - Setup: ./serverless/2-initial_automated_setup_for_serverless/README_initial_setup.md
       - Application overview: ./serverless/2-initial_automated_setup_for_serverless/README_onboarding.md
       - Clean up: ./serverless/2-initial_automated_setup_for_serverless/README_clean_up.md
+    - Frontend:
+      - Frontend service code: ./thomas/frontend-service-code.md
   - Overview:
     - Introduction: ./README_introduction.md
   - SaaS Serverless Learning Path: 
