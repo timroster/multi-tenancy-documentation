@@ -6,7 +6,7 @@ We need to configure for our fontend microservice following information in exter
     - Discoveryendpoint
     - Client ID
 
-* We need the connect to the backend
+* We need to connect to the backend
     - URLs to the backend
 
 * We need to configure the frontend name and basic navigation
