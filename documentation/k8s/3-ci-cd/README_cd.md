@@ -11,9 +11,9 @@ Set up the following pre-requisites:
 
 - Ensure you have cloned the following repos to your GitHub account:
 
-    https://github.com/IBM/multi-tenancy
-    https://github.com/IBM/multi-tenancy-backend
-    https://github.com/IBM/multi-tenancy-frontend
+* https://github.com/IBM/multi-tenancy
+* https://github.com/IBM/multi-tenancy-backend
+* https://github.com/IBM/multi-tenancy-frontend
 
 - An instance of the IBM Cloud Secrets Manager service (the same one you used for CI pipelines)
 - An IBM Cloud Kubernetes Service cluster or an IBM Cloud OpenShift cluster (the same one you used for CI pipelines)
@@ -80,7 +80,7 @@ Also, copy the existing `Manual CD Trigger` and use it to create a `Manual CD Tr
 
 ### Testing the CD pipeline (Optional)
 
-In this section, you can make a quick test of the CD pipeline.
+In this section, you can make a quick test of the CD pipeline.  For a more detailed explanation of how to use the pipelines to onboard a new tenant, see the [Observability]() section.
 
 First you'll need to execute the `Manual Promotion Trigger`.  This creates a new branch and a merge request in the GitLab Inventory Repository.  You should approve that merge request before proceeding.  You can find a link to the merge request in the output of the pipeline run:
 
