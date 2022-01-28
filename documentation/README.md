@@ -1,6 +1,6 @@
 # Multi-tenancy Assets for IBM Partners to build SaaS (Documentation)
 
-### Project overview
+### Introduction
 
 A key benefit of the cloud is the ability to deploy software for multiple consumers without having to install it redundantly on-premises. When software is provided as a managed service (SaaS), costs can be reduced for the deployments and the operations of applications. Additionally SaaS can be scaled and new consumers can be added easily.
 
