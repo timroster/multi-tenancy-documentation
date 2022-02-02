@@ -96,6 +96,7 @@ extra:
       link: https://twitter.com/ibmdeveloper
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/ibm/
+  generator: false
 
 extra_css:
   - docs/stylesheets/extra.css
