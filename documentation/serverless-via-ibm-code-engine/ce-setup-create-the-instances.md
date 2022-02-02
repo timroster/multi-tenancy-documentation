@@ -10,17 +10,17 @@ The image shows simplified what we are doing during the `Getting Started`.
 
 
 ```sh
-$ git clone https://github.com/IBM/multi-tenancy 
-$ git clone https://github.com/IBM/multi-tenancy-backend
-$ git clone https://github.com/IBM/multi-tenancy-frontend && cd multi-tenancy
-$ ROOT_FOLDER=$(pwd)
+git clone https://github.com/IBM/multi-tenancy 
+git clone https://github.com/IBM/multi-tenancy-backend
+git clone https://github.com/IBM/multi-tenancy-frontend && cd multi-tenancy
+ROOT_FOLDER=$(pwd)
 ```
 
 ### Step 2 : Verify the prerequisites for running the installation
 
 ```sh
-$ cd $ROOT_FOLDER/installapp
-$ sh ./ce-check-prerequisites.sh
+cd $ROOT_FOLDER/installapp
+sh ./ce-check-prerequisites.sh
 ```
 
 The script stops when it notices any prerequisite is missing.
@@ -123,9 +123,9 @@ In the [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configurat
 To create all components for the two sample tenants configurations, run the following commands:
 
 ```sh
-$ cd $ROOT_FOLDER/installapp
-$ ibmcloud login --sso
-$ sh ./ce-create-two-tenancies.sh
+cd $ROOT_FOLDER/installapp
+ibmcloud login --sso
+sh ./ce-create-two-tenancies.sh
 ```
 
 ![](../images/initial_automated_setup_for_serverless/Multi-Tenancy-automatic-running-example-04.gif)

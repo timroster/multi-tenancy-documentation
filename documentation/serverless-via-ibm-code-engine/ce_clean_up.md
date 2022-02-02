@@ -6,9 +6,9 @@ The clean-up reuses the configuration json files you defined for the setup/insta
 To delete all created resource you execute following commands:
 
 ```sh
-$ cd $ROOT_FOLDER/installapp
-$ ibmcloud login --sso
-$ sh ./ce-clean-up-two-tenancies.sh
+cd $ROOT_FOLDER/installapp
+ibmcloud login --sso
+sh ./ce-clean-up-two-tenancies.sh
 ```
 
 The table contains the script and the responsibility of the scripts.
