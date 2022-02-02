@@ -29,7 +29,7 @@ nav:
       - Programmatic Creation of AppID: ./creation-of-managed-ibm-cloud-services/create-appid.md
       - Programmatic Configuration of AppID: ./creation-of-managed-ibm-cloud-services/configure-appid.md
   - Serverless via IBM Code Engine:
-    - Architecture: ./placeholder.md
+    - Architecture: ./serverless-via-ibm-code-engine/ce-arcitecture.md
     - Initial Setup via Scripts: 
       - a. Create the instances: ./serverless-via-ibm-code-engine/ce-setup-create-the-instances.md
       - b. Verify the created instances: ./serverless-via-ibm-code-engine/ce-verify-the-created-instances.md
