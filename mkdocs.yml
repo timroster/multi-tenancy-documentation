@@ -45,7 +45,7 @@ nav:
       - Overview: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/devsecops-overview.md
       - CI:
         - CI pull request: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/ci-pull-request.md
-        - CI pipeline: ./placeholder.md
+        - CI pipeline: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/ci-pipeline.md
       - CD: 
         - CD pull request: ./placeholder.md
     - Security and Compliance: 
