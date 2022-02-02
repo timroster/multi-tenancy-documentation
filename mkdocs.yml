@@ -1,10 +1,10 @@
 # Project information
-site_name: Multi-tenancy Assets for IBM Clients  to build SaaS
+site_name: Open-Source Multi-Cloud Asset to build SaaS
 site_url: https://ibm.github.io/multi-tenancy-documentation
 site_author: Niklas Heidloff, Adam de Leeuw, Alain Airom, Thomas Suedbroecker
 
 # Repository
-repo_name: Multi-tenancy Assets for IBM Clients  to build SaaS
+repo_name: Open-Source Multi-Cloud Asset to build SaaS
 repo_url: https://github.com/ibm/multi-tenancy
 edit_uri: edit/main/documentation
 docs_dir: documentation

@@ -1,5 +1,8 @@
 # Introduction
 
+**Open-Source Multi-Cloud Asset to build SaaS**
+_Development and automated deployment of SaaS for multiple tenants, using Red Hat OpenShift/Kubernetes and DevSecOps_
+
 A key benefit of the cloud is the ability to deploy software for multiple consumers without having to install it redundantly on-premises. When software is provided as a managed service (SaaS), costs can be reduced for the deployments and the operations of applications. Additionally SaaS can be scaled and new consumers can be added easily.
 
 In order to leverage these advantages, applications need to be designed, so that they can support multiple tenants. Often tenants are not single users, but clients of SaaS providers with their own corporate authentication mechanisms. When running SaaS for multiple tenants, it's often required to keep the workloads isolated from each other for security reasons. For example, typically separate databases are used for tenants.
