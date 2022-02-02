@@ -23,11 +23,11 @@ nav:
     - Authentication Flow (AppID, backend, frontend): ./development_of_microservices/authentication-flow-appip-backend-frontend.md
   - Creation of managed IBM Cloud Services:
     - Database:
-      - Programmatic Creation of Postgres: ./placeholder.md
-      - Programmatic Configuration of Postgres including Schema: ./placeholder.md
+      - Programmatic Creation of Postgres: ./creation of-managed-ibm-cloud-services/create-postgres.md
+      - Programmatic Configuration of Postgres including Schema: ./creation of-managed-ibm-cloud-services/create-postgres-schema.md
     - Authentication:
-      - Programmatic Creation of AppID: ./placeholder.md
-      - Programmatic Configuration of AppID: ./placeholder.md
+      - Programmatic Creation of AppID: ./creation of-managed-ibm-cloud-services/create-appid.md
+      - Programmatic Configuration of AppID: ./creation of-managed-ibm-cloud-services/configure-appid.md
   - Serverless via IBM Code Engine:
     - Architecture: ./placeholder.md
     - Initial Setup via Scripts: 
