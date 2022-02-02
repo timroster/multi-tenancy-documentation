@@ -31,13 +31,13 @@ nav:
   - Serverless via IBM Code Engine:
     - Architecture: ./placeholder.md
     - Initial Setup via Scripts: 
-      - a. Create the instances: ./placeholder.md
-      - b. Verify the created instances: ./placeholder.md
-    - CI/CD: ./placeholder.md
-    - Onboarding: ./placeholder.md
+      - a. Create the instances: ./serverless-via-ibm-code-engine/ce-setup-create-the-instances.md
+      - b. Verify the created instances: ./serverless-via-ibm-code-engine/ce-verify-the-created-instances.md
+    - CI/CD: ./serverless-via-ibm-code-engine/serverless-cicd.md
+    - Onboarding: ./serverless-via-ibm-code-engine/code-engine-onboarding.md
     - Observability (logging, monitoring, vulnerabilities): ./placeholder.md
     - Billing: ./placeholder.md
-    - Clean Up: ./placeholder.md
+    - Clean Up: ./serverless-via-ibm-code-engine/ce_clean_up.md
   - Kubernetes via IBM Kubernetes Service and IBM OpenShift:
     - Architecture: ./placeholder.md
     - Initial Setup via Scripts: ./placeholder.md
