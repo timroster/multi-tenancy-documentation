@@ -16,7 +16,7 @@ For the authentication a [App ID](https://www.ibm.com/cloud/app-id) instance is 
 
 For IBMers only: You can re-use existing services by using these [configuration](https://github.ibm.com/niklas-heidloff/multi-tenancy-credentials) files.
 
-```
+```sh
 git clone https://github.com/IBM/multi-tenancy.git
 git clone https://github.com/IBM/multi-tenancy-backend.git
 git clone https://github.com/IBM/multi-tenancy-frontend.git
