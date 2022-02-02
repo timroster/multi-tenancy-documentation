@@ -11,7 +11,7 @@ docs_dir: documentation
 
 # Navigation
 nav:
-  - Introduction: ./placeholder.md  
+  - Introduction: ./README_introduction.md  
   - Development of Microservices:
     - Quarkus Backend Service Code: ./development_of_microservices/backend-service-impl.md
     - Quarkus Backend Service Container: ./development_of_microservices/backend-service-container.md
@@ -55,7 +55,7 @@ nav:
       - CD Toolchains: ./k8s/3-ci-cd/README_cd.md
     - Onboarding: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/k8s-onboarding.md
     - Observability (logging, monitoring, vulnerabilities): ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/observability.md
-    - Billing: ../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/k8s-billing.md
+    - Billing: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/k8s-billing.md
 
 ## DO NOT CHANGE BELOW THIS LINE
 

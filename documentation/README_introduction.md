@@ -1,6 +1,4 @@
 # Introduction
-
-... TBD
 ### Platform Options
 
 The following diagram shows the different platform options. This repo contains the IBM Cloud platforms so far (blue rectangle). 
