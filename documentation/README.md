@@ -1,5 +1,6 @@
 # Open-Source Multi-Cloud Asset to build SaaS (Documentation)
-_Development and automated deployment of SaaS for multiple tenants, using Red Hat OpenShift/Kubernetes and DevSecOps_
+
+>_Development and automated deployment of SaaS for multiple tenants, using Red Hat OpenShift/Kubernetes and DevSecOps_
 ### Documentation Overview
 
 * [Introduction](./README_introduction.md)
