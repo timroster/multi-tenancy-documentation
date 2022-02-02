@@ -61,7 +61,7 @@ Additional Text Fields entitled `branch`, `multi-tenancy-frontend`, `multi-tenan
 
 An additional Tool Integration field entitled `repository` was added.  When setting this field, you must specify a JSON filter of `parameters.repo_url`:
 
-![](../../images/cicd-k8s/CD/.png)
+![TBD](../../images/cicd-k8s/CD/.png)
 
 Select the `Trigger` tab.  You may need to correct the Git CD Trigger if it shows a hazard symbol:
 

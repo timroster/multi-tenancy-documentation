@@ -71,13 +71,13 @@ You need the following tools installed locally to run the script above:
 
 ### Step 3: Define the configuration for the tenants you want to install
 
-Define the global configuration in [global.json](configuration/global.json). It includes `IBM Cloud settings` such as region and resource group, `container registry information` and `image information`.
+Define the global configuration in [global.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/global.json). It includes `IBM Cloud settings` such as region and resource group, `container registry information` and `image information`.
 
-Additionally define the same global configuration in [tenants-config](installapp/tenants-config). Note that this step will not be necessary sometime soon.
+Additionally define the same global configuration in [tenants-config](https://github.com/IBM/multi-tenancy/blob/main/installapp/tenants-config/global/global.json). Note that this step will not be necessary sometime soon.
 
-For each tenant define tenant-specific configuration in the folder 'configuration/tenants'. That configuration contains for example `App ID information`. `Postgres database information`, `application instance information`, and `Code Engine information`. Here you find an example configuration [tenant-a.json](configuration/tenants/tenant-a.json).
+For each tenant define tenant-specific configuration in the folder 'configuration/tenants'. That configuration contains for example `App ID information`. `Postgres database information`, `application instance information`, and `Code Engine information`. Here you find an example configuration [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/installapp/tenants-config/tenants/tenant-a.json).
 
-Additionally define the same configuration in [tenants-config](installapp/tenants-config). Note that this step will not be necessary sometime soon.
+Additionally define the same configuration in [tenants-config](https://github.com/IBM/multi-tenancy/tree/main/installapp/tenants-config). Note that this step will not be necessary sometime soon.
 
 ### Step 4: Configure `IBM Cloud Container Registry Namespace` and `Code Engine project names`
 
@@ -87,7 +87,7 @@ To avoid problems during running the setup, please configure these name to your 
 
 1. Configure your `IBM Cloud Container Registry Namespace name`
 
-In the [global.json](configuration/global.json) file you need to change the value for the IBM Cloud Container Registry Namespace name to something like `multi-tenancy-example-mypostfix`.
+In the [global.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/global.json) file you need to change the value for the IBM Cloud Container Registry Namespace name to something like `multi-tenancy-example-mypostfix`.
 
 ```json
   "REGISTRY": {
@@ -100,7 +100,7 @@ In the [global.json](configuration/global.json) file you need to change the valu
 
 2. Configure your `Code Engine project names` for the two tenants
 
-In the [tenant-a.json](configuration/tenants/tenant-a.json) files you need to change the value for the `Code Engine project` to something like `multi-tenancy-example-mypostfix`.
+In the [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json) files you need to change the value for the `Code Engine project` to something like `multi-tenancy-example-mypostfix`.
 
 * `tenant-a.json`: `multi-tenancy-serverless-a-mypostfix`
 

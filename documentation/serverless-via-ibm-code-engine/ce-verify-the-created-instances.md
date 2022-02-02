@@ -1,4 +1,4 @@
-# OnBoarding
+# Verify the created instances
 ### Step 1: Verify the setup by using following url [`https://cloud.ibm.com/resources`](https://cloud.ibm.com/resources)
 
 In resource list of the IBM Cloud UI, insert as filter for **name** the value `multi`. Now you should see following in your resource list:
