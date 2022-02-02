@@ -24,13 +24,13 @@ For more advanced cloud-native applications Kubernetes and OpenShift can be used
 
 For CI/CD the IBM DevSecOps reference architecture based on IBM Toolchain is used which is also the internal IBM standard and which guarantees compliance for regulated industries.
 
-<kbd><img src="./images/introduction/Options-Simple.png" /></kbd>
+<kbd><img src="../images/introduction/Options-Simple.png" /></kbd>
 
 ### Sample Application
 
 The project comes with a simple e-commerce example application. A SaaS provider might have one client selling books, another one selling shoes.
 
-<kbd><img src="./images/introduction/example-app.png" /></kbd>
+<kbd><img src="../images/introduction/example-app.png" /></kbd>
 
 ### Repositories
 
@@ -68,7 +68,7 @@ Shared CI/CD:
 * One image for backend service
 * One toolchain for all tenants (with four pipelines)
 
-<kbd><img src="./images/introduction/multi-tenant-app-architecture.png" /></kbd>
+<kbd><img src="../images/introduction/multi-tenant-app-architecture.png" /></kbd>
 
 Used IBM Services:
 * IBM Code Engine
@@ -84,7 +84,7 @@ Used Technologies:
 
 **Initial Deployment Scripts**
 
-Scripts and provided to set up all services and the application automatically. Follow this [step by step guide](serverless-via-ibm-code-engine/ce-setup-create-the-instances.md) to set up everything using local bash scripts.
+Scripts and provided to set up all services and the application automatically. Follow this [step by step guide](./serverless-via-ibm-code-engine/ce-setup-create-the-instances.md) to set up everything using local bash scripts.
 
 **Deployments of Updates via CI/CD**
 
