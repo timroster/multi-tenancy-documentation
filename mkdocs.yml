@@ -40,9 +40,9 @@ nav:
     - Clean Up: ./serverless-via-ibm-code-engine/ce_clean_up.md
   - Kubernetes via IBM Kubernetes Service and IBM OpenShift:
     - Architecture: ./placeholder.md
-    - Initial Setup via Scripts: ./placeholder.md
+    - Initial Setup via Scripts: ./automation/terraform/3-Provisionning-A-Kubernetes-Based-Infrastructure.md
     - CI/CD DevSecOps:
-      - Overview: ./placeholder.md
+      - Overview: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/devsecops-overview.md
       - CI:
         - CI pull request: ./placeholder.md
         - CI pipeline: ./placeholder.md
