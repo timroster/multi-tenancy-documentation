@@ -14,11 +14,11 @@ The following diagram shows the different platform options. At this point the re
 
 More options are planned to be added. For example with Satellite the SaaS application can be deployed on-premises to client data centers, but managed centrally. Additionally the same SaaS application can be deployed on other managed OpenShift services like AWS ROSA and Azure ARO.
 
-**Serverless on IBM Cloud**
+#### Serverless on IBM Cloud
 
 The easiest way to get started is to use serverless. The repo describes how to use IBM Code Engine to run the application logic, IBM App ID for authentication, IBM Postgres for persistence and IBM Toolchain for CI/CD. Scripts are provided to make the setup as easy as possible.
 
-**Managed Kubernetes and OpenShift on IBM Cloud**
+#### Managed Kubernetes and OpenShift on IBM Cloud
 
 For more advanced cloud-native applications Kubernetes and OpenShift can be used. Compute isolation can be done either by sharing clusters and using Kubernetes namespaces/OpenShift projects or by having separate clusters for tenants. For authentication the managed services App ID and Postgres can be used, but they can also be replaced by other managed services or services running within the clusters.
 
@@ -37,16 +37,19 @@ The project comes with a simple e-commerce example application. A SaaS provider 
 This repo is the 'parent repo' including documentation and global configuration. The other four repos contain the implementation of the microservices and the serverless pipelines.
 
 * [multi-tenancy](https://github.com/IBM/multi-tenancy) - this repo (parent repo)
+
     * Overview documentation
     * Global and tenant specific application configuration
     * CD pipeline
     * Scripts to deploy cloud services/infrastructure
 
 * [multi-tenancy-backend](https://github.com/IBM/multi-tenancy-backend) - backend microservice
+
     * Code
     * CI pipeline
 
-* [multi-tenancy-frontend](https://github.com/IBM/multi-tenancy-frontend) - frontend microservice   
+* [multi-tenancy-frontend](https://github.com/IBM/multi-tenancy-frontend) - frontend microservice  
+
     * Code
     * CI pipeline
 
@@ -57,12 +60,14 @@ This repo is the 'parent repo' including documentation and global configuration.
 The easiest way to get started is to set up the sample application for two tenants on the IBM Cloud using serverless technology. The following diagram describes the serverless architecture of the simple e-commerce application which has two images (backend and frontend).
 
 Isolated Compute:
+
 * One frontend container per tenant
 * One backend container per tenant
 * One App ID instance per tenant
 * One Postgres instance (with one database) per tenant
 
 Shared CI/CD:
+
 * One code base for frontend and backend services
 * One image for frontend service
 * One image for backend service
@@ -71,6 +76,7 @@ Shared CI/CD:
 <kbd><img src="../images/introduction/multi-tenant-app-architecture.png" /></kbd>
 
 Used IBM Services:
+
 * IBM Code Engine
 * IBM Container Registry
 * IBM App ID
@@ -78,6 +84,7 @@ Used IBM Services:
 * IBM Toolchain
 
 Used Technologies:
+
 * Quarkus
 * Vue.js and nginx
 * Bash scripts
