@@ -48,10 +48,10 @@ nav:
         - CI pipeline: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/ci-pipeline.md
       - CD: 
         - CD pull request: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/cd-pull-request.md
-        - CI pipeline: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/security-and-compliance.md
-    - Security and Compliance: 
-      - CI Toolchains: ./placeholder.md
-      - CD Toolchains: ./placeholder.md
+        - CI pipeline: ./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/cd-pipeline-request.md
+    - Security and Compliance: /kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/security-and-compliance.md
+    - CI Toolchains: ./k8s/3-ci-cd/README_ci.md
+    - CD Toolchains: ./k8s/3-ci-cd/README_cd.md
     - Onboarding: ./placeholder.md
     - Observability (logging, monitoring, vulnerabilities): ./placeholder.md
     - Billing: ./placeholder.md
