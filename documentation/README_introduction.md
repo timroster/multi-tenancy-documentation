@@ -82,10 +82,10 @@ Used Technologies:
 * Vue.js and nginx
 * Bash scripts
 
-**Initial Deployment Scripts**
+#### Initial Deployment Scripts
 
 Scripts and provided to set up all services and the application automatically. Follow this [step by step guide](./serverless-via-ibm-code-engine/ce-setup-create-the-instances.md) to set up everything using local bash scripts.
 
-**Deployments of Updates via CI/CD**
+#### Deployments of Updates via CI/CD
 
 Additionally pipelines are provided to re-deploy the backend and frontend services when their implementations have changed. Follow this [step by step guide](./serverless-via-ibm-code-engine/serverless-cicd.md) to set up the pipelines.

@@ -14,7 +14,7 @@ Shared CI/CD:
 * One image for backend service
 * One toolchain for all tenants (with four pipelines)
 
-<kbd><img src="./images/introduction/multi-tenant-app-architecture.png" /></kbd>
+<kbd><img src="../images/introduction/multi-tenant-app-architecture.png" /></kbd>
 
 Used IBM Services:
 * IBM Code Engine
