@@ -36,7 +36,7 @@ nav:
     - CI/CD: ./serverless-via-ibm-code-engine/serverless-cicd.md
     - Onboarding: ./serverless-via-ibm-code-engine/code-engine-onboarding.md
     - Observability (logging, monitoring, vulnerabilities): ./placeholder.md
-    - Billing: ./placeholder.md
+    - Billing: ./serverless-via-ibm-code-engine/code-engine-billing.md
     - Clean Up: ./serverless-via-ibm-code-engine/ce_clean_up.md
   - Kubernetes via IBM Kubernetes Service and IBM OpenShift:
     - Architecture: ./placeholder.md
