@@ -9,3 +9,9 @@ body {
 .md-source__fact--version {
     display: none !important;
 }
+
+
+.md-content__button {
+    display:none;
+}
+
