@@ -102,8 +102,8 @@ Enable a Dev mode trigger which permits a faster pipeline run which does not inv
 
 Add or update the Environmental Properties as follows:
 
-![](../../images/cicd-k8s/CI-Frontend/.png)
-![](../../images/cicd-k8s/CI-Frontend/.png)
+![](../../images/cicd-k8s/CI-Frontend/16.png)
+![](../../images/cicd-k8s/CI-Frontend/17.png)
 
 Note that the Text fields `pipeline-config-branch` and `opt-in-sonar` were updated.
 
@@ -111,14 +111,13 @@ Additional Text Fields entitled `branch`, `multi-tenancy-frontend`, `multi-tenan
 
 An additional Tool Integration field entitled `repository` was added.  When setting this field, you must specify a JSON filter of `parameters.repo_url`:
 
-![](../../images/cicd-k8s/CI-Frontend/.png)
+![](../../images/cicd-k8s/CI-Frontend/17a.png)
 
 Select the `Trigger` tab.  Note the Git CI Trigger shows a hazard symbol.  Edit its properties and select a valid the branch name:
 
-![](../../images/cicd-k8s/CI-Frontend/22.png)
-![](../../images/cicd-k8s/CI-Frontend/23.png)
-![](../../images/cicd-k8s/CI-Frontend/24.png)
-
+![](../../images/cicd-k8s/CI-Frontend/18.png)
+![](../../images/cicd-k8s/CI-Frontend/20.png)
+![](../../images/cicd-k8s/CI-Frontend/19.png)
 
 
 ## Create CI toolchain for frontend
