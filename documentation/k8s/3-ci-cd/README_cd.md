@@ -78,7 +78,7 @@ Also, copy the existing `Manual CD Trigger` and use it to create a `Manual CD Tr
 
 ### Testing the CD pipeline (Optional)
 
-In this section, you can make a quick test of the CD pipeline.  For a more detailed explanation of how to use the pipelines to onboard a new tenant, see the [Overview](./kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/devsecops-overview/) section.
+In this section, you can make a quick test of the CD pipeline.  For a more detailed explanation of how to use the pipelines to onboard a new tenant, see the [Overview](../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/devsecops-overview.md) section.
 
 First you'll need to execute the `Manual Promotion Trigger`.  This creates a new branch and a merge request in the GitLab Inventory Repository.  You should approve that merge request before proceeding.  You can find a link to the merge request in the output of the pipeline run:
 
