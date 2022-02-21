@@ -6,6 +6,32 @@ The image shows simplified what we are doing during the `Getting Started`.
 
 ![](../images/initial_automated_setup_for_serverless/multi-Tenancy-installation.png)
 
+Here is an additional overview of the needed tasks to be automated.
+
+* Create Code Engine projects
+
+   * Configure secret to access the `IBM Cloud Container Registry`
+
+   * Create secrets for the applications
+
+   * Configure the environment variables used by the applications
+
+      * App ID configurations
+
+      * PostgresSQL database
+
+      * Backend endpoint
+
+* Build the container images and push them to the `IBM Cloud Container Registry`
+
+* Create a PostgresSQL database service
+
+   * Setup example data for each tenant
+
+* Create an App ID service
+
+   * Configure the service
+
 ### Step 1: Clone the repositories
 
 
