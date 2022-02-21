@@ -71,9 +71,13 @@ You need the following tools installed locally to run the script above:
 
 ### Step 3: Define the configuration for the tenants you want to install
 
+* Global configuration
+
 Define the global configuration in [global.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/global.json). It includes `IBM Cloud settings` such as region and resource group, `container registry information` and `image information`.
 
 Additionally define the same global configuration in [tenants-config](https://github.com/IBM/multi-tenancy/blob/main/installapp/tenants-config/global/global.json). Note that this step will not be necessary sometime soon.
+
+* Tenant-specific configuration
 
 For each tenant define tenant-specific configuration in the folder 'configuration/tenants'. That configuration contains for example `App ID information`. `Postgres database information`, `application instance information`, and `Code Engine information`. Here you find an example configuration [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/installapp/tenants-config/tenants/tenant-a.json).
 
@@ -83,9 +87,12 @@ Additionally define the same configuration in [tenants-config](https://github.co
 
 >The values for the names of the `IBM Cloud Container Registry Namespace` and the `IBM Cloud Code Engine` project must unique in IBM Cloud for a region! 
 
-To avoid problems during running the setup, please configure these name to your needs. 
+To avoid problems during running the setup, please configure 
+these name to your needs. 
 
-1. Configure your `IBM Cloud Container Registry Namespace name`
+#### 1. Unique value in the _globel_ configuration
+
+* Configure your `IBM Cloud Container Registry Namespace name`
 
 In the [global.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/global.json) file you need to change the value for the IBM Cloud Container Registry Namespace name to something like `multi-tenancy-example-mypostfix`.
 
@@ -98,7 +105,9 @@ In the [global.json](https://github.com/IBM/multi-tenancy/blob/main/configuratio
   },
 ```
 
-2. Configure your `Code Engine project names` for the two tenants
+#### 2. Unique value in the _tenant-specific_ configuration
+
+Configure your `Code Engine project names` for the two tenants
 
 In the [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json) files you need to change the value for the `Code Engine project` to something like `multi-tenancy-example-mypostfix`.
 
@@ -130,12 +139,17 @@ sh ./ce-create-two-tenancies.sh
 
 ![](../images/initial_automated_setup_for_serverless/Multi-Tenancy-automatic-running-example-04.gif)
 
-The script takes roughly 30 minutes. You will be asked to review some configurations and press enter to move forward in some steps.
+The execution takes roughly 30 minutes. 
+You will be asked to review some configurations and press enter to move forward in some steps.
 The script will stop in some situations when it discovers a problem during the setup.
 
-After this the URL of the frontend applications will be displayed. For both tenants the following test user can be used to log in:
+After this the URL of the frontend applications will be displayed. 
 
-User: thomas@example.com. Password: thomas4appid
+For both tenants the following test user can be used to log in:
+
+* User:` thomas@example.com`#
+
+* Password: `thomas4appid`
 
 ### Step 6: Understand the details of the initial installation bash scripts
 
