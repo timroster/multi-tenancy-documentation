@@ -158,7 +158,7 @@ Replace the value for the namespace with a value of your choose:
 ```
 
 
-#### Step 1: Configure  the `Code Engine project name` for each tenant
+#### Step 2: Configure  the `Code Engine project name` for each tenant
 
 >The values for the names for a `IBM Cloud Code Engine` project must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure these names to your needs. **Don't change one of the other default values, if you do not known what you are going to change.**
 
@@ -236,7 +236,7 @@ The script will stop in some situations when it discovers a problem during the s
 
 These are the situations where the scripty asks for review your configuration.
 
-1. It asks for review for the basic globale configurations you made
+#### a. It asks for review for the basic globale configurations you made
 
 ```sh
 IBMCLOUD_CR_REGION_URL: de.icr.io
@@ -247,7 +247,7 @@ REGION               : eu-de
 Verify the given entries and press return
 ```
 
-2. After the creation and upload of the container images to IBM Cloud registry it asks for the review of you first tenant configuration
+#### b. After the creation and upload of the container images to IBM Cloud registry it asks for the review of you first tenant configuration
 
 ```sh
 Parameter count : ../configuration/global.json ../configuration/tenants/tenant-a.json
@@ -281,7 +281,8 @@ IBM Cloud REGION                 : eu-de
 Verify parameters and press return
 ```
 
-3. After each tenant creation the URL of the frontend applications will be displayed. 
+#### c. After each tenant creation the URL of the frontend applications will be displayed. 
+
 
 
 For both tenants the following test user can be used to log in:
