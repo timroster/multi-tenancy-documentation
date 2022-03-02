@@ -37,11 +37,14 @@ Here is an additional overview of tasks we automated for you with the getting st
 
     * Configure the service
 
-### 
 ### Prerequisites  
+
+To follow the next steps you need to verify following two prerequisites.
 
 * OS: `macOS` 
 * Container tool: [`podman`](https://podman.io/getting-started)
+
+> If you don't use `macOS` you maybe need to install the listed cli tools according to your operating system. Only `macOS` in combination with `podman` was verified by us.
 
 ### `SaaS-Tools` image
 
@@ -77,7 +80,7 @@ git clone https://github.com/IBM/multi-tenancy-frontend && cd multi-tenancy
 ROOT_FOLDER=$(pwd)
 ```
 
-#### Step 3 : Verify the prerequisites for running the installation
+#### Step 3: Verify the prerequisites for running the installation
 
 ```sh
 cd $ROOT_FOLDER/installapp
