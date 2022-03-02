@@ -162,26 +162,9 @@ Replace the value for the namespace with a value of your choose:
 
 >The values for the names for a `IBM Cloud Code Engine` project must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure these names to your needs. **Don't change one of the other default values, if you do not known what you are going to change.**
 
-#### 1. Unique value in the _globel_ configuration
-
-* Configure your `IBM Cloud Container Registry Namespace name`
-
-In the [global.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/global.json) file you need to change the value for the IBM Cloud Container Registry Namespace name to something like `multi-tenancy-example-mypostfix`.
-
-```json
-  "REGISTRY": {
-    "URL": "de.icr.io",
-    "NAMESPACE": "multi-tenancy-example-[YOUR_POSTFIX]",
-    "SECRET_NAME": "multi.tenancy.cr.sec",
-    "TAG": "v2"
-  },
-```
-
-#### 2. Unique value in the _tenant-specific_ configuration
-
 Configure your `Code Engine project names` for the two tenants
 
-In the [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json) files you need to change the value for the `Code Engine project` to something like `multi-tenancy-example-mypostfix`.
+In the [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json) files you can to change the value for the `Code Engine project` to something like `multi-tenancy-example-mypostfix`.
 
 Open the first tenant configuration `tenant-a.json`.
 _(repeat these steps for the tenant-b.json file)_
