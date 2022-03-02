@@ -44,7 +44,7 @@ To follow the next steps you need to verify following two prerequisites.
 * OS: `macOS` 
 * Container tool: [`podman`](https://podman.io/getting-started)
 
-> If you don't use `macOS` you maybe need to install the listed cli tools according to your operating system. Only `macOS` in combination with `podman` was verified by us.
+> If you don't use `macOS` you maybe need to install the listed cli tools according to your operating system. Only `macOS` in combination with `podman` and the `SaaS Tools Image` was verified by us.
 
 ### `SaaS-Tools` image
 
