@@ -240,7 +240,7 @@ The script will stop in some situations when it discovers a problem during the s
 
 These are the situations where the scripty asks for review your configuration.
 
-#### a. It asks for review for the basic globale configurations you made
+#### a. It asks for review for the basic global configurations you made
 
 ```sh
 IBMCLOUD_CR_REGION_URL: de.icr.io
