@@ -49,6 +49,8 @@ To follow the next steps you need to verify following two prerequisites.
 ### `SaaS-Tools` image
 
 For the simplification of the getting started we provide you a [SaaS-Tools container image](https://quay.io/repository/tsuedbroecker/saas-tools?tab=info) that contains all needed commandline tools for the automation with the bash scripts.
+
+> Note: The bash automation is tailored to the bash scripting in Ubuntu, that is used as base OS for the `SaaS-Tools` image.
 #### Step 1: Open a terminal and start the `SaaS-Tools` image
 
 ```sh
@@ -211,25 +213,27 @@ Replace the value for the project name of the Code Engine project to one of your
 
 ### Start the bash script automation
 
-### Step 1: Open the folder for the `gettings started installation`
+#### Step 1: Open the folder for the `gettings started installation`
 
 ```sh
 cd $ROOT_FOLDER/installapp
 ```
 
-### Step 2: Log on with you IBM Cloud account
+#### Step 2: Log on with you IBM Cloud account
 
 ```sh
 ibmcloud login --sso
 ```
 
-### Step 3: Start the bash automation with following command
+#### Step 3: Start the bash automation with following command
 
 ```sh
 bash ./ce-create-two-tenancies.sh
 ```
 
 The execution takes roughly **30 minutes**. 
+
+### The review steps during bash automation
 
 You will be asked to review some configurations and press enter to move forward in some steps.
 The script will stop in some situations when it discovers a problem during the setup.
