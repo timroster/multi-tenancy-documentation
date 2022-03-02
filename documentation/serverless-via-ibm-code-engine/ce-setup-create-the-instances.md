@@ -1,12 +1,15 @@
-# Initial setup
+# Getting started with the example application
 
-The initial setup is only for the serverless part in Code Engine, with the objective to provide you an initial understanding of the application and providing a working environment with the example application and it components.
+The getting setup is **only** for the **serverless** part with **Code Engine**!
+
+The is objective to provide you a getting started to basic understanding of the achiteture of the sample application with running instances.
 
 The image shows simplified what we are doing during the `Getting Started`.
 
 ![](../images/initial_automated_setup_for_serverless/multi-Tenancy-installation.png)
 
-Here is an additional overview of the needed tasks to be automated.
+
+Here is an additional overview of tasks we automated for you with the getting started related to the diagram above.
 
 * Create Code Engine projects
 
@@ -16,24 +19,54 @@ Here is an additional overview of the needed tasks to be automated.
 
    * Configure the environment variables used by the applications
 
-      * App ID configurations
+       * App ID configurations
 
-      * PostgresSQL database
+        * PostgresSQL database
 
-      * Backend endpoint
+       * Backend endpoint
 
 * Build the container images and push them to the `IBM Cloud Container Registry`
 
 * Create a PostgresSQL database service
 
-   * Setup example data for each tenant
+    * Setup example data for each tenant
 
 * Create an App ID service
 
-   * Configure the service
+    * Configure the service
 
-### Step 1: Clone the repositories
+### 
+### Prerequisites  
 
+* OS: `macOS` 
+* Container tool: [`podman`](https://podman.io/getting-started)
+
+### `SaaS-Tools` image
+
+For the simplification of the getting started we provide you a [SaaS-Tools container image](https://quay.io/repository/tsuedbroecker/saas-tools?tab=info) that contains all needed commandline tools for the automation with the bash scripts.
+#### Step 1: Open a terminal and start the `SaaS-Tools` image
+
+```sh
+podman run -it --rm  --privileged --name saas-tools "quay.io/tsuedbroecker/saas-tools:v1"    
+```
+
+* Example output:
+
+```sh
+root@7f535f968abc:/# 
+```
+
+### Using the `SaaS-Tools` image
+
+From now we will only work inside the running `SaaS-Tools` container image.
+
+#### Step 1: Open the home directory
+
+```sh
+cd home
+```
+
+#### Step 2: Clone the repositories into the home directory
 
 ```sh
 git clone https://github.com/IBM/multi-tenancy 
@@ -42,11 +75,11 @@ git clone https://github.com/IBM/multi-tenancy-frontend && cd multi-tenancy
 ROOT_FOLDER=$(pwd)
 ```
 
-### Step 2 : Verify the prerequisites for running the installation
+#### Step 3 : Verify the prerequisites for running the installation
 
 ```sh
 cd $ROOT_FOLDER/installapp
-sh ./ce-check-prerequisites.sh
+bash ./ce-check-prerequisites.sh
 ```
 
 The script stops when it notices any prerequisite is missing.
@@ -55,66 +88,74 @@ Example output:
 
 ```sh
 Check prereqisites
-1. Verify grep
-- Grep is installed: grep (BSD grep, GNU compatible) 2.6.0-FreeBSD !
-2. Verify awk
-- AWK is installed: awk version 20200816 !
-3. Verify cURL
-- cURL is installed: curl 7.77.0 (x86_64-apple-darwin21.0) libcurl/7.77.0 (SecureTransport) LibreSSL/2.8.3 zlib/1.2.11 nghttp2/1.42.0
-Release-Date: 2021-05-26
-Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp 
-Features: alt-svc AsynchDNS GSS-API HSTS HTTP2 HTTPS-proxy IPv6 Kerberos Largefile libz MultiSSL NTLM NTLM_WB SPNEGO SSL UnixSockets !
-4. Verify jq
-- JQ is installed: jq-1.6 !
-5. Verify libpq (psql)
-- libpq (psql) is installed: psql (PostgreSQL) 14.0 !
-6. Verify Docker
-- Docker is installed: Docker version 20.10.11, build dea9396 !
-7. Verify ibmcloud cli
-- IBM Cloud CLI is installed: ibmcloud version 2.3.0+26fbf88-2021-12-09T18:02:50+00:00 !
-8. Verify ibmcloud plugin cloud-databases
-- IBM Cloud Plugin 'cloud-databases' is installed: cloud-databases !
-9. Verify ibmcloud plugin code-engine
-- IBM Cloud Plugin 'code-engine' is installed: code-engine[ce] !
-10. Verify ibmcloud plugin container-registry
-- IBM Cloud Plugin 'container-registry' is installed: container-registry !
+...
 Success! All prerequisites verified!
 ```
 
-You need the following tools installed locally to run the script above:
+These are the tools we installed for you in the `SaaS-Tools` image:
 
 * [ibmcloud cli](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
 * [ibmcloud plugin code-engine](https://cloud.ibm.com/docs/codeengine?topic=codeengine-install-cli)
 * [ibmcloud plugin cloud-databases](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference)
 * [ibmcloud plugin container-registry](https://cloud.ibm.com/docs/Registry?topic=container-registry-cli-plugin-containerregcli)
-* [Docker](https://docs.docker.com/get-docker/)
+* [buildah](https://buildah.io/)
 * [sed](https://en.wikipedia.org/wiki/Sed)
+* [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 * [jq](https://lzone.de/cheat-sheet/jq)
 * [grep](https://en.wikipedia.org/wiki/Grep)
 * [libpq (psql)](https://www.postgresql.org/docs/9.5/libpq.html) 
 * [cURL](https://curl.se/)
 * [AWK](https://en.wikipedia.org/wiki/AWK)
 
-### Step 3: Define the configuration for the tenants you want to install
+### Define the needed configurations for the tenants
+
+During the getting started we will setup two tenants of the sample application.
+Therefor we need to configure two kinds of configuration files.
 
 * Global configuration
 
 Define the global configuration in [global.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/global.json). It includes `IBM Cloud settings` such as region and resource group, `container registry information` and `image information`.
 
-Additionally define the same global configuration in [tenants-config](https://github.com/IBM/multi-tenancy/blob/main/installapp/tenants-config/global/global.json). Note that this step will not be necessary sometime soon.
-
 * Tenant-specific configuration
 
 For each tenant define tenant-specific configuration in the folder 'configuration/tenants'. That configuration contains for example `App ID information`. `Postgres database information`, `application instance information`, and `Code Engine information`. Here you find an example configuration [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/installapp/tenants-config/tenants/tenant-a.json).
 
-Additionally define the same configuration in [tenants-config](https://github.com/IBM/multi-tenancy/tree/main/installapp/tenants-config). Note that this step will not be necessary sometime soon.
+#### Step 1: Configure `IBM Cloud Container Registry Namespace` in the global configuration
 
-### Step 4: Configure `IBM Cloud Container Registry Namespace` and `Code Engine project names`
+>The values for the names for a `IBM Cloud Container Registry Namespace` must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure that name to your needs. **Don't change one of the other default values, if you do not known what you are going to change.**
 
->The values for the names of the `IBM Cloud Container Registry Namespace` and the `IBM Cloud Code Engine` project must unique in IBM Cloud for a region! 
+Open the `globle.json`
 
-To avoid problems during running the setup, please configure 
-these name to your needs. 
+```sh
+nano ./configuration/global.json
+```
+
+Replace the value for the namespace with a value of your choose:
+`"NAMESPACE":"multi-tenancy-example` to `"NAMESPACE":"YOUR_VALUE"`.
+
+```json
+{
+  "IBM_CLOUD": {
+    "RESOURCE_GROUP": "default",
+    "REGION": "eu-de"
+  },
+  "REGISTRY": {
+    "URL": "de.icr.io",
+    "NAMESPACE": "multi-tenancy-example", #<- INSERT YOUR VALUE
+    "TAG": "v2",
+    "SECRET_NAME": "multi.tenancy.cr.sec"
+  },
+  "IMAGES": {
+    "NAME_BACKEND": "multi-tenancy-service-backend",
+    "NAME_FRONTEND": "multi-tenancy-service-frontend"
+  }
+}
+```
+
+
+#### Step 1: Configure  the `Code Engine project name` for each tenant
+
+>The values for the names for a `IBM Cloud Code Engine` project must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure these names to your needs. **Don't change one of the other default values, if you do not known what you are going to change.**
 
 #### 1. Unique value in the _globel_ configuration
 
@@ -137,31 +178,68 @@ Configure your `Code Engine project names` for the two tenants
 
 In the [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json) files you need to change the value for the `Code Engine project` to something like `multi-tenancy-example-mypostfix`.
 
-* `tenant-a.json`: `multi-tenancy-serverless-a-mypostfix`
+Open the first tenant configuration `tenant-a.json`
 
-```json
-  "CODE_ENGINE": {
-    "PROJECT_NAME": "multi-tenancy-serverless-a-[YOUR_POSTFIX]"
-  }
+```sh
+nano ./configuration/tenants/tenant-a.json
 ```
 
-* `tenant-b.json`: `multi-tenancy-serverless-a-mypostfix`
+Replace the value for the project name of the Code Engine project to one of your choise:
+`"PROJECT_NAME":"multi-tenancy-serverless-a` to `"PROJECT_NAME":"YOUR_VALUE"`.
 
 ```json
+{
+  "APP_ID": {
+    "SERVICE_INSTANCE": "multi-tenancy-serverless-appid-a",
+    "SERVICE_KEY_NAME": "multi-tenancy-serverless-appid-key-a"
+  },
+  "POSTGRES": {
+    "SERVICE_INSTANCE": "multi-tenancy-serverless-pg-ten-a",
+    "SERVICE_KEY_NAME": "multi-tenancy-serverless-pg-ten-a-key",
+    "SQL_FILE": "create-populate-tenant-a.sql"
+  },
+  "APPLICATION": {
+    "CONTAINER_NAME_BACKEND": "multi-tenancy-service-backend-movies",
+    "CONTAINER_NAME_FRONTEND": "multi-tenancy-service-frontend-movies",
+    "CATEGORY": "Movies"
+  },
   "CODE_ENGINE": {
-    "PROJECT_NAME": "multi-tenancy-serverless-b-[YOUR_POSTFIX]"
+    "PROJECT_NAME": "multi-tenancy-serverless-a-t" <- INSERT YOUR VALUE
+  },
+  "IBM_KUBERNETES_SERVICE": {
+    "NAME": "niklas-heidloff3-fra04-b3c.4x16",
+    "NAMESPACE": "tenant-a"
+  },
+  "IBM_OPENSHIFT_SERVICE": {
+    "NAME": "roks-gen2-suedbro",
+    "NAMESPACE": "tenant-a"
+  },
+  "PLATFORM": {
+    "NAME": "IBM_OPENSHIFT_SERVICE"
   }
+}
 ```
 
-### Step 5: Start the installation
+### Start the bash script automation
 
-To create all components for the two sample tenants configurations, run the following commands:
+### Step 1: Open the folder for the `gettings started installation`
 
 ```sh
 cd $ROOT_FOLDER/installapp
-ibmcloud login --sso
-sh ./ce-create-two-tenancies.sh
 ```
+
+### Step 2: Log on with you IBM Cloud account
+
+```sh
+ibmcloud login --sso
+```
+
+### Step 3: Start the bash automation with following command
+
+```sh
+bash ./ce-create-two-tenancies.sh
+```
+
 
 ![](../images/initial_automated_setup_for_serverless/Multi-Tenancy-automatic-running-example-04.gif)
 
@@ -177,7 +255,9 @@ For both tenants the following test user can be used to log in:
 
 * Password: `thomas4appid`
 
-### Step 6: Understand the details of the initial installation bash scripts
+### Details to understand the autmation
+
+Here are details related to the used bash scripts.
 
 We use three bash scripts for the initial installation. The following diagram shows the simplified dependencies of these bash scripts used to create two tenants of the example application on IBM Cloud in Code Engine.
 
