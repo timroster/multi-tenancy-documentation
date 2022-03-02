@@ -4,7 +4,7 @@
 
 The getting setup is **only** for the **serverless** part with **Code Engine**!
 
-The is objective to provide you a getting started to basic understanding of the achiteture of the sample application with running instances.
+The objective is to provide you a getting started to basic understanding of the achiteture of the sample application with running instances.
 
 The image shows simplified what we are doing during the `Getting Started`.
 
