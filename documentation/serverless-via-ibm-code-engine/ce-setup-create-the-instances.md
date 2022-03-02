@@ -283,13 +283,22 @@ Verify parameters and press return
 
 #### c. After each tenant creation the URL of the frontend applications will be displayed. 
 
+```sh
+************************************
+ URLs
+************************************
+ - oAuthServerUrl   : https://eu-de.appid.cloud.ibm.com/oauth/v4/c74c03f2-03e9-4a4a-88cf-afc82573bae7
+ - discoveryEndpoint: https://eu-de.appid.cloud.ibm.com/oauth/v4/c74c03f2-03e9-4a4a-88cf-afc82573bae7/.well-known/openid-configuration
+ - Frontend         : https://multi-tenancy-service-frontend-movies.l1vbi06y6y4.eu-de.codeengine.appdomain.cloud
+ - ServiceCatalog   : https://multi-tenancy-service-backend-movies.l1vbi06y6y4.eu-de.codeengine.appdomain.cloud
+------------------------------
+Verify the given entries and press return
+------------------------------
+```
 
+#### How to move on?
 
-For both tenants the following test user can be used to log in:
-
-* User:` thomas@example.com`#
-
-* Password: `thomas4appid`
+You can move on understand the automation or skip that part and continue with [Verify the created instances](https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce-verify-the-created-instances/).
 
 ### Details to understand the autmation
 
