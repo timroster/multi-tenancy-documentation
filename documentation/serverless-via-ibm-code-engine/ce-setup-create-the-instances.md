@@ -132,7 +132,7 @@ For each tenant define tenant-specific configuration in the folder 'configuratio
 Open the `globle.json`
 
 ```sh
-nano ./configuration/global.json
+nano ../configuration/global.json
 ```
 
 Replace the value for the namespace with a value of your choose:
@@ -183,10 +183,11 @@ Configure your `Code Engine project names` for the two tenants
 
 In the [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json) files you need to change the value for the `Code Engine project` to something like `multi-tenancy-example-mypostfix`.
 
-Open the first tenant configuration `tenant-a.json`
+Open the first tenant configuration `tenant-a.json`.
+_(repeat these steps for the tenant-b.json file)_
 
 ```sh
-nano ./configuration/tenants/tenant-a.json
+nano ../configuration/tenants/tenant-a.json
 ```
 
 Replace the value for the project name of the Code Engine project to one of your choise:
