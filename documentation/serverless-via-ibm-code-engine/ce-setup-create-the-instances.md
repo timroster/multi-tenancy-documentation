@@ -246,14 +246,60 @@ ibmcloud login --sso
 bash ./ce-create-two-tenancies.sh
 ```
 
+The execution takes roughly **30 minutes**. 
 
-![](../images/initial_automated_setup_for_serverless/Multi-Tenancy-automatic-running-example-04.gif)
-
-The execution takes roughly 30 minutes. 
 You will be asked to review some configurations and press enter to move forward in some steps.
 The script will stop in some situations when it discovers a problem during the setup.
 
-After this the URL of the frontend applications will be displayed. 
+These are the situations where the scripty asks for review your configuration.
+
+1. It asks for review for the basic globale configurations you made
+
+```sh
+IBMCLOUD_CR_REGION_URL: de.icr.io
+IBMCLOUD_CR_NAMESPACE: multi-tenancy-example-t
+RESOURCE_GROUP       : default
+REGION               : eu-de
+------------------------------
+Verify the given entries and press return
+```
+
+2. After the creation and upload of the container images to IBM Cloud registry it asks for the review of you first tenant configuration
+
+```sh
+Parameter count : ../configuration/global.json ../configuration/tenants/tenant-a.json
+Parameter zero 'name of the script': ./ce-install-application.sh
+---------------------------------
+Global configuration         : ../configuration/global.json
+Tenant configuration         : ../configuration/tenants/tenant-a.json
+---------------------------------
+Code Engine project              : multi-tenancy-serverless-a-t
+---------------------------------
+App ID service instance name     : multi-tenancy-serverless-appid-a
+App ID service key name          : multi-tenancy-serverless-appid-key-a
+---------------------------------
+Application Service Catalog name : multi-tenancy-service-backend-movies
+Application Frontend name        : multi-tenancy-service-frontend-movies
+Application Frontend category    : Movies
+Application Service Catalog image: de.icr.io/multi-tenancy-example-t/multi-tenancy-service-backend:v2
+Application Frontend image       : de.icr.io/multi-tenancy-example-t/multi-tenancy-service-frontend:v2
+---------------------------------
+Postgres instance name           : multi-tenancy-serverless-pg-ten-a
+Postgres service key name        : multi-tenancy-serverless-pg-ten-a-key
+Postgres sample data sql         : create-populate-tenant-a.sql
+---------------------------------
+IBM Cloud Container Registry URL : de.icr.io
+---------------------------------
+IBM Cloud RESOURCE_GROUP         : default
+IBM Cloud REGION                 : eu-de
+---------------------------------
+
+------------------------------
+Verify parameters and press return
+```
+
+3. After each tenant creation the URL of the frontend applications will be displayed. 
+
 
 For both tenants the following test user can be used to log in:
 
@@ -282,3 +328,15 @@ The table contains the script and the responsibility of the scripts.
 | [`ce-create-two-tenancies.sh`](https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-create-two-tenancies.sh) | Build the container images for the frontend and backend, therefor it invokes the bash script [`ce-build-images-ibm-docker.sh`](https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-build-images-ibm-docker.sh) and uploads the images to the IBM Cloud container registry. It also starts the creation of the tenant application instance, therefor it invokes the bash script [`ce-install-application.sh`](https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-install-application.sh) twice. |
 | [`ce-build-images-ibm-docker.sh`](https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-build-images-ibm-docker.sh) | Creates two container images based on the given parameters for the backend and frontend image names. |
 | [`ce-install-application.sh`](https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-install-application.sh) | Creates and configures a `Code Engine project`. The configuration of the Code Engine project includes the `creation of the application`, the `IBM Cloud Container Registry access` therefor it also creates a `IBM Cloud API` and it creates the `secrets` for the needed parameter for the running applications. It creates an `IBM Cloud App ID instance` and configures this instance that includes the `application`, `redirects`, `login layout`, `scope`, `role` and `user`. It also creates an `IBM Cloud Postgres` database instance and creates the needed example data with tables inside the database. |
+
+### Know issues
+
+#### 1. net/http: TLS handshake timeout
+
+During the creation and upload of the container image with buildah maybe you will notice like following.
+
+```sh
+Put "https://de.icr.io/v2/multi-tenancy-example-t/multi-tenancy-service-backend/blobs/uploads/25c9a689-8f60-43f3-b82f-a2fe91123ec4?_state=WMMtQe4a1npnpMoP90BkMkq0wkVPS7M1jcdYqkUqqul7Ik5hbWUiOiJtdWx0aS10ZW5hbmN5LWV4YW1wbGUtdC9tdWx0aS10ZW5hbmN5LXNlcnZpY2UtYmFja2VuZCIsIlVVSUQiOiIyNWM5YTY4OS04ZjYwLTQzZjMtYjgyZi1hMmZlOTExMjNlYzQiLCJPZmZzZXQiOjQxNzk4Njc0LCJTdGFydGVkQXQiOiIyMDIyLTAzLTAyVDE0OjExOjI1WiJ9&digest=sha256%3A8e3e6f15c16fce3aafe16ec9528311245ae74c7ce015ffaf9c796806ba02c8f8": net/http: TLS handshake timeout
+```
+
+
