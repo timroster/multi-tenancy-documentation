@@ -1,5 +1,7 @@
 # Getting started with the example application
 
+> Create the tenants with the related IBM Cloud services
+
 The getting setup is **only** for the **serverless** part with **Code Engine**!
 
 The is objective to provide you a getting started to basic understanding of the achiteture of the sample application with running instances.

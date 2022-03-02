@@ -30,9 +30,9 @@ nav:
       - Programmatic Configuration of AppID: ./creation-of-managed-ibm-cloud-services/configure-appid.md
   - Serverless via IBM Code Engine:
     - Architecture: ./serverless-via-ibm-code-engine/ce-arcitecture.md
-    - Initial Setup via Scripts: 
-      - a. Create the instances: ./serverless-via-ibm-code-engine/ce-setup-create-the-instances.md
-      - b. Verify the created instances: ./serverless-via-ibm-code-engine/ce-verify-the-created-instances.md
+    - Getting started via Scripts: 
+      - a. Create the tenants with the related IBM Cloud services: ./serverless-via-ibm-code-engine/ce-setup-create-the-instances.md
+      - b. Verify the tenants with the related IBM Cloud services instances: ./serverless-via-ibm-code-engine/ce-verify-the-created-instances.md
     - CI/CD: ./serverless-via-ibm-code-engine/serverless-cicd.md
     - Onboarding: ./serverless-via-ibm-code-engine/code-engine-onboarding.md
     - Observability (logging, monitoring, vulnerabilities): ./placeholder.md
