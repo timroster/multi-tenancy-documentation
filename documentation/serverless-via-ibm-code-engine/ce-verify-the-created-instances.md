@@ -26,4 +26,6 @@ https://cloud.ibm.com/codeengine/projects
 
 ### Step 5: Click on URL and log on to the frontend application using **username** `thomas@example.com` and **password** `thomas4appid`
 
+Maybe you have to log on 5 times again, in case the Code Engine has scaled to zero before.
+
 ![](../images/initial_automated_setup_for_serverless//Multi-Tenancy-automatic-running-example-02.gif)
