@@ -1,9 +1,11 @@
 # Clean up
+
+Th
 ### Step 1: Clean-up
 
-The clean-up reuses the configuration json files you defined for the setup/installatation.
+The clean-up reuses the **configuration json files** you customized in the [getting started](https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce-setup-create-the-instances/) section.
 
-To delete all created resource you execute following commands:
+To delete all created resource you execute following commands in the running `SaaS Container Image`:
 
 ```sh
 cd $ROOT_FOLDER/installapp
@@ -11,7 +13,9 @@ ibmcloud login --sso
 sh ./ce-clean-up-two-tenancies.sh
 ```
 
-The table contains the script and the responsibility of the scripts.
+The deletion will also ask to review some configurations and press enter to move forward in some steps.
+
+The table contains the scripts and the responsibilities of a script.
 
 | Script | Responsibility |
 |---|---|

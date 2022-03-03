@@ -29,3 +29,7 @@ https://cloud.ibm.com/codeengine/projects
 Maybe you have to log on 5 times again, in case the Code Engine has scaled to zero before.
 
 ![](../images/initial_automated_setup_for_serverless//Multi-Tenancy-automatic-running-example-02.gif)
+
+#### How to move on?
+
+You can move with the CI/CD part or skip that part and continue with [Clean-Up](https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce_clean_up/) of the services and applications on IBM Cloud.
