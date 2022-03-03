@@ -12,7 +12,7 @@ If you want to restore them with the same name you need to follow the steps in t
 * [IBM Cloud Code Engine `ibmcloud ce reclamation restore`](https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli#cli-reclamation-restore)
 
 
->The Clean-Up scipts don't using hard deletion!
+>The Clean-Up scripts don't using hard deletion!
 
 ### Avoid project and namespace deletion
 
