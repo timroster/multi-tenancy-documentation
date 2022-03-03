@@ -213,14 +213,13 @@ nano ../configuration/tenants/tenant-a.json
 
 #### Optional Step 3: Using a shared `IBM Cloud Account`
 
->The initial design of getting started setup has the assumtion that you use an own `IBM Cloud Account` and not a shared one.
-
-Change the specifications for the used services `"APP_ID"` and `"POSTGRES"` 
+>The initial design of getting started setup has the assumtion that you use an own `IBM Cloud Account` and not a shared one. 
 
 In case if you use a shared `IBM Cloud Account` with other developers you need to ensure the `AppID service` and `Postgres service` configurationsneed to be `unique` each tenant in the shared account.
 
-In that case you need to open up the tenants configurations again.
+> You need to change the specifications for the used services `"APP_ID"` and `"POSTGRES"`! 
 
+In that case you need to open up the tenants configurations again.
 
 1. Open the first tenant configuration `tenant-a.json`.
 _(repeat these steps for the tenant-b.json file)_
