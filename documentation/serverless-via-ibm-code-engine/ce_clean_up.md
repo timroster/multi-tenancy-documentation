@@ -66,6 +66,49 @@ sh ./ce-clean-up-two-tenancies.sh
 The deletion will also ask to review some configurations and press enter to move forward in some steps.
 
 
+#### a. Verify the `tenant-a` details the script is going to delete
+
+_Note:_ The same will happen for `tenant-b`.
+
+```sh
+************************************
+ Clean Tenant A
+************************************
+************************************
+ Display parameter
+************************************
+count : ../configuration/global.json ../configuration/tenants/tenant-a.json
+Parameter zero 'name of the script': ./ce-clean-up.sh
+---------------------------------
+Global configuration         : ../configuration/global.json
+Tenant configuration         : ../configuration/tenants/tenant-a.json
+---------------------------------
+Code Engine project              : multi-tenancy-serverless-a
+---------------------------------
+App ID service instance name     : multi-tenancy-serverless-appid-a
+App ID service key name          : multi-tenancy-serverless-appid-key-a
+---------------------------------
+Application Service Catalog name : multi-tenancy-service-backend-movies
+Application Frontend name        : multi-tenancy-service-frontend-movies
+Application Frontend category    : Movies
+Application Service Catalog image: de.icr.io/multi-tenancy-example/multi-tenancy-service-backend:v2
+Application Frontend image       : de.icr.io/multi-tenancy-example/multi-tenancy-service-frontend:v2
+---------------------------------
+Postgres instance name           : multi-tenancy-serverless-pg-ten-a
+Postgres service key name        : multi-tenancy-serverless-pg-ten-a-key
+Postgres sample data sql         : create-populate-tenant-a.sql
+---------------------------------
+IBM Cloud Container Registry URL : de.icr.io
+Registry Namespace               : multi-tenancy-example
+---------------------------------
+IBM Cloud RESOURCE_GROUP         : default
+IBM Cloud REGION                 : eu-de
+---------------------------------
+
+Verify parameters and press return
+```
+
+
 ### Details to understand the autmation
 
 The table contains the scripts and the responsibilities of a script.
