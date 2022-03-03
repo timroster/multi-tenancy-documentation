@@ -91,7 +91,7 @@ bash ./ce-check-prerequisites.sh
 
 The script stops when it notices any prerequisite is missing.
 
-Example output:
+* Example output:
 
 ```sh
 Check prereqisites
@@ -131,13 +131,13 @@ For each tenant define tenant-specific configuration in the folder 'configuratio
 
 >The values for the names for a `IBM Cloud Container Registry Namespace` must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure that name to your needs. **Don't change one of the other default values, if you do not known what you are going to change.**
 
-Open the `globle.json`
+1. Open the `globle.json`
 
 ```sh
 nano ../configuration/global.json
 ```
 
-Replace the value for the namespace with a value of your choose:
+2. Replace the value for the namespace with a value of your choose:
 `"NAMESPACE":"multi-tenancy-example` to `"NAMESPACE":"YOUR_VALUE"`.
 
 ```json
@@ -168,14 +168,14 @@ Configure your `Code Engine project names` for the two tenants
 
 In the [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json) files you can to change the value for the `Code Engine project` to something like `multi-tenancy-example-mypostfix`.
 
-Open the first tenant configuration `tenant-a.json`.
+1. Open the first tenant configuration `tenant-a.json`.
 _(repeat these steps for the tenant-b.json file)_
 
 ```sh
 nano ../configuration/tenants/tenant-a.json
 ```
 
-Replace the value for the project name of the Code Engine project to one of your choise:
+2. Replace the value for the project name of the Code Engine project to one of your choise:
 `"PROJECT_NAME":"multi-tenancy-serverless-a` to `"PROJECT_NAME":"YOUR_VALUE"`.
 
 ```json
