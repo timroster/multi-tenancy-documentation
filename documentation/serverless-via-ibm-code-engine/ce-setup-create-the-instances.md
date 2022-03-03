@@ -336,6 +336,33 @@ During the creation and upload of the container image with buildah maybe you wil
 Put "https://de.icr.io/v2/multi-tenancy-example-t/multi-tenancy-service-backend/blobs/uploads/25c9a689-8f60-43f3-b82f-a2fe91123ec4?_state=WMMtQe4a1npnpMoP90BkMkq0wkVPS7M1jcdYqkUqqul7Ik5hbWUiOiJtdWx0aS10ZW5hbmN5LWV4YW1wbGUtdC9tdWx0aS10ZW5hbmN5LXNlcnZpY2UtYmFja2VuZCIsIlVVSUQiOiIyNWM5YTY4OS04ZjYwLTQzZjMtYjgyZi1hMmZlOTExMjNlYzQiLCJPZmZzZXQiOjQxNzk4Njc0LCJTdGFydGVkQXQiOiIyMDIyLTAzLTAyVDE0OjExOjI1WiJ9&digest=sha256%3A8e3e6f15c16fce3aafe16ec9528311245ae74c7ce015ffaf9c796806ba02c8f8": net/http: TLS handshake timeout
 ```
 
+* Solution
+
 It this case you can just start the script execution again.
+
+#### 2. Problem during the creation of resources
+
+If not all resource were created properly.
+
+* Solution
+
+The easiest way to fix it is just to clean-up the IBM Cloud resources and restart the creation with the bash script.
+
+Here is the link to the [Clean-Up section](https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce_clean_up/) of the documentation for the serverless part.
+
+#### 3. Clean-Up `IBM Cloud Code Engine Project name` and `IBM Cloud Container Registry Namespace name`
+
+> ATTENTION: The `IBM Cloud Code Engine Project Name` and the `IBM Cloud Container Registry Namespace Name` are unique inside are IBM Cloud region. 
+If you delete a `Container Registry namespace` or a `Code Engine project` they can't just be recreated with the same name for a specific timeframe, they are now in a `trash` to give you a chance to restore them.
+
+If you want to restore them with the same name you need to follow the steps in the IBM Cloud documentation:
+
+* [IBM Cloud Container Registry - Cleaning up your namespaces](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_retention)
+* [IBM Cloud Code Engine `ibmcloud ce reclamation restore`](https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli#cli-reclamation-restore)
+
+
+>The Clean-Up scipts don't using hard deletion!
+
+
 
 
