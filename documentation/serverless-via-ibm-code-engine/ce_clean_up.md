@@ -49,7 +49,7 @@ To delete all created resources you execute following commands in the running `S
 cd $ROOT_FOLDER/installapp
 ```
 
-#### Step 2: Ensure you are in the `logged on o IBM Cloud`:
+#### Step 2: Ensure you are `logged on to IBM Cloud`:
 
 ```sh
 ibmcloud login --sso
