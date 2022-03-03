@@ -211,6 +211,66 @@ nano ../configuration/tenants/tenant-a.json
 }
 ```
 
+#### Optional Step 3: Using a shared `IBM Cloud Account`
+
+>The initial design of getting started setup has the assumtion that you use an own `IBM Cloud Account` and not a shared one.
+
+Change the specifications for the used services `"APP_ID"` and `"POSTGRES"` 
+
+In case if you use a shared `IBM Cloud Account` with other developers you need to ensure the `AppID service` and `Postgres service` configurationsneed to be `unique` each tenant in the shared account.
+
+In that case you need to open up the tenants configurations again.
+
+
+1. Open the first tenant configuration `tenant-a.json`.
+_(repeat these steps for the tenant-b.json file)_
+
+```sh
+nano ../configuration/tenants/tenant-a.json
+```
+
+2. Replace the value for the project name of the Code Engine project to one of your choice:
+
+* APP_ID.SERVICE_INSTANCE
+* APP_ID.SERVICE_KEY_NAME
+* POSTGRES.SERVICE_INSTANCE
+* SERVICE_INSTANCE.SERVICE_KEY_NAME
+
+```json
+{
+  "APP_ID": {
+    "SERVICE_INSTANCE": "multi-tenancy-serverless-appid-a",  <- INSERT YOUR VALUE
+    "SERVICE_KEY_NAME": "multi-tenancy-serverless-appid-key-a"  <- INSERT YOUR VALUE
+  },
+  "POSTGRES": {
+    "SERVICE_INSTANCE": "multi-tenancy-serverless-pg-ten-a",  <- INSERT YOUR VALUE
+    "SERVICE_KEY_NAME": "multi-tenancy-serverless-pg-ten-a-key",  <- INSERT YOUR VALUE
+    "SQL_FILE": "create-populate-tenant-a.sql"
+  },
+  "APPLICATION": {
+    "CONTAINER_NAME_BACKEND": "multi-tenancy-service-backend-movies",
+    "CONTAINER_NAME_FRONTEND": "multi-tenancy-service-frontend-movies",
+    "CATEGORY": "Movies"
+  },
+  "CODE_ENGINE": {
+    "PROJECT_NAME": "multi-tenancy-serverless-a-t"
+  },
+  "IBM_KUBERNETES_SERVICE": {
+    "NAME": "niklas-heidloff3-fra04-b3c.4x16",
+    "NAMESPACE": "tenant-a"
+  },
+  "IBM_OPENSHIFT_SERVICE": {
+    "NAME": "roks-gen2-suedbro",
+    "NAMESPACE": "tenant-a"
+  },
+  "PLATFORM": {
+    "NAME": "IBM_OPENSHIFT_SERVICE"
+  }
+}
+```
+
+
+
 ### Start the bash script automation
 
 #### Step 1: Open the folder for the `getting started installation`
