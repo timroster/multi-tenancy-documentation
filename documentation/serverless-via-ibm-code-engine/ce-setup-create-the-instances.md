@@ -215,7 +215,7 @@ nano ../configuration/tenants/tenant-a.json
 
 >The initial design of getting started setup has the assumtion that you use an own `IBM Cloud Account` and not a shared one. 
 
-In case if you use a shared `IBM Cloud Account` with other developers you need to ensure the `AppID service` and `Postgres service` configurationsneed to be `unique` each tenant in the shared account.
+In case if you use a shared `IBM Cloud Account` with other developers you need to ensure the `AppID service` and `Postgres service` configurations are `unique` for each tenant in the shared account.
 
 > You need to change the specifications for the used services `"APP_ID"` and `"POSTGRES"`! 
 
