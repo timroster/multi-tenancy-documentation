@@ -251,7 +251,7 @@ REGION               : eu-de
 Verify the given entries and press return
 ```
 
-#### b. After the creation and upload of the container images to IBM Cloud registry it asks for the review of you first tenant configuration
+#### b. After the creation and upload of the container images to IBM Cloud registry it asks for the review of your first tenant configuration
 
 ```sh
 Parameter count : ../configuration/global.json ../configuration/tenants/tenant-a.json
