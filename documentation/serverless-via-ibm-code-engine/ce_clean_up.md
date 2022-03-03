@@ -3,7 +3,7 @@
 In this section you will clean up all IBM Cloud resources we created during the [getting started](https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce-setup-create-the-instances/).
 
 
-> ATTENTION: The `IBM Cloud Code Engine Project Name` and the `IBM Cloud Container Registry Namespace Name` are unique inside are IBM Cloud region. 
+> ATTENTION: The `IBM Cloud Code Engine Project Name` and the `IBM Cloud Container Registry Namespace Name` are unique inside an IBM Cloud region. 
 If you delete a `Container Registry namespace` or a `Code Engine project` they can't just be recreated with the same name for a specific timeframe, they are now in a `trash` to give you a chance to restore them.
 
 If you want to restore them with the same name you need to follow the steps in the IBM Cloud documentation:

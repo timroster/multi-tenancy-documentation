@@ -352,7 +352,7 @@ Here is the link to the [Clean-Up section](https://ibm.github.io/multi-tenancy-d
 
 #### 3. Clean-Up `IBM Cloud Code Engine Project name` and `IBM Cloud Container Registry Namespace name`
 
-> ATTENTION: The `IBM Cloud Code Engine Project Name` and the `IBM Cloud Container Registry Namespace Name` are unique inside are IBM Cloud region. 
+> ATTENTION: The `IBM Cloud Code Engine Project Name` and the `IBM Cloud Container Registry Namespace Name` are unique inside an IBM Cloud region. 
 If you delete a `Container Registry namespace` or a `Code Engine project` they can't just be recreated with the same name for a specific timeframe, they are now in a `trash` to give you a chance to restore them.
 
 If you want to restore them with the same name you need to follow the steps in the IBM Cloud documentation:
