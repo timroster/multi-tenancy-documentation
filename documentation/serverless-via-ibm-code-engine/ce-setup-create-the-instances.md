@@ -228,7 +228,7 @@ _(repeat these steps for the tenant-b.json file)_
 nano ../configuration/tenants/tenant-a.json
 ```
 
-2. Replace the value for the project name of the Code Engine project to one of your choice:
+2. Replace the values for `App ID` and `Postgres` service your own choice:
 
 * APP_ID.SERVICE_INSTANCE
 * APP_ID.SERVICE_KEY_NAME
