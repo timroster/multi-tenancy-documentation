@@ -4,7 +4,7 @@
 
 The getting setup is **only** for the **serverless** part with **Code Engine**!
 
-The objective is to provide you a getting started to basic understanding of the achiteture of the sample application with running instances.
+The objective is to provide you a getting started to basic understanding of the achitecture of the sample application with running instances.
 
 The image shows simplified what we are doing during the `Getting Started`.
 
@@ -175,7 +175,7 @@ _(repeat these steps for the tenant-b.json file)_
 nano ../configuration/tenants/tenant-a.json
 ```
 
-2. Replace the value for the project name of the Code Engine project to one of your choise:
+2. Replace the value for the project name of the Code Engine project to one of your choice:
 `"PROJECT_NAME":"multi-tenancy-serverless-a` to `"PROJECT_NAME":"YOUR_VALUE"`.
 
 ```json
@@ -213,7 +213,7 @@ nano ../configuration/tenants/tenant-a.json
 
 ### Start the bash script automation
 
-#### Step 1: Open the folder for the `gettings started installation`
+#### Step 1: Open the folder for the `getting started installation`
 
 ```sh
 cd $ROOT_FOLDER/installapp
@@ -238,7 +238,7 @@ The execution takes roughly **30 minutes**.
 You will be asked to review some configurations and press enter to move forward in some steps.
 The script will stop in some situations when it discovers a problem during the setup.
 
-These are the situations where the scripty asks for review your configuration.
+These are the situations where the script asks for review your configuration.
 
 #### a. It asks for review for the basic global configurations you made
 
@@ -304,7 +304,7 @@ Verify the given entries and press return
 
 You can move on understand the automation or skip that part and continue with [Verify the created instances](https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce-verify-the-created-instances/).
 
-### Details to understand the autmation
+### Details to understand the automation
 
 Here are details related to the used bash scripts.
 
@@ -361,7 +361,7 @@ If you want to restore them with the same name you need to follow the steps in t
 * [IBM Cloud Code Engine `ibmcloud ce reclamation restore`](https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli#cli-reclamation-restore)
 
 
->The Clean-Up scipts don't using hard deletion!
+>The Clean-Up scripts don't using hard deletion!
 
 
 

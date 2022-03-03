@@ -109,7 +109,7 @@ Verify parameters and press return
 ```
 
 
-### Details to understand the autmation
+### Details to understand the automation
 
 The table contains the scripts and the responsibilities of a script.
 
