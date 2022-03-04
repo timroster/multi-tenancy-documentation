@@ -1,0 +1,12 @@
+body {
+    background-color: white;
+}
+
+.md-source__fact--version {
+    display: none !important;
+}
+
+.md-content__button {
+    display: none;
+}
+

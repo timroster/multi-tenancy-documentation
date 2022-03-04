@@ -1,0 +1,2043 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Niklas Heidloff, Adam de Leeuw, Alain Airom, Thomas Suedbroecker">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce-setup-create-the-instances/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
+    
+    
+      
+        <title>a. Create the tenants with the related IBM Cloud services - Open-Source Multi-Cloud Asset to build SaaS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-with-the-example-application" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open-Source Multi-Cloud Asset to build SaaS" class="md-header__button md-logo" aria-label="Open-Source Multi-Cloud Asset to build SaaS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open-Source Multi-Cloud Asset to build SaaS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              a. Create the tenants with the related IBM Cloud services
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ibm/multi-tenancy/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Open-Source Multi-Cloud Asset to build SaaS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open-Source Multi-Cloud Asset to build SaaS" class="md-nav__button md-logo" aria-label="Open-Source Multi-Cloud Asset to build SaaS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Open-Source Multi-Cloud Asset to build SaaS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ibm/multi-tenancy/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Open-Source Multi-Cloud Asset to build SaaS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../README_introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Development of Microservices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development of Microservices" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Development of Microservices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development_of_microservices/backend-service-impl/" class="md-nav__link">
+        Quarkus Backend Service Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development_of_microservices/backend-service-container/" class="md-nav__link">
+        Quarkus Backend Service Container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development_of_microservices/frontend-service-code/" class="md-nav__link">
+        Vue.js Frontend Service Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development_of_microservices/frontend-service-container/" class="md-nav__link">
+        Vue.js Frontend Service Container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development_of_microservices/externalization-of-variables-in-backend-microservices/" class="md-nav__link">
+        Externalization of Variables in Backend Microservices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development_of_microservices/externalization-of-variables-in-frontend-microservices/" class="md-nav__link">
+        Externalization of Variables in Frontend Microservices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development_of_microservices/local-development/" class="md-nav__link">
+        Local Development of Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development_of_microservices/authentication-flow-appip-backend-frontend/" class="md-nav__link">
+        Authentication Flow (AppID, backend, frontend)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Creation of managed IBM Cloud Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Creation of managed IBM Cloud Services" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Creation of managed IBM Cloud Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Database
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Database" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Database
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creation-of-managed-ibm-cloud-services/create-postgres/" class="md-nav__link">
+        Programmatic Creation of Postgres
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creation-of-managed-ibm-cloud-services/create-postgres-schema/" class="md-nav__link">
+        Programmatic Configuration of Postgres including Schema
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Authentication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Authentication" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Authentication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creation-of-managed-ibm-cloud-services/create-appid/" class="md-nav__link">
+        Programmatic Creation of AppID
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creation-of-managed-ibm-cloud-services/configure-appid/" class="md-nav__link">
+        Programmatic Configuration of AppID
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Serverless via IBM Code Engine
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Serverless via IBM Code Engine" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Serverless via IBM Code Engine
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ce-arcitecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Getting started via Scripts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting started via Scripts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting started via Scripts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          a. Create the tenants with the related IBM Cloud services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        a. Create the tenants with the related IBM Cloud services
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saas-tools-image" class="md-nav__link">
+    SaaS-Tools image
+  </a>
+  
+    <nav class="md-nav" aria-label="SaaS-Tools image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-a-terminal-and-start-the-saas-tools-image" class="md-nav__link">
+    Step 1: Open a terminal and start the SaaS-Tools image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-saas-tools-image" class="md-nav__link">
+    Using the SaaS-Tools image
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the SaaS-Tools image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-home-directory" class="md-nav__link">
+    Step 1: Open the home directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-clone-the-repositories-into-the-home-directory" class="md-nav__link">
+    Step 2: Clone the repositories into the home directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-the-prerequisites-for-running-the-installation" class="md-nav__link">
+    Step 3: Verify the prerequisites for running the installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-the-needed-configurations-for-the-tenants" class="md-nav__link">
+    Define the needed configurations for the tenants
+  </a>
+  
+    <nav class="md-nav" aria-label="Define the needed configurations for the tenants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-configure-ibm-cloud-container-registry-namespace-in-the-global-configuration" class="md-nav__link">
+    Step 1: Configure IBM Cloud Container Registry Namespace in the global configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-the-code-engine-project-name-for-each-tenant" class="md-nav__link">
+    Step 2: Configure  the Code Engine project name for each tenant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-step-3-using-a-shared-ibm-cloud-account" class="md-nav__link">
+    Optional Step 3: Using a shared IBM Cloud Account
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-the-bash-script-automation" class="md-nav__link">
+    Start the bash script automation
+  </a>
+  
+    <nav class="md-nav" aria-label="Start the bash script automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-folder-for-the-getting-started-installation" class="md-nav__link">
+    Step 1: Open the folder for the getting started installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-log-on-with-you-ibm-cloud-account" class="md-nav__link">
+    Step 2: Log on with you IBM Cloud account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-start-the-bash-automation-with-following-command" class="md-nav__link">
+    Step 3: Start the bash automation with following command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-review-steps-during-bash-automation" class="md-nav__link">
+    The review steps during bash automation
+  </a>
+  
+    <nav class="md-nav" aria-label="The review steps during bash automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-it-asks-for-review-for-the-basic-global-configurations-you-made" class="md-nav__link">
+    a. It asks for review for the basic global configurations you made
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-after-the-creation-and-upload-of-the-container-images-to-ibm-cloud-registry-it-asks-for-the-review-of-your-first-tenant-configuration" class="md-nav__link">
+    b. After the creation and upload of the container images to IBM Cloud registry it asks for the review of your first tenant configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-after-each-tenant-creation-the-url-of-the-frontend-applications-will-be-displayed" class="md-nav__link">
+    c. After each tenant creation the URL of the frontend applications will be displayed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-move-on" class="md-nav__link">
+    How to move on?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#details-to-understand-the-automation" class="md-nav__link">
+    Details to understand the automation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-issues" class="md-nav__link">
+    Know issues
+  </a>
+  
+    <nav class="md-nav" aria-label="Know issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-nethttp-tls-handshake-timeout" class="md-nav__link">
+    1. net/http: TLS handshake timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-problem-during-the-creation-of-resources" class="md-nav__link">
+    2. Problem during the creation of resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-clean-up-ibm-cloud-code-engine-project-name-and-ibm-cloud-container-registry-namespace-name" class="md-nav__link">
+    3. Clean-Up IBM Cloud Code Engine Project name and IBM Cloud Container Registry Namespace name
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ce-verify-the-created-instances/" class="md-nav__link">
+        b. Verify the tenants with the related IBM Cloud services instances
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-cicd/" class="md-nav__link">
+        CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-engine-onboarding/" class="md-nav__link">
+        Onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../placeholder/" class="md-nav__link">
+        Observability (logging, monitoring, vulnerabilities)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-engine-billing/" class="md-nav__link">
+        Billing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ce_clean_up/" class="md-nav__link">
+        Clean Up
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Kubernetes via IBM Kubernetes Service and IBM OpenShift
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kubernetes via IBM Kubernetes Service and IBM OpenShift" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes via IBM Kubernetes Service and IBM OpenShift
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../placeholder/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../automation/terraform/3-Provisionning-A-Kubernetes-Based-Infrastructure/" class="md-nav__link">
+        Initial Setup via Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          CI/CD DevSecOps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CI/CD DevSecOps" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          CI/CD DevSecOps
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/devsecops-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_2" type="checkbox" id="__nav_5_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3_2">
+          CI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CI" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          CI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/ci-pull-request/" class="md-nav__link">
+        CI pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/ci-pipeline/" class="md-nav__link">
+        CI pipeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_3" type="checkbox" id="__nav_5_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3_3">
+          CD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CD" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          CD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/cd-pull-request/" class="md-nav__link">
+        CI pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/cd-pipeline/" class="md-nav__link">
+        CD pipeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Security and Compliance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security and Compliance" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Security and Compliance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/security-and-compliance/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s/3-ci-cd/README_ci/" class="md-nav__link">
+        CI Toolchains
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s/3-ci-cd/README_cd/" class="md-nav__link">
+        CD Toolchains
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/k8s-onboarding/" class="md-nav__link">
+        Onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/observability/" class="md-nav__link">
+        Observability (logging, monitoring, vulnerabilities)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-via-ibm-kubernetes-service-and-ibm-openshift/k8s-billing/" class="md-nav__link">
+        Billing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saas-tools-image" class="md-nav__link">
+    SaaS-Tools image
+  </a>
+  
+    <nav class="md-nav" aria-label="SaaS-Tools image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-a-terminal-and-start-the-saas-tools-image" class="md-nav__link">
+    Step 1: Open a terminal and start the SaaS-Tools image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-saas-tools-image" class="md-nav__link">
+    Using the SaaS-Tools image
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the SaaS-Tools image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-home-directory" class="md-nav__link">
+    Step 1: Open the home directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-clone-the-repositories-into-the-home-directory" class="md-nav__link">
+    Step 2: Clone the repositories into the home directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-the-prerequisites-for-running-the-installation" class="md-nav__link">
+    Step 3: Verify the prerequisites for running the installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-the-needed-configurations-for-the-tenants" class="md-nav__link">
+    Define the needed configurations for the tenants
+  </a>
+  
+    <nav class="md-nav" aria-label="Define the needed configurations for the tenants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-configure-ibm-cloud-container-registry-namespace-in-the-global-configuration" class="md-nav__link">
+    Step 1: Configure IBM Cloud Container Registry Namespace in the global configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-the-code-engine-project-name-for-each-tenant" class="md-nav__link">
+    Step 2: Configure  the Code Engine project name for each tenant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-step-3-using-a-shared-ibm-cloud-account" class="md-nav__link">
+    Optional Step 3: Using a shared IBM Cloud Account
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-the-bash-script-automation" class="md-nav__link">
+    Start the bash script automation
+  </a>
+  
+    <nav class="md-nav" aria-label="Start the bash script automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-folder-for-the-getting-started-installation" class="md-nav__link">
+    Step 1: Open the folder for the getting started installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-log-on-with-you-ibm-cloud-account" class="md-nav__link">
+    Step 2: Log on with you IBM Cloud account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-start-the-bash-automation-with-following-command" class="md-nav__link">
+    Step 3: Start the bash automation with following command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-review-steps-during-bash-automation" class="md-nav__link">
+    The review steps during bash automation
+  </a>
+  
+    <nav class="md-nav" aria-label="The review steps during bash automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-it-asks-for-review-for-the-basic-global-configurations-you-made" class="md-nav__link">
+    a. It asks for review for the basic global configurations you made
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-after-the-creation-and-upload-of-the-container-images-to-ibm-cloud-registry-it-asks-for-the-review-of-your-first-tenant-configuration" class="md-nav__link">
+    b. After the creation and upload of the container images to IBM Cloud registry it asks for the review of your first tenant configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-after-each-tenant-creation-the-url-of-the-frontend-applications-will-be-displayed" class="md-nav__link">
+    c. After each tenant creation the URL of the frontend applications will be displayed.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-move-on" class="md-nav__link">
+    How to move on?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#details-to-understand-the-automation" class="md-nav__link">
+    Details to understand the automation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-issues" class="md-nav__link">
+    Know issues
+  </a>
+  
+    <nav class="md-nav" aria-label="Know issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-nethttp-tls-handshake-timeout" class="md-nav__link">
+    1. net/http: TLS handshake timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-problem-during-the-creation-of-resources" class="md-nav__link">
+    2. Problem during the creation of resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-clean-up-ibm-cloud-code-engine-project-name-and-ibm-cloud-container-registry-namespace-name" class="md-nav__link">
+    3. Clean-Up IBM Cloud Code Engine Project name and IBM Cloud Container Registry Namespace name
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/ibm/multi-tenancy/edit/main/documentation/serverless-via-ibm-code-engine/ce-setup-create-the-instances.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="getting-started-with-the-example-application">Getting started with the example application<a class="headerlink" href="#getting-started-with-the-example-application" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Create the tenants with the related IBM Cloud services</p>
+</blockquote>
+<p>The getting setup is <strong>only</strong> for the <strong>serverless</strong> part with <strong>Code Engine</strong>!</p>
+<p>The objective is to provide you a getting started to basic understanding of the achitecture of the sample application with running instances.</p>
+<p>The image shows simplified what we are doing during the <code>Getting Started</code>.</p>
+<p><img alt="" src="../../images/initial_automated_setup_for_serverless/multi-Tenancy-installation.png" /></p>
+<p>Here is an additional overview of tasks we automated for you with the getting started related to the diagram above.</p>
+<ul>
+<li>
+<p>Create Code Engine projects</p>
+</li>
+<li>
+<p>Configure secret to access the <code>IBM Cloud Container Registry</code></p>
+</li>
+<li>
+<p>Create secrets for the applications</p>
+</li>
+<li>
+<p>Configure the environment variables used by the applications</p>
+<ul>
+<li>
+<p>App ID configurations</p>
+<ul>
+<li>PostgresSQL database</li>
+</ul>
+</li>
+<li>
+<p>Backend endpoint</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Build the container images and push them to the <code>IBM Cloud Container Registry</code></p>
+</li>
+<li>
+<p>Create a PostgresSQL database service</p>
+<ul>
+<li>Setup example data for each tenant</li>
+</ul>
+</li>
+<li>
+<p>Create an App ID service</p>
+<ul>
+<li>Configure the service</li>
+</ul>
+</li>
+</ul>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>To follow the next steps you need to verify following two prerequisites.</p>
+<ul>
+<li>OS: <code>macOS</code> </li>
+<li>Container tool: <a href="https://podman.io/getting-started"><code>podman</code></a></li>
+</ul>
+<blockquote>
+<p>If you don't use <code>macOS</code> you maybe need to install the listed cli tools according to your operating system. Only <code>macOS</code> in combination with <code>podman</code> and the <code>SaaS Tools Image</code> was verified by us.</p>
+</blockquote>
+<h3 id="saas-tools-image"><code>SaaS-Tools</code> image<a class="headerlink" href="#saas-tools-image" title="Permanent link">&para;</a></h3>
+<p>For the simplification of the getting started we provide you a <a href="https://quay.io/repository/tsuedbroecker/saas-tools?tab=info">SaaS-Tools container image</a> that contains all needed commandline tools for the automation with the bash scripts.</p>
+<blockquote>
+<p>Note: The bash automation is tailored to the bash scripting in Ubuntu, that is used as base OS for the <code>SaaS-Tools</code> image.</p>
+</blockquote>
+<h4 id="step-1-open-a-terminal-and-start-the-saas-tools-image">Step 1: Open a terminal and start the <code>SaaS-Tools</code> image<a class="headerlink" href="#step-1-open-a-terminal-and-start-the-saas-tools-image" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>podman run -it --rm  --privileged --name saas-tools <span class="s2">&quot;quay.io/tsuedbroecker/saas-tools:v1&quot;</span>    
+</code></pre></div>
+<ul>
+<li>Example output:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>root@7f535f968abc:/# 
+</code></pre></div>
+<h3 id="using-the-saas-tools-image">Using the <code>SaaS-Tools</code> image<a class="headerlink" href="#using-the-saas-tools-image" title="Permanent link">&para;</a></h3>
+<p>From now we will only work inside the running <code>SaaS-Tools</code> container image.</p>
+<h4 id="step-1-open-the-home-directory">Step 1: Open the home directory<a class="headerlink" href="#step-1-open-the-home-directory" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> home
+</code></pre></div>
+<h4 id="step-2-clone-the-repositories-into-the-home-directory">Step 2: Clone the repositories into the home directory<a class="headerlink" href="#step-2-clone-the-repositories-into-the-home-directory" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/IBM/multi-tenancy 
+git clone https://github.com/IBM/multi-tenancy-backend
+git clone https://github.com/IBM/multi-tenancy-frontend <span class="o">&amp;&amp;</span> <span class="nb">cd</span> multi-tenancy
+<span class="nv">ROOT_FOLDER</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+</code></pre></div>
+<h4 id="step-3-verify-the-prerequisites-for-running-the-installation">Step 3: Verify the prerequisites for running the installation<a class="headerlink" href="#step-3-verify-the-prerequisites-for-running-the-installation" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$ROOT_FOLDER</span>/installapp
+bash ./ce-check-prerequisites.sh
+</code></pre></div>
+<p>The script stops when it notices any prerequisite is missing.</p>
+<ul>
+<li>Example output:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Check prereqisites
+...
+Success! All prerequisites verified!
+</code></pre></div>
+<p>These are the tools we installed for you in the <code>SaaS-Tools</code> image:</p>
+<ul>
+<li><a href="https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli">ibmcloud cli</a></li>
+<li><a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-install-cli">ibmcloud plugin code-engine</a></li>
+<li><a href="https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference">ibmcloud plugin cloud-databases</a></li>
+<li><a href="https://cloud.ibm.com/docs/Registry?topic=container-registry-cli-plugin-containerregcli">ibmcloud plugin container-registry</a></li>
+<li><a href="https://buildah.io/">buildah</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sed">sed</a></li>
+<li><a href="https://kubernetes.io/docs/reference/kubectl/overview/">kubectl</a></li>
+<li><a href="https://lzone.de/cheat-sheet/jq">jq</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Grep">grep</a></li>
+<li><a href="https://www.postgresql.org/docs/9.5/libpq.html">libpq (psql)</a> </li>
+<li><a href="https://curl.se/">cURL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AWK">AWK</a></li>
+</ul>
+<h3 id="define-the-needed-configurations-for-the-tenants">Define the needed configurations for the tenants<a class="headerlink" href="#define-the-needed-configurations-for-the-tenants" title="Permanent link">&para;</a></h3>
+<p>During the getting started we will setup two tenants of the sample application.
+Therefor we need to configure two kinds of configuration files.</p>
+<ul>
+<li>Global configuration</li>
+</ul>
+<p>Define the global configuration in <a href="https://github.com/IBM/multi-tenancy/blob/main/configuration/global.json">global.json</a>. It includes <code>IBM Cloud settings</code> such as region and resource group, <code>container registry information</code> and <code>image information</code>.</p>
+<ul>
+<li>Tenant-specific configuration</li>
+</ul>
+<p>For each tenant define tenant-specific configuration in the folder 'configuration/tenants'. That configuration contains for example <code>App ID information</code>. <code>Postgres database information</code>, <code>application instance information</code>, and <code>Code Engine information</code>. Here you find an example configuration <a href="https://github.com/IBM/multi-tenancy/blob/main/installapp/tenants-config/tenants/tenant-a.json">tenant-a.json</a>.</p>
+<h4 id="step-1-configure-ibm-cloud-container-registry-namespace-in-the-global-configuration">Step 1: Configure <code>IBM Cloud Container Registry Namespace</code> in the global configuration<a class="headerlink" href="#step-1-configure-ibm-cloud-container-registry-namespace-in-the-global-configuration" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The values for the names for a <code>IBM Cloud Container Registry Namespace</code> must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure that name to your needs. <strong>Don't change one of the other default values, if you do not known what you are going to change.</strong></p>
+</blockquote>
+<ol>
+<li>Open the <code>globle.json</code></li>
+</ol>
+<div class="highlight"><pre><span></span><code>nano ../configuration/global.json
+</code></pre></div>
+<ol>
+<li>Replace the value for the namespace with a value of your choose:
+<code>"NAMESPACE":"multi-tenancy-example</code> to <code>"NAMESPACE":"YOUR_VALUE"</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;IBM_CLOUD&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;RESOURCE_GROUP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;REGION&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eu-de&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;REGISTRY&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;URL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de.icr.io&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAMESPACE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-example&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">#&lt;</span><span class="mi">-</span><span class="w"> </span><span class="err">INSERT</span><span class="w"> </span><span class="err">YOUR</span><span class="w"> </span><span class="err">VALUE</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;TAG&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SECRET_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi.tenancy.cr.sec&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;IMAGES&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAME_BACKEND&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-service-backend&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAME_FRONTEND&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-service-frontend&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="step-2-configure-the-code-engine-project-name-for-each-tenant">Step 2: Configure  the <code>Code Engine project name</code> for each tenant<a class="headerlink" href="#step-2-configure-the-code-engine-project-name-for-each-tenant" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The values for the names for an <code>IBM Cloud Code Engine</code> project must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure these names to your needs. <strong>Don't change one of the other default values, if you do not known what you are going to change.</strong></p>
+</blockquote>
+<p>Configure your <code>Code Engine project names</code> for the two tenants</p>
+<p>In the <a href="https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json">tenant-a.json</a> files you can to change the value for the <code>Code Engine project</code> to something like <code>multi-tenancy-example-mypostfix</code>.</p>
+<ol>
+<li>Open the first tenant configuration <code>tenant-a.json</code>.
+<em>(repeat these steps for the tenant-b.json file)</em></li>
+</ol>
+<div class="highlight"><pre><span></span><code>nano ../configuration/tenants/tenant-a.json
+</code></pre></div>
+<ol>
+<li>Replace the value for the project name of the Code Engine project to one of your choice:
+<code>"PROJECT_NAME":"multi-tenancy-serverless-a</code> to <code>"PROJECT_NAME":"YOUR_VALUE"</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;APP_ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SERVICE_INSTANCE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-appid-a&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SERVICE_KEY_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-appid-key-a&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;POSTGRES&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SERVICE_INSTANCE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-pg-ten-a&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SERVICE_KEY_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-pg-ten-a-key&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SQL_FILE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;create-populate-tenant-a.sql&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;APPLICATION&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;CONTAINER_NAME_BACKEND&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-service-backend-movies&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;CONTAINER_NAME_FRONTEND&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-service-frontend-movies&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;CATEGORY&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Movies&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;CODE_ENGINE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;PROJECT_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-a-t&quot;</span><span class="w"> </span><span class="err">&lt;</span><span class="mi">-</span><span class="w"> </span><span class="err">INSERT</span><span class="w"> </span><span class="err">YOUR</span><span class="w"> </span><span class="err">VALUE</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;IBM_KUBERNETES_SERVICE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;niklas-heidloff3-fra04-b3c.4x16&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAMESPACE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tenant-a&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;IBM_OPENSHIFT_SERVICE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roks-gen2-suedbro&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAMESPACE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tenant-a&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;PLATFORM&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IBM_OPENSHIFT_SERVICE&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="optional-step-3-using-a-shared-ibm-cloud-account">Optional Step 3: Using a shared <code>IBM Cloud Account</code><a class="headerlink" href="#optional-step-3-using-a-shared-ibm-cloud-account" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The initial design of getting started setup has the assumption that you use an own <code>IBM Cloud Account</code> and not a shared one. </p>
+</blockquote>
+<p>In case if you use a shared <code>IBM Cloud Account</code> with other developers you need to ensure the <code>AppID service</code> and <code>Postgres service</code> configurations are <code>unique</code> for each tenant in the shared account.</p>
+<blockquote>
+<p>You need to change the specifications for the used services <code>"APP_ID"</code> and <code>"POSTGRES"</code>! </p>
+</blockquote>
+<p>In that case you need to open up the tenants configurations again.</p>
+<ol>
+<li>Open the first tenant configuration <code>tenant-a.json</code>.
+<em>(repeat these steps for the tenant-b.json file)</em></li>
+</ol>
+<div class="highlight"><pre><span></span><code>nano ../configuration/tenants/tenant-a.json
+</code></pre></div>
+<ol>
+<li>
+<p>Replace the values for <code>App ID</code> and <code>Postgres</code> service your own choice:</p>
+</li>
+<li>
+<p>APP_ID.SERVICE_INSTANCE</p>
+</li>
+<li>APP_ID.SERVICE_KEY_NAME</li>
+<li>POSTGRES.SERVICE_INSTANCE</li>
+<li>SERVICE_INSTANCE.SERVICE_KEY_NAME</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;APP_ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SERVICE_INSTANCE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-appid-a&quot;</span><span class="p">,</span><span class="w">  </span><span class="err">&lt;</span><span class="mi">-</span><span class="w"> </span><span class="err">INSERT</span><span class="w"> </span><span class="err">YOUR</span><span class="w"> </span><span class="err">VALUE</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SERVICE_KEY_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-appid-key-a&quot;</span><span class="w">  </span><span class="err">&lt;</span><span class="mi">-</span><span class="w"> </span><span class="err">INSERT</span><span class="w"> </span><span class="err">YOUR</span><span class="w"> </span><span class="err">VALUE</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;POSTGRES&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SERVICE_INSTANCE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-pg-ten-a&quot;</span><span class="p">,</span><span class="w">  </span><span class="err">&lt;</span><span class="mi">-</span><span class="w"> </span><span class="err">INSERT</span><span class="w"> </span><span class="err">YOUR</span><span class="w"> </span><span class="err">VALUE</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SERVICE_KEY_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-pg-ten-a-key&quot;</span><span class="p">,</span><span class="w">  </span><span class="err">&lt;</span><span class="mi">-</span><span class="w"> </span><span class="err">INSERT</span><span class="w"> </span><span class="err">YOUR</span><span class="w"> </span><span class="err">VALUE</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SQL_FILE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;create-populate-tenant-a.sql&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;APPLICATION&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;CONTAINER_NAME_BACKEND&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-service-backend-movies&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;CONTAINER_NAME_FRONTEND&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-service-frontend-movies&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;CATEGORY&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Movies&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;CODE_ENGINE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;PROJECT_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi-tenancy-serverless-a-t&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;IBM_KUBERNETES_SERVICE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;niklas-heidloff3-fra04-b3c.4x16&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAMESPACE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tenant-a&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;IBM_OPENSHIFT_SERVICE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roks-gen2-suedbro&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAMESPACE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tenant-a&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;PLATFORM&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IBM_OPENSHIFT_SERVICE&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="start-the-bash-script-automation">Start the bash script automation<a class="headerlink" href="#start-the-bash-script-automation" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-open-the-folder-for-the-getting-started-installation">Step 1: Open the folder for the <code>getting started installation</code><a class="headerlink" href="#step-1-open-the-folder-for-the-getting-started-installation" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$ROOT_FOLDER</span>/installapp
+</code></pre></div>
+<h4 id="step-2-log-on-with-you-ibm-cloud-account">Step 2: Log on with you IBM Cloud account<a class="headerlink" href="#step-2-log-on-with-you-ibm-cloud-account" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>ibmcloud login --sso
+</code></pre></div>
+<h4 id="step-3-start-the-bash-automation-with-following-command">Step 3: Start the bash automation with following command<a class="headerlink" href="#step-3-start-the-bash-automation-with-following-command" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>bash ./ce-create-two-tenancies.sh
+</code></pre></div>
+<p>The execution takes roughly <strong>30 minutes</strong>. </p>
+<h3 id="the-review-steps-during-bash-automation">The review steps during bash automation<a class="headerlink" href="#the-review-steps-during-bash-automation" title="Permanent link">&para;</a></h3>
+<p>You will be asked to review some configurations and press enter to move forward in some steps.
+The script will stop in some situations when it discovers a problem during the setup.</p>
+<p>These are the situations where the script asks for review your configuration.</p>
+<h4 id="a-it-asks-for-review-for-the-basic-global-configurations-you-made">a. It asks for review for the basic global configurations you made<a class="headerlink" href="#a-it-asks-for-review-for-the-basic-global-configurations-you-made" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>IBMCLOUD_CR_REGION_URL: de.icr.io
+IBMCLOUD_CR_NAMESPACE: multi-tenancy-example-t
+RESOURCE_GROUP       : default
+REGION               : eu-de
+------------------------------
+Verify the given entries and press <span class="k">return</span>
+</code></pre></div>
+<h4 id="b-after-the-creation-and-upload-of-the-container-images-to-ibm-cloud-registry-it-asks-for-the-review-of-your-first-tenant-configuration">b. After the creation and upload of the container images to IBM Cloud registry it asks for the review of your first tenant configuration<a class="headerlink" href="#b-after-the-creation-and-upload-of-the-container-images-to-ibm-cloud-registry-it-asks-for-the-review-of-your-first-tenant-configuration" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>Parameter count : ../configuration/global.json ../configuration/tenants/tenant-a.json
+Parameter zero <span class="s1">&#39;name of the script&#39;</span>: ./ce-install-application.sh
+---------------------------------
+Global configuration         : ../configuration/global.json
+Tenant configuration         : ../configuration/tenants/tenant-a.json
+---------------------------------
+Code Engine project              : multi-tenancy-serverless-a-t
+---------------------------------
+App ID service instance name     : multi-tenancy-serverless-appid-a
+App ID service key name          : multi-tenancy-serverless-appid-key-a
+---------------------------------
+Application Service Catalog name : multi-tenancy-service-backend-movies
+Application Frontend name        : multi-tenancy-service-frontend-movies
+Application Frontend category    : Movies
+Application Service Catalog image: de.icr.io/multi-tenancy-example-t/multi-tenancy-service-backend:v2
+Application Frontend image       : de.icr.io/multi-tenancy-example-t/multi-tenancy-service-frontend:v2
+---------------------------------
+Postgres instance name           : multi-tenancy-serverless-pg-ten-a
+Postgres service key name        : multi-tenancy-serverless-pg-ten-a-key
+Postgres sample data sql         : create-populate-tenant-a.sql
+---------------------------------
+IBM Cloud Container Registry URL : de.icr.io
+---------------------------------
+IBM Cloud RESOURCE_GROUP         : default
+IBM Cloud REGION                 : eu-de
+---------------------------------
+
+------------------------------
+Verify parameters and press <span class="k">return</span>
+</code></pre></div>
+<h4 id="c-after-each-tenant-creation-the-url-of-the-frontend-applications-will-be-displayed">c. After each tenant creation the URL of the frontend applications will be displayed.<a class="headerlink" href="#c-after-each-tenant-creation-the-url-of-the-frontend-applications-will-be-displayed" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>************************************
+ URLs
+************************************
+ - oAuthServerUrl   : https://eu-de.appid.cloud.ibm.com/oauth/v4/c74c03f2-03e9-4a4a-88cf-afc82573bae7
+ - discoveryEndpoint: https://eu-de.appid.cloud.ibm.com/oauth/v4/c74c03f2-03e9-4a4a-88cf-afc82573bae7/.well-known/openid-configuration
+ - Frontend         : https://multi-tenancy-service-frontend-movies.l1vbi06y6y4.eu-de.codeengine.appdomain.cloud
+ - ServiceCatalog   : https://multi-tenancy-service-backend-movies.l1vbi06y6y4.eu-de.codeengine.appdomain.cloud
+------------------------------
+Verify the given entries and press <span class="k">return</span>
+------------------------------
+</code></pre></div>
+<h4 id="how-to-move-on">How to move on?<a class="headerlink" href="#how-to-move-on" title="Permanent link">&para;</a></h4>
+<p>You can move on understand the automation or skip that part and continue with <a href="https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce-verify-the-created-instances/">Verify the created instances</a>.</p>
+<h3 id="details-to-understand-the-automation">Details to understand the automation<a class="headerlink" href="#details-to-understand-the-automation" title="Permanent link">&para;</a></h3>
+<p>Here are details related to the used bash scripts.</p>
+<p>We use three bash scripts for the initial installation. The following diagram shows the simplified dependencies of these bash scripts used to create two tenants of the example application on IBM Cloud in Code Engine.</p>
+<p><img alt="" src="../../images/initial_automated_setup_for_serverless/simplified-overview-bash-scripts-installation.png" /></p>
+<p>The scripts creating two tenants:</p>
+<ul>
+<li>Two Code Engine projects with two applications one frontend and one backend.</li>
+<li>Two App ID instance to provide a basic authentication and authorization for the two tenants.</li>
+<li>Two Postgres databases for the two tenants.</li>
+</ul>
+<p>The table contains the script and the responsibility of the scripts.</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-create-two-tenancies.sh"><code>ce-create-two-tenancies.sh</code></a></td>
+<td>Build the container images for the frontend and backend, therefor it invokes the bash script <a href="https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-build-images-ibm-docker.sh"><code>ce-build-images-ibm-docker.sh</code></a> and uploads the images to the IBM Cloud container registry. It also starts the creation of the tenant application instance, therefor it invokes the bash script <a href="https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-install-application.sh"><code>ce-install-application.sh</code></a> twice.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-build-images-ibm-docker.sh"><code>ce-build-images-ibm-docker.sh</code></a></td>
+<td>Creates two container images based on the given parameters for the backend and frontend image names.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/IBM/multi-tenancy/blob/main/installapp/ce-install-application.sh"><code>ce-install-application.sh</code></a></td>
+<td>Creates and configures a <code>Code Engine project</code>. The configuration of the Code Engine project includes the <code>creation of the application</code>, the <code>IBM Cloud Container Registry access</code> therefor it also creates a <code>IBM Cloud API</code> and it creates the <code>secrets</code> for the needed parameter for the running applications. It creates an <code>IBM Cloud App ID instance</code> and configures this instance that includes the <code>application</code>, <code>redirects</code>, <code>login layout</code>, <code>scope</code>, <code>role</code> and <code>user</code>. It also creates an <code>IBM Cloud Postgres</code> database instance and creates the needed example data with tables inside the database.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="know-issues">Know issues<a class="headerlink" href="#know-issues" title="Permanent link">&para;</a></h3>
+<h4 id="1-nethttp-tls-handshake-timeout">1. net/http: TLS handshake timeout<a class="headerlink" href="#1-nethttp-tls-handshake-timeout" title="Permanent link">&para;</a></h4>
+<p>During the creation and upload of the container image with buildah maybe you will notice like following.</p>
+<div class="highlight"><pre><span></span><code>Put <span class="s2">&quot;https://de.icr.io/v2/multi-tenancy-example-t/multi-tenancy-service-backend/blobs/uploads/25c9a689-8f60-43f3-b82f-a2fe91123ec4?_state=WMMtQe4a1npnpMoP90BkMkq0wkVPS7M1jcdYqkUqqul7Ik5hbWUiOiJtdWx0aS10ZW5hbmN5LWV4YW1wbGUtdC9tdWx0aS10ZW5hbmN5LXNlcnZpY2UtYmFja2VuZCIsIlVVSUQiOiIyNWM5YTY4OS04ZjYwLTQzZjMtYjgyZi1hMmZlOTExMjNlYzQiLCJPZmZzZXQiOjQxNzk4Njc0LCJTdGFydGVkQXQiOiIyMDIyLTAzLTAyVDE0OjExOjI1WiJ9&amp;digest=sha256%3A8e3e6f15c16fce3aafe16ec9528311245ae74c7ce015ffaf9c796806ba02c8f8&quot;</span>: net/http: TLS handshake timeout
+</code></pre></div>
+<ul>
+<li>Solution</li>
+</ul>
+<p>It this case you can just start the script execution again.</p>
+<h4 id="2-problem-during-the-creation-of-resources">2. Problem during the creation of resources<a class="headerlink" href="#2-problem-during-the-creation-of-resources" title="Permanent link">&para;</a></h4>
+<p>If not all resource were created properly.</p>
+<ul>
+<li>Solution</li>
+</ul>
+<p>The easiest way to fix it is just to clean-up the IBM Cloud resources and restart the creation with the bash script.</p>
+<p>Here is the link to the <a href="https://ibm.github.io/multi-tenancy-documentation/serverless-via-ibm-code-engine/ce_clean_up/">Clean-Up section</a> of the documentation for the serverless part.</p>
+<h4 id="3-clean-up-ibm-cloud-code-engine-project-name-and-ibm-cloud-container-registry-namespace-name">3. Clean-Up <code>IBM Cloud Code Engine Project name</code> and <code>IBM Cloud Container Registry Namespace name</code><a class="headerlink" href="#3-clean-up-ibm-cloud-code-engine-project-name-and-ibm-cloud-container-registry-namespace-name" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>ATTENTION: The <code>IBM Cloud Code Engine Project Name</code> and the <code>IBM Cloud Container Registry Namespace Name</code> are unique inside an IBM Cloud region. 
+If you delete a <code>Container Registry namespace</code> or a <code>Code Engine project</code> they can't just be recreated with the same name for a specific timeframe, they are now in a <code>trash</code> to give you a chance to restore them.</p>
+</blockquote>
+<p>If you want to restore them with the same name you need to follow the steps in the IBM Cloud documentation:</p>
+<ul>
+<li><a href="https://cloud.ibm.com/docs/Registry?topic=Registry-registry_retention">IBM Cloud Container Registry - Cleaning up your namespaces</a></li>
+<li><a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-cli#cli-reclamation-restore">IBM Cloud Code Engine <code>ibmcloud ce reclamation restore</code></a></li>
+</ul>
+<blockquote>
+<p>The Clean-Up scripts don't using hard deletion!</p>
+</blockquote>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../ce-arcitecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Architecture
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ce-verify-the-created-instances/" class="md-footer__link md-footer__link--next" aria-label="Next: b. Verify the tenants with the related IBM Cloud services instances" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              b. Verify the tenants with the related IBM Cloud services instances
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 IBM Developer
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/ibm/multi-tenancy" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/ibmdeveloper" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/ibm/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5413a266.min.js"></script>
+      
+    
+  </body>
+</html>
