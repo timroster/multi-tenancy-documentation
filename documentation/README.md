@@ -22,9 +22,10 @@
         * [Programmatic Configuration of AppID](./creation-of-managed-ibm-cloud-services/configure-appid.md)
 * Serverless via IBM Code Engine
     * Architecture
-    * Initial Setup via Scripts
-        1. [Create the instances](./serverless-via-ibm-code-engine/ce-setup-create-the-instances.md)
-        2. [Verify the created instances](./serverless-via-ibm-code-engine/ce-verify-the-created-instances.md) 
+    * Getting started via Scripts
+        1. [Create the tenants with the related IBM Cloud services](./serverless-via-ibm-code-engine/ce-setup-create-the-instances.md)
+        2. [Verify the tenants with the related IBM Cloud services instances
+](./serverless-via-ibm-code-engine/ce-verify-the-created-instances.md) 
     * [CI/CD](./serverless-via-ibm-code-engine/serverless-cicd.md)
     * [Onboarding](./serverless-via-ibm-code-engine/code-engine-onboarding.md)
     * [Observability (logging, monitoring, vulnerabilities)](documentation/observability.md)

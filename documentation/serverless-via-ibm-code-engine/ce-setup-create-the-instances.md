@@ -162,7 +162,7 @@ nano ../configuration/global.json
 
 #### Step 2: Configure  the `Code Engine project name` for each tenant
 
->The values for the names for a `IBM Cloud Code Engine` project must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure these names to your needs. **Don't change one of the other default values, if you do not known what you are going to change.**
+>The values for the names for an `IBM Cloud Code Engine` project must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure these names to your needs. **Don't change one of the other default values, if you do not known what you are going to change.**
 
 Configure your `Code Engine project names` for the two tenants
 
