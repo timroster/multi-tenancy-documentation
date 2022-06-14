@@ -125,13 +125,13 @@ Define the global configuration in [global.json](https://github.com/IBM/multi-te
 
 * Tenant-specific configuration
 
-For each tenant define tenant-specific configuration in the folder 'configuration/tenants'. That configuration contains for example `App ID information`. `Postgres database information`, `application instance information`, and `Code Engine information`. Here you find an example configuration [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/installapp/tenants-config/tenants/tenant-a.json).
+For each tenant define tenant-specific configuration in the folder 'configuration/tenants'. That configuration contains for example `App ID information`. `Postgres database information`, `application instance information`, and `Code Engine information`. Here you find an example configuration [tenant-a.json](https://github.com/IBM/multi-tenancy/blob/main/configuration/tenants/tenant-a.json).
 
 #### Step 1: Configure `IBM Cloud Container Registry Namespace` in the global configuration
 
 >The values for the names for a `IBM Cloud Container Registry Namespace` must unique in IBM Cloud for a region! To avoid problems during running the setup, please configure that name to your needs. **Don't change one of the other default values, if you do not known what you are going to change.**
 
-1. Open the `globle.json`
+1. Open the `global.json`
 
 ```sh
 nano ../configuration/global.json
